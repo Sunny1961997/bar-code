@@ -114,7 +114,7 @@
         <!-- Carousel Start -->
         <div id="home" class="header-carousel owl-carousel">
             <div class="header-carousel-item">
-                <img src="{{ asset('img/carousel-1.jpg') }}" class="img-fluid w-100" alt="Image">
+                <img src="{{ asset('img/cover-1.webp') }}" class="img-fluid w-100" alt="Image">
                 <div class="carousel-caption">
                     <div class="container">
                         <div class="row gy-0 gx-5">
@@ -154,7 +154,7 @@
                 </div>
             </div>
             <div class="header-carousel-item">
-                <img src="{{ asset('img/carousel-2.jpg') }}" class="img-fluid w-100" alt="Image">
+                <img src="{{ asset('img/cover-2.webp') }}" class="img-fluid w-100" alt="Image">
                 <div class="carousel-caption">
                     <div class="container">
                         <div class="row g-5">

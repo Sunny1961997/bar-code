@@ -5,7 +5,7 @@
     <div id="company" class="container-fluid blog pb-5">
         <div class="container pb-5">
             <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                <h4 class="text-primary">Comapany</h4>
+                <!-- <h4 class="text-primary">Comapany</h4> -->
                 <h1 class="display-5 mb-4">Integrated Growth Strategy</h1>
                 <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur adipisci facilis
                     cupiditate recusandae aperiam temporibus corporis itaque quis facere, numquam, ad culpa deserunt
@@ -15,7 +15,7 @@
             <div class="owl-carousel blog-carousel wow fadeInUp" data-wow-delay="0.2s">
                 <div class="blog-item p-4">
                     <div class="blog-img mb-4">
-                        <img src="{{ asset('img/service-1.jpg') }}" class="img-fluid w-100 rounded" alt="">
+                        <img src="{{ asset('img/ig-1.webp') }}" class="img-fluid w-100 rounded" alt="">
                         <div class="blog-title">
                             <a href="#" class="btn">Dividend Stocks</a>
                         </div>
@@ -27,7 +27,7 @@
                 </div>
                 <div class="blog-item p-4">
                     <div class="blog-img mb-4">
-                        <img src="{{ asset('img/service-2.jpg') }}" class="img-fluid w-100 rounded" alt="">
+                        <img src="{{ asset('img/ig-2.webp') }}" class="img-fluid w-100 rounded" alt="">
                         <div class="blog-title">
                             <a href="#" class="btn">Non-Dividend Stocks</a>
                         </div>
@@ -39,7 +39,7 @@
                 </div>
                 <div class="blog-item p-4">
                     <div class="blog-img mb-4">
-                        <img src="{{ asset('img/service-3.jpg') }}" class="img-fluid w-100 rounded" alt="">
+                        <img src="{{ asset('img/ig-3.webp') }}" class="img-fluid w-100 rounded" alt="">
                         <div class="blog-title">
                             <a href="#" class="btn">Dividend Stocks</a>
                         </div>
@@ -51,7 +51,7 @@
                 </div>
                 <div class="blog-item p-4">
                     <div class="blog-img mb-4">
-                        <img src="{{ asset('img/service-4.jpg') }}" class="img-fluid w-100 rounded" alt="">
+                        <img src="{{ asset('img/ig-4.webp') }}" class="img-fluid w-100 rounded" alt="">
                         <div class="blog-title">
                             <a href="#" class="btn">Non-Dividend Stocks</a>
                         </div>
@@ -215,18 +215,8 @@
                 </div>
                 <div class="col-xl-5 wow fadeInRight" data-wow-delay="0.2s">
                     <div class="bg-primary rounded position-relative overflow-hidden">
-                        <img src="{{ asset('img/about-2.png') }}" class="img-fluid rounded w-100" alt="">
-
-                        <div class="" style="position: absolute; top: -15px; right: -15px;">
-                            <img src="{{ asset('img/about-3.png') }}" class="img-fluid"
-                                style="width: 150px; height: 150px; opacity: 0.7;" alt="">
-                        </div>
+                        <img src="{{ asset('img/our-company.webp') }}" class="img-fluid rounded w-100" alt="">
                         <div class="" style="position: absolute; top: -20px; left: 10px; transform: rotate(90deg);">
-                            <img src="{{ asset('img/about-4.png') }}" class="img-fluid"
-                                style="width: 100px; height: 150px; opacity: 0.9;" alt="">
-                        </div>
-                        <div class="rounded-bottom">
-                            <img src="{{ asset('img/about-5.jpg') }}" class="img-fluid rounded-bottom w-100" alt="">
                         </div>
                     </div>
                 </div>
@@ -235,12 +225,12 @@
     </div>
     <!-- Our company End -->
 
-    <!-- Testimonial Start -->
+    <!-- Anual Report Start -->
     <div class="container-fluid testimonial pb-5">
         <div class="container pb-5">
             <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                <h4 class="text-primary">Testimonial</h4>
-                <h1 class="display-5 mb-4">Our Clients Riviews</h1>
+                <!-- <h4 class="text-primary">Testimonial</h4> -->
+                <h1 class="display-5 mb-4">2024 ANNUAL REPORT</h1>
                 <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur adipisci facilis
                     cupiditate recusandae aperiam temporibus corporis itaque quis facere, numquam, ad culpa deserunt
                     sint dolorem autem obcaecati, ipsam mollitia hic.
@@ -248,101 +238,41 @@
             </div>
             <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.2s">
                 <div class="testimonial-item">
-                    <div class="testimonial-quote-left">
-                        <i class="fas fa-quote-left fa-2x"></i>
-                    </div>
                     <div class="testimonial-img">
-                        <img src="{{ asset('img/testimonial-1.jpg') }}" class="img-fluid" alt="Image">
+                        <h4>Brands</h4>
                     </div>
                     <div class="testimonial-text">
                         <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
                             excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
                             accusamus.
                         </p>
-                    </div>
-                    <div class="testimonial-title">
-                        <div>
-                            <h4 class="mb-0">Person Name</h4>
-                            <p class="mb-0">Profession</p>
-                        </div>
-                        <div class="d-flex text-primary">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <div class="testimonial-quote-right">
-                        <i class="fas fa-quote-right fa-2x"></i>
                     </div>
                 </div>
                 <div class="testimonial-item">
-                    <div class="testimonial-quote-left">
-                        <i class="fas fa-quote-left fa-2x"></i>
-                    </div>
                     <div class="testimonial-img">
-                        <img src="{{ asset('img/testimonial-2.jpg') }}" class="img-fluid" alt="Image">
+                        <h4>Innovation</h4>
                     </div>
                     <div class="testimonial-text">
                         <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
                             excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
                             accusamus.
                         </p>
-                    </div>
-                    <div class="testimonial-title">
-                        <div>
-                            <h4 class="mb-0">Person Name</h4>
-                            <p class="mb-0">Profession</p>
-                        </div>
-                        <div class="d-flex text-primary">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <div class="testimonial-quote-right">
-                        <i class="fas fa-quote-right fa-2x"></i>
                     </div>
                 </div>
                 <div class="testimonial-item">
-                    <div class="testimonial-quote-left">
-                        <i class="fas fa-quote-left fa-2x"></i>
-                    </div>
                     <div class="testimonial-img">
-                        <img src="{{ asset('img/testimonial-3.jpg') }}" class="img-fluid" alt="Image">
+                        <h4>Product Safety</h4>
                     </div>
                     <div class="testimonial-text">
                         <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
                             excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
                             accusamus.
                         </p>
-                    </div>
-                    <div class="testimonial-title">
-                        <div>
-                            <h4 class="mb-0">Person Name</h4>
-                            <p class="mb-0">Profession</p>
-                        </div>
-                        <div class="d-flex text-primary">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <div class="testimonial-quote-right">
-                        <i class="fas fa-quote-right fa-2x"></i>
                     </div>
                 </div>
                 <div class="testimonial-item">
-                    <div class="testimonial-quote-left">
-                        <i class="fas fa-quote-left fa-2x"></i>
-                    </div>
                     <div class="testimonial-img">
-                        <img src="{{ asset('img/testimonial-2.jpg') }}" class="img-fluid" alt="Image">
+                        <h4>Ingredients</h4>
                     </div>
                     <div class="testimonial-text">
                         <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
@@ -350,27 +280,228 @@
                             accusamus.
                         </p>
                     </div>
-                    <div class="testimonial-title">
-                        <div>
-                            <h4 class="mb-0">Person Name</h4>
-                            <p class="mb-0">Profession</p>
-                        </div>
-                        <div class="d-flex text-primary">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-img">
+                        <h4>Fragrance</h4>
                     </div>
-                    <div class="testimonial-quote-right">
-                        <i class="fas fa-quote-right fa-2x"></i>
+                    <div class="testimonial-text">
+                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
+                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
+                            accusamus.
+                        </p>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-img">
+                        <h4>Be Cruelty Free</h4>
+                    </div>
+                    <div class="testimonial-text">
+                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
+                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
+                            accusamus.
+                        </p>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-img">
+                        <h4>Fragrance</h4>
+                    </div>
+                    <div class="testimonial-text">
+                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
+                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
+                            accusamus.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Testimonial End -->
+    <!-- Anual Report End -->
+
+
+    <!-- Our Impact Start -->
+    <div class="container-fluid testimonial pb-5">
+        <div class="container pb-5">
+            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                <!-- <h4 class="text-primary">Testimonial</h4> -->
+                <h1 class="display-5 mb-4">Our Impact</h1>
+                <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur adipisci facilis
+                    cupiditate recusandae aperiam temporibus corporis itaque quis facere, numquam, ad culpa deserunt
+                    sint dolorem autem obcaecati, ipsam mollitia hic.
+                </p>
+            </div>
+            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.2s">
+                <div class="testimonial-item">
+                    <div class="testimonial-img">
+                        <h4>Gender</h4>
+                    </div>
+                    <div class="testimonial-text">
+                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
+                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
+                            accusamus.
+                        </p>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-img">
+                        <h4>Sustainability</h4>
+                    </div>
+                    <div class="testimonial-text">
+                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
+                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
+                            accusamus.
+                        </p>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-img">
+                        <h4>Mapping our Impact</h4>
+                    </div>
+                    <div class="testimonial-text">
+                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
+                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
+                            accusamus.
+                        </p>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-img">
+                        <h4>Responsible Beauty</h4>
+                    </div>
+                    <div class="testimonial-text">
+                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
+                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
+                            accusamus.
+                        </p>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-img">
+                        <h4>Ethics And Corporate Responsibility</h4>
+                    </div>
+                    <div class="testimonial-text">
+                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
+                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
+                            accusamus.
+                        </p>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-img">
+                        <h4>Good Governance</h4>
+                    </div>
+                    <div class="testimonial-text">
+                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
+                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
+                            accusamus.
+                        </p>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-img">
+                        <h4>Respecting Human Rights</h4>
+                    </div>
+                    <div class="testimonial-text">
+                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
+                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
+                            accusamus.
+                        </p>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-img">
+                        <h4>Confidence and Trust</h4>
+                    </div>
+                    <div class="testimonial-text">
+                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
+                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
+                            accusamus.
+                        </p>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-img">
+                        <h4>Doing the Right Thing with Our Consumers</h4>
+                    </div>
+                    <div class="testimonial-text">
+                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
+                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
+                            accusamus.
+                        </p>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-img">
+                        <h4>Doing the Right Thing with Our Supply Chain</h4>
+                    </div>
+                    <div class="testimonial-text">
+                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
+                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
+                            accusamus.
+                        </p>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-img">
+                        <h4>Employees</h4>
+                    </div>
+                    <div class="testimonial-text">
+                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
+                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
+                            accusamus.
+                        </p>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-img">
+                        <h4>Confidence and Trust</h4>
+                    </div>
+                    <div class="testimonial-text">
+                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
+                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
+                            accusamus.
+                        </p>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-img">
+                        <h4>Doing the Right Thing with Our Consumers</h4>
+                    </div>
+                    <div class="testimonial-text">
+                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
+                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
+                            accusamus.
+                        </p>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-img">
+                        <h4>Doing the Right Thing with Our Supply Chain</h4>
+                    </div>
+                    <div class="testimonial-text">
+                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
+                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
+                            accusamus.
+                        </p>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-img">
+                        <h4>Employees</h4>
+                    </div>
+                    <div class="testimonial-text">
+                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
+                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
+                            accusamus.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Our Impact End -->
 
 
 
@@ -378,7 +509,7 @@
     <div class="container-fluid service pb-5">
         <div class="container pb-5">
             <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                <h4 class="text-primary">Our Services</h4>
+                <h4 class="text-primary">Our Story</h4>
                 <h1 class="display-5 mb-4">We Services provided best offer</h1>
                 <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur adipisci facilis
                     cupiditate recusandae aperiam temporibus corporis itaque quis facere, numquam, ad culpa deserunt
@@ -479,7 +610,7 @@
     <div class="container-fluid feature pb-5">
         <div class="container pb-5">
             <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                <h4 class="text-primary">Our Features</h4>
+                <h4 class="text-primary">Rewards & Offers</h4>
                 <h1 class="display-5 mb-4">Connecting businesses, ideas, and people for greater impact.</h1>
                 <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur adipisci facilis
                     cupiditate recusandae aperiam temporibus corporis itaque quis facere, numquam, ad culpa deserunt
