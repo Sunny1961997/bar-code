@@ -6,8 +6,8 @@
                 <div class="col-md-6 col-lg-6 col-xl-4">
                     <div class="footer-item">
                         <a href="index.html" class="p-0">
-                            <h4 class="text-white"><i class="fas fa-search-dollar me-3"></i>Logo</h4>
-                            <!-- <img src="img/logo.png" alt="Logo"> -->
+                            <!-- <h4 class="text-white"><i class="fas fa-search-dollar me-3"></i>Logo</h4> -->
+                            <img src="{{ asset('img/nanoLogo.png') }}" alt="Logo" class="w-25">
                         </a>
                         <p class="mb-4">Dolor amet sit justo amet elitr clita ipsum elitr est.Lorem ipsum dolor sit
                             amet, consectetur adipiscing...</p>
@@ -50,10 +50,10 @@
                             <i class="fa fa-phone-alt text-primary me-3"></i>
                             <p class="text-white mb-0">00971562458173 - 00971562480173</p>
                         </div>
-                        <div class="d-flex align-items-center mb-4">
+                        <!-- <div class="d-flex align-items-center mb-4">
                             <i class="fab fa-firefox-browser text-primary me-3"></i>
                             <p class="text-white mb-0">Yoursite@ex.com</p>
-                        </div>
+                        </div> -->
                         <div class="d-flex">
                             <a class="btn btn-primary btn-sm-square rounded-circle me-3" href="#"><i
                                     class="fab fa-facebook-f text-white"></i></a>

@@ -41,15 +41,16 @@
                     <li><a class="dropdown-item" href="#!">Activity Log</a></li> -->
                     <li class="dropdown-item">
                         {{ Auth::user()->name }}
-                        <small class="d-block text-muted">{{ Auth::user()->email }}</small>
+                        <small class="d-block text-muted">
+                            {{ Auth::user()->email }}
+                        </small>
                     </li>
 
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
                     <li>
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
                         </a>
@@ -72,17 +73,25 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Dashboard
                         </a>
-                        <a class="nav-link {{ request()->routeIs('categories.*') ? 'active' : '' }}" href="{{ route('categories.index') }}">
+                        <a class="nav-link {{ request()->routeIs('categories.*') ? 'active' : '' }}"
+                            href="{{ route('categories.index') }}">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Category
                         </a>
-                        <a class="nav-link {{ request()->routeIs('products.*') || request()->routeIs('generate-codes') ? 'active' : '' }}" href="{{ route('products.index') }}">
+                        <a class="nav-link {{ request()->routeIs('products.*') || request()->routeIs('generate-codes') ? 'active' : '' }}"
+                            href="{{ route('products.index') }}">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Product
                         </a>
-                        <a class="nav-link {{ request()->routeIs('home-sliders.*') }}" href="{{ route('home-sliders.index') }}">
+                        <a class="nav-link {{ request()->routeIs('home-sliders.*') ? 'active' : '' }}"
+                            href="{{ route('home-sliders.index') }}">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Home Sliders
+                        </a>
+                        <a class="nav-link {{ request()->routeIs('blogs.*') ? 'active' : '' }}"
+                            href="{{ route('blogs.index') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Blog
                         </a>
                         <!-- <div class="sb-sidenav-menu-heading">Interface</div>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -147,8 +156,8 @@
                             Tables
                         </a>
                     </div> -->
-                </div>
-                <!-- <div class="sb-sidenav-footer">
+                    </div>
+                    <!-- <div class="sb-sidenav-footer">
                     <div class="small">Logged in as:</div>
                     Start Bootstrap
                 </div> -->

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeSliderController;
 use App\Http\Controllers\ProductController;
@@ -34,6 +35,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('products', ProductController::class);
 
     Route::resource('home-sliders', HomeSliderController::class);
+
+    Route::resource('blogs', BlogController::class);
 
     Route::post('/generate-codes', [ProductController::class, 'generateCodes'])->name('generate-codes');
 });

@@ -41,7 +41,7 @@
     <!-- Spinner End -->
 
     <!-- Topbar Start -->
-    <!-- <div class="container-fluid topbar bg-light px-5 d-none d-lg-block">
+    <div class="container-fluid topbar bg-light px-5 d-none d-lg-block">
         <div class="row gx-0 align-items-center">
             <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
                 <div class="d-flex flex-wrap">
@@ -73,15 +73,15 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
     <!-- Topbar End -->
 
     <!-- Navbar & Hero Start -->
     <div class="container-fluid position-relative p-0 pb-3">
         <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
             <a href="" class="navbar-brand p-0">
-                <h1 class="text-primary"><i class="fas fa-search-dollar me-3"></i>Logo</h1>
-                <!-- <img src="img/logo.png" alt="Logo"> -->
+                <!-- <h1 class="text-primary"><i class="fas fa-search-dollar me-3"></i>Logo</h1> -->
+                <img src="{{ asset('img/nanoLogo.png') }}" alt="Logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
@@ -112,38 +112,53 @@
         </nav>
 
         <!-- Carousel Start -->
-        <div id="home" class="header-carousel owl-carousel">
+        <div id="home" class="header-carousel owl-carousel vh-100">
             @foreach ($homeSliders as $slider)
-                <div class="header-carousel-item">
+                <div class="header-carousel-item vh-100">
                     @if ($slider->image)
-                        <img src="{{ asset($slider->image) }}" class="img-fluid w-100" alt="{{ $slider->title }}">
+                        <img src="{{ asset($slider->image) }}" class="w-100 h-100 object-fit-cover" alt="{{ $slider->title }}">
                     @else
-                        <img src="{{ asset('img/default-image.webp') }}" class="img-fluid w-100" alt="Default Image">
+                        <img src="{{ asset('img/default-image.webp') }}" class="w-100 h-100 object-fit-cover"
+                            alt="Default Image">
                     @endif
-                    <div class="carousel-caption">
+                    <div class="carousel-caption d-flex align-items-center">
                         <div class="container">
                             <div class="row gy-0 gx-5">
                                 <div class="col-lg-0 col-xl-5"></div>
                                 <div class="col-xl-7 animated fadeInLeft">
                                     <div class="text-sm-center text-md-end">
-                                        <h4 class="text-primary text-uppercase fw-bold mb-4">{{ $slider->title }}</h4>
-                                        <h1 class="display-4 text-uppercase text-white mb-4">{{ $slider->subtitle }}</h1>
-                                        <p class="mb-5 fs-5">{{ $slider->description }}</p> <!-- Assuming description exists -->
-                                        <div class="d-flex justify-content-center justify-content-md-end flex-shrink-0 mb-4">
+                                        <h4 class="text-primary text-uppercase fw-bold mb-4">
+                                            {{ $slider->title }}
+                                        </h4>
+                                        <h1 class="display-4 text-uppercase text-white mb-4">
+                                            {{ $slider->subtitle }}
+                                        </h1>
+                                        <p class="mb-5 fs-5">
+                                            {{ $slider->description }}
+                                        </p>
+                                        <div
+                                            class="d-flex justify-content-center justify-content-md-end flex-shrink-0 mb-4">
                                             @if ($slider->url)
-                                                <a class="btn btn-light rounded-pill py-3 px-4 px-md-5 me-2" href="{{ $slider->url }}">
+                                                <a class="btn btn-light rounded-pill py-3 px-4 px-md-5 me-2"
+                                                    href="{{ $slider->url }}">
                                                     <i class="fas fa-play-circle me-2"></i> Watch Video
                                                 </a>
                                             @endif
-                                            <a class="btn btn-primary rounded-pill py-3 px-4 px-md-5 ms-2" href="#">Learn More</a>
+                                            <a class="btn btn-primary rounded-pill py-3 px-4 px-md-5 ms-2" href="#">Learn
+                                                More</a>
                                         </div>
-                                        <div class="d-flex align-items-center justify-content-center justify-content-md-end">
+                                        <div
+                                            class="d-flex align-items-center justify-content-center justify-content-md-end">
                                             <h2 class="text-white me-2">Follow Us:</h2>
                                             <div class="d-flex justify-content-end ms-2">
-                                                <a class="btn btn-md-square btn-light rounded-circle me-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                                                <a class="btn btn-md-square btn-light rounded-circle mx-2" href="#"><i class="fab fa-twitter"></i></a>
-                                                <a class="btn btn-md-square btn-light rounded-circle mx-2" href="#"><i class="fab fa-instagram"></i></a>
-                                                <a class="btn btn-md-square btn-light rounded-circle ms-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                                                <a class="btn btn-md-square btn-light rounded-circle me-2" href="#"><i
+                                                        class="fab fa-facebook-f"></i></a>
+                                                <a class="btn btn-md-square btn-light rounded-circle mx-2" href="#"><i
+                                                        class="fab fa-twitter"></i></a>
+                                                <a class="btn btn-md-square btn-light rounded-circle mx-2" href="#"><i
+                                                        class="fab fa-instagram"></i></a>
+                                                <a class="btn btn-md-square btn-light rounded-circle ms-2" href="#"><i
+                                                        class="fab fa-linkedin-in"></i></a>
                                             </div>
                                         </div>
                                     </div>

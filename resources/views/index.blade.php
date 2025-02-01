@@ -3,6 +3,36 @@
 
 
 
+    <!-- About us Start -->
+    <div id="about_us" class="container-fluid about py-5">
+        <div class="container py-5">
+            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                <!-- <h4 class="text-primary">Comapany</h4> -->
+                <h1 class="display-5 mb-4">About Us</h1>
+            </div>
+            <div class="row g-5 align-items-center">
+                <div class="col-xl-5 wow fadeInRight" data-wow-delay="0.2s">
+                    <div class="bg-primary rounded position-relative overflow-hidden">
+                        <img src="{{ asset('img/our-company.webp') }}" class="img-fluid rounded w-100" alt="">
+                        <div class="" style="position: absolute; top: -20px; left: 10px; transform: rotate(90deg);">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-7 wow fadeInLeft" data-wow-delay="0.2s">
+                    <div>
+                        <!-- <h4 class="text-primary">Our company</h4>
+                        <h1 class="display-5 mb-4">Meet our company unless miss the opportunity</h1> -->
+                        <p class="mb-4">
+                        Established in 2018 and headquartered in Dubai, UAE, with a branch in London, AKW Consultants has quickly gained recognition as an award-winning leader in governance, risk and compliance, audit, tax advisory, financial accounting, transaction advisory, sustainability and responsible business practices, and business strategy advisory services. Our team of over 70 experts serves more than 1,000 clients worldwide, guided by a commitment to ethical and sustainable practices, certified with ISO 9001:2015 and accredited as a DMCC-approved UAE Good Delivery Auditor for the Gold and Precious Metals sector. We continuously expand our service offerings and recently we have ventured into AI Governance, Software Development Solutions, and Cyber Security and IT Advisory, showcasing our dedication to innovation and addressing the evolving needs of modern businesses.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About us End -->
+
+
     <!-- Integrated Growth Strategy Start -->
     <div id="company" class="container-fluid blog pb-5">
         <div class="container pb-5">

@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
+use App\Models\Blog;
 use App\Models\HomeSlider;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class BlogController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $category = Category::get();
-        return view('admin.category.index', compact('category'));
+        $blog = Blog::get();
+        return view('admin.blog.index', compact('blog'));
     }
 
     /**
@@ -22,7 +22,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.category.create');
+        return view('admin.blog.create');
     }
 
     /**
@@ -31,34 +31,39 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'short_description' => 'required',
+            'category_id' => 'required',
+            'title' => 'required|string',
+            'description' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'public' => 'required'
         ]);
 
         // Handle the image upload
-        $category = new Category();
-        $category->short_description = $request->input('short_description');
-        $category->name = $request->input('name');
+        $blog = new Blog();
+        $blog->description = $request->input('description');
+        $blog->title = $request->input('title');
+        $blog->category_id = $request->input('category_id');
+        $blog->slug = $request->input('slug');
+        $blog->publish = $request->input('publish');
 
         // Handle the image upload if it exists
         if ($request->hasFile('image')) {
             // Delete old image if exists
-            if ($category->image && file_exists(public_path($category->image))) {
-                unlink(public_path($category->image));
+            if ($blog->image && file_exists(public_path($blog->image))) {
+                unlink(public_path($blog->image));
             }
 
             $image = $request->file('image');
             $filename = time() . '.' . $image->getClientOriginalExtension();
             $path = $image->move(public_path('img'), $filename);
-            $category->image = 'img/' . $filename; // Store only the relative path
+            $blog->image = 'img/' . $filename; // Store only the relative path
         }
 
-        // Update the category
-        $category->save();
+        // Update the blog
+        $blog->save();
 
         // Redirect with success message
-        return redirect()->route('categories.index')->with('success', 'Category uploaded successfully.');
+        return redirect()->route('blogss.index')->with('success', 'Blog uploaded successfully.');
     }
 
     /**
@@ -74,8 +79,8 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        $category = Category::findOrFail($id);
-        return view('admin.category.edit', compact('category'));
+        $blog = Blog::findOrFail($id);
+        return view('admin.blog.edit', compact('blog'));
     }
 
     /**
@@ -89,28 +94,28 @@ class CategoryController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
         ]);
 
-        $category = Category::findOrFail($id);
-        $category->short_description = $request->input('short_description');
-        $category->name = $request->input('name');
+        $blog = Blog::findOrFail($id);
+        $blog->short_description = $request->input('short_description');
+        $blog->name = $request->input('name');
 
         // Handle the image upload if it exists
         if ($request->hasFile('image')) {
             // Delete old image if exists
-            if ($category->image && file_exists(public_path($category->image))) {
-                unlink(public_path($category->image));
+            if ($blog->image && file_exists(public_path($blog->image))) {
+                unlink(public_path($blog->image));
             }
 
             $image = $request->file('image');
             $filename = time() . '.' . $image->getClientOriginalExtension();
             $path = $image->move(public_path('img'), $filename);
-            $category->image = 'img/' . $filename; // Store only the relative path
+            $blog->image = 'img/' . $filename; // Store only the relative path
         }
 
-        // Update the category
-        $category->save();
+        // Update the blog
+        $blog->save();
 
         // Redirect with success message
-        return redirect()->route('categories.index')->with('success', 'Category updated successfully.');
+        return redirect()->route('categories.index')->with('success', 'Blog updated successfully.');
     }
 
     /**
@@ -118,17 +123,17 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        $category = Category::findOrFail($id);
+        $blog = Blog::findOrFail($id);
 
         // Delete the image file if it exists
-        if ($category->image && file_exists(public_path($category->image))) {
-            unlink(public_path($category->image));
+        if ($blog->image && file_exists(public_path($blog->image))) {
+            unlink(public_path($blog->image));
         }
 
-        // Delete the category
-        $category->delete();
+        // Delete the blog
+        $blog->delete();
 
         // Redirect with success message
-        return redirect()->route('categories.index')->with('success', 'Category deleted successfully.');
+        return redirect()->route('categories.index')->with('success', 'Blog deleted successfully.');
     }
 }
