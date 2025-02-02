@@ -131,25 +131,36 @@
         return false;
     });
 
-    $(document).ready(function() {
-        // Smooth scrolling on click
-        $('.nav-link').click(function(event) {
-            // Prevent the default action
-            event.preventDefault();
-            
-            // Get the target section ID from the href attribute
-            var target = $(this).attr('href');
-            
-            // Scroll smoothly to the target section
-            $('html, body').animate({
-                scrollTop: $(target).offset().top
-            }, 600); // Adjust the duration (600ms) as needed
+    // $(document).ready(function() {
+    //     // Smooth scrolling on click
+    //     $('.nav-link').click(function(event) {
+    //         // Prevent smooth scrolling for the sustainability link (or other specific links)
+    //         if ($(this).attr('href') === "{{ route('sustainability') }}") {
+    //             return;  // Don't prevent the default action for the Sustainability link
+    //         }
     
-            // Optionally, add active class to the clicked link
-            $('.nav-link').removeClass('active');
-            $(this).addClass('active');
-        });
-    });
+    //         // Prevent the default action for all other links
+    //         event.preventDefault();
+            
+    //         // Get the target section ID from the href attribute
+    //         var target = $(this).attr('href');
+            
+    //         // Scroll smoothly to the target section
+    //         $('html, body').animate({
+    //             scrollTop: $(target).offset().top
+    //         }, 600); // Adjust the duration (600ms) as needed
+        
+    //         // Optionally, add active class to the clicked link
+    //         $('.nav-link').removeClass('active');
+    //         $(this).addClass('active');
+    //     });
+    // });
+
+    document.addEventListener("DOMContentLoaded", function() {
+        var myModal = new bootstrap.Modal(document.getElementById('contactModal'));
+        myModal.show();
+      });
+    
 
 
 })(jQuery);

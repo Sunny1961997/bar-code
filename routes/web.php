@@ -23,7 +23,27 @@ Route::get('/', function () {
     $categories = Category::all();
     $homeSliders = HomeSlider::all(); 
     return view('index', compact('categories', 'homeSliders'));
-});
+})->name('/');
+
+Route::get('/sustainability', function () {
+    return view('sustainability');
+})->name('sustainability');
+
+Route::get('/smart-compilance', function () {
+    return view('smart_compilance');
+})->name('smart-compilance');
+
+Route::get('/insights', function () {
+    return view('insights');
+})->name('insights');
+
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
 
 Auth::routes();
 

@@ -287,6 +287,7 @@
 
 .header-carousel .owl-nav .owl-prev,
 .header-carousel .owl-nav .owl-next {
+    display: none !important;
     position: absolute;
     width: 60px;
     height: 60px;
@@ -810,7 +811,7 @@
 }
 
 .testimonial-carousel .owl-dots {
-    display: flex;
+    display: none;
     justify-content: center;
 }
 
@@ -908,5 +909,54 @@
     background: var(--bs-dark);
 }
 /*** copyright end ***/
+
+
+.testimonial-item {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 20px;
+    height: 300px; /* Adjust based on your design */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column; /* Stack child elements vertically */
+    justify-content: flex-end; /* Align content at the bottom */
+}
+
+.testimonial-text {
+    position: absolute;
+    bottom: 20px; /* Ensure text is at the bottom of the container */
+    left: 20px;
+    right: 20px;
+    z-index: 1;
+}
+
+.testimonial-text p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* Limit to two lines */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.testimonial-item:hover .testimonial-text p {
+    opacity: 1; /* Show text on hover */
+}
+
+.testimonial-item h4 {
+    color: white; /* Text color of the header */
+    z-index: 2; /* Ensure the header text stays above the background */
+    margin-bottom: 10px; /* Add some space between the header and the text */
+}
+
+.testimonial-img {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 2;
+}
 
 

@@ -1,40 +1,242 @@
-
 @include('layouts.header')
 
-
-
-    <!-- About us Start -->
-    <div id="about_us" class="container-fluid about py-5">
-        <div class="container py-5">
-            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                <!-- <h4 class="text-primary">Comapany</h4> -->
-                <h1 class="display-5 mb-4">About Us</h1>
-            </div>
-            <div class="row g-5 align-items-center">
-                <div class="col-xl-5 wow fadeInRight" data-wow-delay="0.2s">
-                    <div class="bg-primary rounded position-relative overflow-hidden">
-                        <img src="{{ asset('img/our-company.webp') }}" class="img-fluid rounded w-100" alt="">
-                        <div class="" style="position: absolute; top: -20px; left: 10px; transform: rotate(90deg);">
+<!-- Carousel Start -->
+<div id="home" class="header-carousel owl-carousel vh-100">
+    @foreach ($homeSliders as $slider)
+        <div class="header-carousel-item vh-100">
+            @if ($slider->image)
+                <img src="{{ asset($slider->image) }}" class="w-100 h-100 object-fit-cover" alt="{{ $slider->title }}">
+            @else
+                <img src="{{ asset('img/default-image.webp') }}" class="w-100 h-100 object-fit-cover" alt="Default Image">
+            @endif
+            <div class="carousel-caption d-flex align-items-center">
+                <div class="container">
+                    <div class="row gy-0 gx-5">
+                        <div class="col-lg-0 col-xl-5"></div>
+                        <div class="col-xl-7 animated fadeInRight">
+                            <div class="text-sm-center text-md-end">
+                                <h1 class="text-white fw-bold mb-4">
+                                    {{ $slider->title }}
+                                </h1>
+                                <h6 class="display-4 text-white mb-4">
+                                    {{ $slider->subtitle }}
+                                </h6>
+                                <p class="mb-5 fs-5">
+                                    {{ $slider->description }}
+                                </p>
+                                <div class="d-flex justify-content-center justify-content-md-end flex-shrink-0 mb-4">
+                                    @if ($slider->url)
+                                        <a class="btn btn-light rounded-pill py-3 px-4 px-md-5 me-2"
+                                            href="{{ $slider->url }}">
+                                            <i class="fas fa-play-circle me-2"></i> Watch Video
+                                        </a>
+                                    @endif
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-7 wow fadeInLeft" data-wow-delay="0.2s">
-                    <div>
-                        <!-- <h4 class="text-primary">Our company</h4>
-                        <h1 class="display-5 mb-4">Meet our company unless miss the opportunity</h1> -->
-                        <p class="mb-4">
-                        Established in 2018 and headquartered in Dubai, UAE, with a branch in London, AKW Consultants has quickly gained recognition as an award-winning leader in governance, risk and compliance, audit, tax advisory, financial accounting, transaction advisory, sustainability and responsible business practices, and business strategy advisory services. Our team of over 70 experts serves more than 1,000 clients worldwide, guided by a commitment to ethical and sustainable practices, certified with ISO 9001:2015 and accredited as a DMCC-approved UAE Good Delivery Auditor for the Gold and Precious Metals sector. We continuously expand our service offerings and recently we have ventured into AI Governance, Software Development Solutions, and Cyber Security and IT Advisory, showcasing our dedication to innovation and addressing the evolving needs of modern businesses.
-                        </p>
+            </div>
+        </div>
+    @endforeach
+</div>
+<!-- Carousel End -->
+
+
+<!-- About us Start -->
+{{-- <div id="about_us" class="container-fluid about py-5"> --}}
+    <div class="container py-5">
+        <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+            <!-- <h4 class="text-primary">Comapany</h4> -->
+            <h1 class="display-5 mb-4">About Us</h1>
+        </div>
+        <div class="row g-5 align-items-center">
+            <div class="col-xl-6 wow fadeInRight" data-wow-delay="0.2s">
+                <div class="bg-primary rounded position-relative overflow-hidden">
+                    <img src="{{ asset('img/service-1.jpg') }}" class="img-fluid rounded w-100" alt="">
+                    <div class="" style="position: absolute; top: -20px; left: 10px; transform: rotate(90deg);">
                     </div>
+                </div>
+            </div>
+            <div class="col-xl-6 wow fadeInLeft" data-wow-delay="0.2s">
+                <div>
+                    <p class="">
+                        Established in 2018 and headquartered in Dubai, UAE, with a branch in London, AKW Consultants
+                        has quickly gained recognition as an award-winning leader in governance, risk and compliance,
+                        audit, tax advisory, financial accounting, transaction advisory, sustainability and responsible
+                        business practices, and business strategy advisory services. Our team of over 70 experts serves
+                        more than 1,000 clients worldwide, guided by a commitment to ethical and sustainable practices,
+                        certified with ISO 9001:2015 and accredited as a DMCC-approved UAE Good Delivery Auditor for the
+                        Gold and Precious Metals sector. We continuously expand our service offerings and recently we
+                        have ventured into AI Governance, Software Development Solutions, and Cyber Security and IT
+                        Advisory, showcasing our dedication to innovation and addressing the evolving needs of modern
+                        businesses.
+                    </p>
                 </div>
             </div>
         </div>
     </div>
     <!-- About us End -->
 
+    <div class="container-fluid testimonial pb-1">
+        <div class="container pb-5">
+            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                <h1 class="display-5 mb-4">Our Expertise</h1>
+            </div>
+            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.2s">
+                <!-- Example of a testimonial item -->
+                <div class="testimonial-item" style="background-image: url('img/service-1.jpg');">
+                    <div class="testimonial-img">
+                        <h4>Gender</h4>
+                    </div>
+                    <div class="testimonial-text">
+                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
+                            excepturi.</p>
+                    </div>
+                </div>
+                <div class="testimonial-item" style="background-image: url('img/service-2.jpg');">
+                    <div class="testimonial-img">
+                        <h4>Sustainability</h4>
+                    </div>
+                    <div class="testimonial-text">
+                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
+                            excepturi.</p>
+                    </div>
+                </div>
+                <div class="testimonial-item" style="background-image: url('img/service-3.jpg');">
+                    <div class="testimonial-img">
+                        <h4>Mapping our Impact</h4>
+                    </div>
+                    <div class="testimonial-text">
+                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
+                            excepturi.</p>
+                    </div>
+                </div>
+                <div class="testimonial-item" style="background-image: url('img/service-4.jpg');">
+                    <div class="testimonial-img">
+                        <h4>Responsible Beauty</h4>
+                    </div>
+                    <div class="testimonial-text">
+                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
+                            excepturi.</p>
+                    </div>
+                </div>
+                <div class="testimonial-item" style="background-image: url('img/service-5.jpg');">
+                    <div class="testimonial-img">
+                        <h4>Ethics And Corporate Responsibility</h4>
+                    </div>
+                    <div class="testimonial-text">
+                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
+                            excepturi.</p>
+                    </div>
+                </div>
+                <div class="testimonial-item" style="background-image: url('img/service-6.jpg');">
+                    <div class="testimonial-img">
+                        <h4>Good Governance</h4>
+                    </div>
+                    <div class="testimonial-text">
+                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
+                            excepturi.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid testimonial pb-1">
+        <div class="container pb-5 bg-light rounded">
+            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                <h1 class="display-5 mb-4">Trending</h1>
+                <p>Latest industry insights and event coverage</p>
+            </div>
+            <div class="header-carousel owl-carousel wow fadeInUp" data-wow-delay="0.2s">
+                <!-- Testimonial Item 1 -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="bg-primary rounded">
+                                <img src="{{ asset('img/service-1.jpg') }}" class="img-fluid rounded w-100"
+                                    alt="">
+                            </div>
+                        </div>
+                        <div class="col-md-6 d-flex justify-content-center align-items-center">
+                            <div class="text-start">
+                                <h2>Establishment</h2>
+                                <p class="text-dark">
+                                    Established in 2018 and headquartered in Dubai, UAE, with a branch in London, AKW
+                                    Consultants has quickly gained recognition...
+                                </p>
+                                <a class="btn btn-primary rounded-pill py-3 px-4 px-md-5 ms-2" href="#">Read
+                                    More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial Item 2 -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="bg-primary rounded">
+                                <img src="{{ asset('img/service-2.jpg') }}" class="img-fluid rounded w-100"
+                                    alt="">
+                            </div>
+                        </div>
+                        <div class="col-md-6 d-flex justify-content-center align-items-center">
+                            <div class="text-start">
+                                <h2>Welcome</h2>
+                                <p class="text-dark">
+                                    We welcome you to craft your unique expression and embrace real confidence. We are
+                                    the
+                                    leading shop which shows authentic brands for all the beauty products and cosmetics.
+                                    Here beauty isn’t just about products. We offer the best prices for our selected
+                                    beauty
+                                    products.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Testimonial Item 3 -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="bg-primary rounded">
+                                <img src="{{ asset('img/service-3.jpg') }}" class="img-fluid rounded w-100"
+                                    alt="">
+                            </div>
+                        </div>
+                        <div class="col-md-6 d-flex justify-content-center align-items-center">
+                            <div class="text-start">
+                                <h2>Go AKW Consultants</h2>
+                                <p class="text-dark">
+                                    Go AKW Consultants had the privilege of attending CYSEC GLOBAL 2023 on 20th
+                                    September, a
+                                    monumental event in the world of cyber security, as a Silver Sponsor. This 7th and
+                                    biggest global edition of CYSEC was held in the heart of the UAE, Abu Dhabi, and
+                                    brought
+                                    together a remarkable assembly of over 300 delegates representing the most
+                                    prestigious
+                                    organisations from across the globe.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
 
     <!-- Integrated Growth Strategy Start -->
-    <div id="company" class="container-fluid blog pb-5">
+    {{-- <div id="company" class="container-fluid blog pb-5">
         <div class="container pb-5">
             <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
                 <!-- <h4 class="text-primary">Comapany</h4> -->
@@ -45,7 +247,7 @@
             </div>
 
             <div class="owl-carousel blog-carousel wow fadeInUp" data-wow-delay="0.2s">
-                @foreach($categories as $category)
+                @foreach ($categories as $category)
                     <div class="blog-item p-4">
                         <div class="blog-img mb-4">
                             <img src="{{ asset($category->image) }}" class="img-fluid w-100 rounded" alt="">
@@ -58,11 +260,11 @@
                 @endforeach
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- Integrated Growth Strategy End -->
 
     <!-- Partners & Investors Start -->
-    <!-- <div id="investors" class="container-fluid team pb-5">
+    {{-- <div id="investors" class="container-fluid team pb-5">
         <div class="container pb-5">
             <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
                 <h4 class="text-primary">Partners & Investors</h4>
@@ -159,18 +361,19 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>  --}}
     <!-- Partners & Investors End -->
 
     <!-- Our company Start -->
-    <div id="about_us" class="container-fluid about py-5">
+    {{-- <div id="about_us" class="container-fluid about py-5">
         <div class="container py-5">
             <div class="row g-5 align-items-center">
                 <div class="col-xl-7 wow fadeInLeft" data-wow-delay="0.2s">
                     <div>
                         <h4 class="text-primary">Our company</h4>
                         <h1 class="display-5 mb-4">Meet our company unless miss the opportunity</h1>
-                        <p class="mb-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum velit temporibus
+                        <p class="mb-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum velit
+                            temporibus
                             repudiandae ipsa, eaque perspiciatis cumque incidunt tenetur sequi reiciendis.
                         </p>
                         <div class="row g-4">
@@ -210,15 +413,19 @@
                 </div>
                 <div class="col-xl-5 wow fadeInRight" data-wow-delay="0.2s">
                     <div class="bg-primary rounded position-relative overflow-hidden">
-                        <img src="{{ asset('img/our-company.webp') }}" class="img-fluid rounded w-100" alt="">
-                        <div class="" style="position: absolute; top: -20px; left: 10px; transform: rotate(90deg);">
+                        <img src="{{ asset('img/our-company.webp') }}" class="img-fluid rounded w-100"
+                            alt="">
+                        <div class=""
+                            style="position: absolute; top: -20px; left: 10px; transform: rotate(90deg);">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- Our company End -->
+
+
 
     <!-- Anual Report Start -->
     <!-- <div class="container-fluid testimonial pb-5">
@@ -316,181 +523,54 @@
 
 
     <!-- Our Impact Start -->
-    <div class="container-fluid testimonial pb-5">
+    <div class="container-fluid testimonial pb-2">
         <div class="container pb-5">
             <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
                 <!-- <h4 class="text-primary">Testimonial</h4> -->
-                <h1 class="display-5 mb-4">Our Impact</h1>
-                <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur adipisci facilis
-                    cupiditate recusandae aperiam temporibus corporis itaque quis facere, numquam, ad culpa deserunt
-                    sint dolorem autem obcaecati, ipsam mollitia hic.
+                <h1 class="display-5 mb-1">Our Impact</h1>
+                <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit..
                 </p>
             </div>
             <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.2s">
-                <div class="testimonial-item">
-                    <div class="testimonial-img">
-                        <h4>Gender</h4>
-                    </div>
-                    <div class="testimonial-text">
-                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
-                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
-                            accusamus.
-                        </p>
-                    </div>
+                <div class="text-center">
+                    <h4 class="text-dark">Gender</h4>
+                    <p class="mb-0 text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
+                        blanditiis
+                        excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
+                        accusamus.
+                    </p>
                 </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-img">
-                        <h4>Sustainability</h4>
-                    </div>
-                    <div class="testimonial-text">
-                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
-                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
-                            accusamus.
-                        </p>
-                    </div>
+                <div class="text-center">
+                    <h4 class="text-dark">Sustainability</h4>
+                    <p class="mb-0 text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
+                        blanditiis
+                        excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
+                        accusamus.
+                    </p>
                 </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-img">
-                        <h4>Mapping our Impact</h4>
-                    </div>
-                    <div class="testimonial-text">
-                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
-                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
-                            accusamus.
-                        </p>
-                    </div>
+                <div class="text-center">
+                    <h4 class="text-dark">Mapping our Impact</h4>
+                    <p class="mb-0 text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
+                        blanditiis
+                        excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
+                        accusamus.
+                    </p>
                 </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-img">
-                        <h4>Responsible Beauty</h4>
-                    </div>
-                    <div class="testimonial-text">
-                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
-                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
-                            accusamus.
-                        </p>
-                    </div>
+                <div class="text-center">
+                    <h4 class="text-dark">Responsible Beauty</h4>
+                    <p class="mb-0 text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
+                        blanditiis
+                        excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
+                        accusamus.
+                    </p>
                 </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-img">
-                        <h4>Ethics And Corporate Responsibility</h4>
-                    </div>
-                    <div class="testimonial-text">
-                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
-                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
-                            accusamus.
-                        </p>
-                    </div>
-                </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-img">
-                        <h4>Good Governance</h4>
-                    </div>
-                    <div class="testimonial-text">
-                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
-                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
-                            accusamus.
-                        </p>
-                    </div>
-                </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-img">
-                        <h4>Respecting Human Rights</h4>
-                    </div>
-                    <div class="testimonial-text">
-                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
-                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
-                            accusamus.
-                        </p>
-                    </div>
-                </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-img">
-                        <h4>Confidence and Trust</h4>
-                    </div>
-                    <div class="testimonial-text">
-                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
-                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
-                            accusamus.
-                        </p>
-                    </div>
-                </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-img">
-                        <h4>Doing the Right Thing with Our Consumers</h4>
-                    </div>
-                    <div class="testimonial-text">
-                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
-                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
-                            accusamus.
-                        </p>
-                    </div>
-                </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-img">
-                        <h4>Doing the Right Thing with Our Supply Chain</h4>
-                    </div>
-                    <div class="testimonial-text">
-                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
-                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
-                            accusamus.
-                        </p>
-                    </div>
-                </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-img">
-                        <h4>Employees</h4>
-                    </div>
-                    <div class="testimonial-text">
-                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
-                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
-                            accusamus.
-                        </p>
-                    </div>
-                </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-img">
-                        <h4>Confidence and Trust</h4>
-                    </div>
-                    <div class="testimonial-text">
-                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
-                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
-                            accusamus.
-                        </p>
-                    </div>
-                </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-img">
-                        <h4>Doing the Right Thing with Our Consumers</h4>
-                    </div>
-                    <div class="testimonial-text">
-                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
-                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
-                            accusamus.
-                        </p>
-                    </div>
-                </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-img">
-                        <h4>Doing the Right Thing with Our Supply Chain</h4>
-                    </div>
-                    <div class="testimonial-text">
-                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
-                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
-                            accusamus.
-                        </p>
-                    </div>
-                </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-img">
-                        <h4>Employees</h4>
-                    </div>
-                    <div class="testimonial-text">
-                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
-                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
-                            accusamus.
-                        </p>
-                    </div>
+                <div class="text-center">
+                    <h4 class="text-dark">Ethics And Corporate Responsibility</h4>
+                    <p class="mb-0 text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
+                        blanditiis
+                        excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
+                        accusamus.
+                    </p>
                 </div>
 
             </div>
@@ -501,7 +581,7 @@
 
 
     <!-- Services Start -->
-    <div class="container-fluid service pb-5">
+    {{-- <div class="container-fluid service pb-5">
         <div class="container pb-5">
             <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
                 <h4 class="text-primary">Our Story</h4>
@@ -515,7 +595,8 @@
                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
                     <div class="service-item">
                         <div class="service-img">
-                            <img src="{{ asset('img/service-1.jpg') }}" class="img-fluid rounded-top w-100" alt="Image">
+                            <img src="{{ asset('img/service-1.jpg') }}" class="img-fluid rounded-top w-100"
+                                alt="Image">
                         </div>
                         <div class="rounded-bottom p-4">
                             <a href="#" class="h4 d-inline-block mb-4"> Strategy Consulting</a>
@@ -529,7 +610,8 @@
                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
                     <div class="service-item">
                         <div class="service-img">
-                            <img src="{{ asset('img/service-2.jpg') }}" class="img-fluid rounded-top w-100" alt="Image">
+                            <img src="{{ asset('img/service-2.jpg') }}" class="img-fluid rounded-top w-100"
+                                alt="Image">
                         </div>
                         <div class="rounded-bottom p-4">
                             <a href="#" class="h4 d-inline-block mb-4">Financial Advisory</a>
@@ -543,7 +625,8 @@
                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
                     <div class="service-item">
                         <div class="service-img">
-                            <img src="{{ asset('img/service-3.jpg') }}" class="img-fluid rounded-top w-100" alt="Image">
+                            <img src="{{ asset('img/service-3.jpg') }}" class="img-fluid rounded-top w-100"
+                                alt="Image">
                         </div>
                         <div class="rounded-bottom p-4">
                             <a href="#" class="h4 d-inline-block mb-4">Managements</a>
@@ -557,7 +640,8 @@
                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
                     <div class="service-item">
                         <div class="service-img">
-                            <img src="{{ asset('img/service-4.jpg') }}" class="img-fluid rounded-top w-100" alt="Image">
+                            <img src="{{ asset('img/service-4.jpg') }}" class="img-fluid rounded-top w-100"
+                                alt="Image">
                         </div>
                         <div class="rounded-bottom p-4">
                             <a href="#" class="h4 d-inline-block mb-4">Supply Optimization</a>
@@ -571,7 +655,8 @@
                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
                     <div class="service-item">
                         <div class="service-img">
-                            <img src="{{ asset('img/service-5.jpg') }}" class="img-fluid rounded-top w-100" alt="Image">
+                            <img src="{{ asset('img/service-5.jpg') }}" class="img-fluid rounded-top w-100"
+                                alt="Image">
                         </div>
                         <div class="rounded-bottom p-4">
                             <a href="#" class="h4 d-inline-block mb-4">Hr Consulting</a>
@@ -585,7 +670,8 @@
                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
                     <div class="service-item">
                         <div class="service-img">
-                            <img src="{{ asset('img/service-6.jpg') }}" class="img-fluid rounded-top w-100" alt="Image">
+                            <img src="{{ asset('img/service-6.jpg') }}" class="img-fluid rounded-top w-100"
+                                alt="Image">
                         </div>
                         <div class="rounded-bottom p-4">
                             <a href="#" class="h4 d-inline-block mb-4">Marketing Consulting</a>
@@ -598,11 +684,11 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- Services End -->
 
     <!-- Features Start -->
-    <div class="container-fluid feature pb-5">
+    {{-- <div class="container-fluid feature pb-5">
         <div class="container pb-5">
             <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
                 <h4 class="text-primary">Rewards & Offers</h4>
@@ -663,12 +749,12 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- Features End -->
 
 
     <!-- Offer Start -->
-    <div class="container-fluid offer-section pb-5">
+    {{-- <div class="container-fluid offer-section pb-5">
         <div class="container pb-5">
             <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
                 <h4 class="text-primary">Our Offer</h4>
@@ -700,7 +786,8 @@
                         <div id="collapseOne" class="tab-pane fade show p-0 active">
                             <div class="row g-4">
                                 <div class="col-md-7">
-                                    <img src="{{ asset('img/offer-1.jpg') }}" class="img-fluid w-100 rounded" alt="">
+                                    <img src="{{ asset('img/offer-1.jpg') }}" class="img-fluid w-100 rounded"
+                                        alt="">
                                 </div>
                                 <div class="col-md-5">
                                     <h1 class="display-5 mb-4">The stock market provides a venue...</h1>
@@ -715,7 +802,8 @@
                         <div id="collapseTwo" class="tab-pane fade show p-0">
                             <div class="row g-4">
                                 <div class="col-md-7">
-                                    <img src="{{ asset('img/offer-2.jpg') }}" class="img-fluid w-100 rounded" alt="">
+                                    <img src="{{ asset('img/offer-2.jpg') }}" class="img-fluid w-100 rounded"
+                                        alt="">
                                 </div>
                                 <div class="col-md-5">
                                     <h1 class="display-5 mb-4">The stock market provides a venue...</h1>
@@ -730,7 +818,8 @@
                         <div id="collapseThree" class="tab-pane fade show p-0">
                             <div class="row g-4">
                                 <div class="col-md-7">
-                                    <img src="{{ asset('img/offer-3.jpg') }}" class="img-fluid w-100 rounded" alt="">
+                                    <img src="{{ asset('img/offer-3.jpg') }}" class="img-fluid w-100 rounded"
+                                        alt="">
                                 </div>
                                 <div class="col-md-5">
                                     <h1 class="display-5 mb-4">The stock market provides a venue...</h1>
@@ -745,7 +834,8 @@
                         <div id="collapseFour" class="tab-pane fade show p-0">
                             <div class="row g-4">
                                 <div class="col-md-7">
-                                    <img src="{{ asset('img/offer-4.jpg') }}" class="img-fluid w-100 rounded" alt="">
+                                    <img src="{{ asset('img/offer-4.jpg') }}" class="img-fluid w-100 rounded"
+                                        alt="">
                                 </div>
                                 <div class="col-md-5">
                                     <h1 class="display-5 mb-4">The stock market provides a venue...</h1>
@@ -761,7 +851,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- Offer End -->
 
     <!-- FAQs Start -->
@@ -881,6 +971,59 @@
         </div>
     </div> -->
     <!-- FAQs End -->
-    @include('layouts.footer')
+    <!-- Contact Us Modal -->
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header d-flex justify-content-center">
+                    <h1 class="modal-title text-center w-100" id="contactModalLabel">Contact Us</h1>
+                    <button type="button" class="btn-close position-absolute end-0 me-3" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-person"></i></span>
+                                    <input type="text" class="form-control" placeholder="Name" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                    <input type="email" class="form-control" placeholder="Email Address" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row g-3 mt-2">
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+                                    <input type="text" class="form-control" placeholder="Contact No" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-info-circle"></i></span>
+                                    <input type="text" class="form-control" placeholder="Service Details" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-chat-dots"></i></span>
+                                <textarea class="form-control" rows="3" placeholder="How can we help you? Feel free to get in touch!" required></textarea>
+                            </div>
+                        </div>
+                        <div class="text-center mt-3">
+                            <button type="submit" class="btn btn-primary btn-lg">GET QUOTE</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    
+    @include('layouts.footer')
