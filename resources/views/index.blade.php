@@ -42,201 +42,263 @@
 </div>
 <!-- Carousel End -->
 
+<div class="container pb-4 text-dark">
+    <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+        <!-- <h4 class="text-primary">Comapany</h4> -->
+        {{-- <h1 class="display-8 m-2">Welcome to The GO AML Compliance Services FZE – Your Trusted AML Compliance Partner in the UAE</h1> --}}
+    </div>
+    <div class="col wow fadeInRight" data-wow-delay="0.2s">
+        <p>
+            In today’s evolving regulatory landscape, staying compliant is not just a requirement—it’s a necessity. 
+            At The Go AML Compliance Services FZE, we specialize in delivering expert compliance consultancy services 
+            across various industries in the UAE.
+        </p>
+        
+        <p>
+            Our team of seasoned professionals helps businesses navigate complex regulatory frameworks, 
+            ensuring full adherence to Anti-Money Laundering (AML), 
+            Counter-Terrorism Financing (CFT), and other regulatory compliance requirements 
+            as per UAE Federal Decree Law 20/2018.
+        </p>
+
+        <p>
+            Whether you operate in real estate, gold & precious metals, financial services, corporate service providers,
+            or any other regulated sector in the United Arab Emirates, we are your trusted compliance partner.
+        </p>
+
+        <p>
+            Our expert guidance ensures that your business aligns with UAE AML laws, Federal Decree Laws, Cabinet Decisions, 
+            FATF recommendations, and local regulatory mandates—protecting you from financial crime risks.
+        </p>
+
+        <p>
+            With a proactive, risk-based approach, our AML compliance services empower businesses to foster transparency, 
+            mitigate risks, and maintain regulatory confidence.
+        </p>
+    </div>
+</div>
+
+<div class="container pb-4 text-dark">
+    <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+        <!-- <h4 class="text-primary">Comapany</h4> -->
+        <h1 class="display-8 m-2">Why AML Compliance Matters in the UAE?</h1>
+    </div>
+    <div class="col wow fadeInUp" data-wow-delay="0.2s">
+        <p>
+            The UAE has strengthened its AML/CFT regulations to align with 
+            Financial Action Task Force (FATF)guidelines and ensure compliance with 
+            Federal Decree Law 20/2018 and Cabinet Decision No. (10) of 2019.
+        </p>
+
+        <p>Regulatory authorities enforcing strict compliance measures include:</p>
+
+        <ul>
+            <li>The UAE Central Bank</li>
+            <li>Ministry of Economy</li>
+            <li>Financial Intelligence Unit (FIU)</li>
+            <li>Securities and Commodities Authority (SCA)</li>
+            <li>Dubai Multi Commodities Centre (DMCC)</li>
+        </ul>
+
+        <p>
+            These authorities enforce strict compliance measures for financial institutions and 
+            Designated Non-Financial Business Professionals (DNFBPs) in the UAE.
+        </p>
+
+        <p>
+            Non-compliance can lead to hefty fines, business restrictions, 
+            and reputational damage to your entity.
+        </p>
+    </div>
+</div>
+
+<div class="container-fluid testimonial pb-1">
+    <div class="container pb-5">
+        <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+            <h1 class="display-5 mb-4">Why Choose The Go AML Compliance Services FZE-?</h1>
+        </div>
+        <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.2s">
+            <!-- Example of a testimonial item -->
+            <div class="testimonial-item text-center d-flex flex-column align-items-center justify-content-center">
+                {{-- <div class=""> --}}
+                    <h4 class="text-dark">UAE AML/CFT Compliance Experts </h4>
+                {{-- </div> --}}
+                {{-- <div class=""> --}}
+                    <p class="mb-0 text-dark">Extensive knowledge of UAE-specific AML regulations and enforcement requirements.</p>
+                {{-- </div> --}}
+            </div>
+            <div class="testimonial-item text-center d-flex flex-column align-items-center justify-content-center">
+                <div class="">
+                    <h4 class="text-dark">Tailored Compliance Solutions</h4>
+                </div>
+                <div class="">
+                    <p class="mb-0 text-dark">Customized strategies for financial institutions, DNFBPs, and regulated entities.</p>
+                </div>
+            </div>
+            <div class="testimonial-item text-center d-flex flex-column align-items-center justify-content-center">
+                <div class="">
+                    <h4 class="text-dark">Regulatory Compliance Assurance</h4>
+                </div>
+                <div class="">
+                    <p class="mb-0 text-dark">Ensuring businesses comply with UAE Central Bank, FIU, SCA, DMCC, and Ministry of Economy requirements.</p>
+                </div>
+            </div>
+            <div class="testimonial-item text-center d-flex flex-column align-items-center justify-content-center">
+                <div class="">
+                    <h4 class="text-dark">Proactive Approach</h4>
+                </div>
+                <div>
+                    <p class="mb-0 text-dark">Keeping businesses updated on evolving AML laws and best practices.</p>
+                </div>
+            </div>
+            
+            <div class="testimonial-item text-center d-flex flex-column align-items-center justify-content-center">
+                <div class="">
+                    <h4 class="text-dark">Confidential & Professional Services</h4>
+                </div>
+                <div class="">
+                    <p class="mb-0 text-dark">Offering discreet, expert consultation with a focus on business integrity.</p>
+                </div>
+            </div>
+            {{-- <div class="testimonial-item" style="background-image: url('img/service-6.jpg');">
+                <div class="testimonial-img">
+                    <h4>Good Governance</h4>
+                </div>
+                <div class="">
+                    <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
+                        excepturi.</p>
+                </div>
+            </div> --}}
+        </div>
+        <div class="col wow fadeInUp text-dark" data-wow-delay="0.2s">
+            <p>
+                Compliance without compromise and stay secure from fines and penalties from Regulatory Authorities 
+            </p>
+            <p>
+                Partner with The Go AML Compliance service for a perfect AML compliance journey in the UAE.
+                Contact us today For AML Assistant
+                
+            </p>
+        </div>
+    </div>
+</div>
+
 
 <!-- About us Start -->
 {{-- <div id="about_us" class="container-fluid about py-5"> --}}
-    <div class="container py-5">
+{{-- <div class="container py-5">
+    <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+        <h4 class="text-primary">Comapany</h4>
+        <h1 class="display-5 mb-4">About Us</h1>
+    </div>
+    <div class="row g-5 align-items-center">
+        <div class="col-xl-6 wow fadeInRight" data-wow-delay="0.2s">
+            <div class="bg-primary rounded position-relative overflow-hidden">
+                <img src="{{ asset('img/service-1.jpg') }}" class="img-fluid rounded w-100" alt="">
+                <div class="" style="position: absolute; top: -20px; left: 10px; transform: rotate(90deg);">
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 wow fadeInLeft" data-wow-delay="0.2s">
+            <div>
+                <p class="">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
+                    excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
+                    accusamus.
+                </p>
+            </div>
+        </div>
+    </div>
+</div> --}}
+<!-- About us End -->
+
+
+{{-- <div class="container-fluid testimonial pb-1">
+    <div class="container pb-5 bg-light rounded">
         <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-            <!-- <h4 class="text-primary">Comapany</h4> -->
-            <h1 class="display-5 mb-4">About Us</h1>
+            <h1 class="display-5 mb-4">Trending</h1>
+            <p>Latest industry insights and event coverage</p>
         </div>
-        <div class="row g-5 align-items-center">
-            <div class="col-xl-6 wow fadeInRight" data-wow-delay="0.2s">
-                <div class="bg-primary rounded position-relative overflow-hidden">
-                    <img src="{{ asset('img/service-1.jpg') }}" class="img-fluid rounded w-100" alt="">
-                    <div class="" style="position: absolute; top: -20px; left: 10px; transform: rotate(90deg);">
+        <div class="header-carousel owl-carousel wow fadeInUp" data-wow-delay="0.2s">
+            <!-- Testimonial Item 1 -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="bg-primary rounded">
+                            <img src="{{ asset('img/service-1.jpg') }}" class="img-fluid rounded w-100" alt="">
+                        </div>
+                    </div>
+                    <div class="col-md-6 d-flex justify-content-center align-items-center">
+                        <div class="text-start">
+                            <h2>Establishment</h2>
+                            <p class="text-dark">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
+                                excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
+                                accusamus.
+                            </p>
+                            <a class="btn btn-primary rounded-pill py-3 px-4 px-md-5 ms-2" href="#">Read
+                                More</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-6 wow fadeInLeft" data-wow-delay="0.2s">
-                <div>
-                    <p class="">
-                        Established in 2018 and headquartered in Dubai, UAE, with a branch in London, AKW Consultants
-                        has quickly gained recognition as an award-winning leader in governance, risk and compliance,
-                        audit, tax advisory, financial accounting, transaction advisory, sustainability and responsible
-                        business practices, and business strategy advisory services. Our team of over 70 experts serves
-                        more than 1,000 clients worldwide, guided by a commitment to ethical and sustainable practices,
-                        certified with ISO 9001:2015 and accredited as a DMCC-approved UAE Good Delivery Auditor for the
-                        Gold and Precious Metals sector. We continuously expand our service offerings and recently we
-                        have ventured into AI Governance, Software Development Solutions, and Cyber Security and IT
-                        Advisory, showcasing our dedication to innovation and addressing the evolving needs of modern
-                        businesses.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- About us End -->
 
-    <div class="container-fluid testimonial pb-1">
-        <div class="container pb-5">
-            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                <h1 class="display-5 mb-4">Our Expertise</h1>
-            </div>
-            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.2s">
-                <!-- Example of a testimonial item -->
-                <div class="testimonial-item" style="background-image: url('img/service-1.jpg');">
-                    <div class="testimonial-img">
-                        <h4>Gender</h4>
+            <!-- Testimonial Item 2 -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="bg-primary rounded">
+                            <img src="{{ asset('img/service-2.jpg') }}" class="img-fluid rounded w-100"
+                                alt="">
+                        </div>
                     </div>
-                    <div class="testimonial-text">
-                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
-                            excepturi.</p>
-                    </div>
-                </div>
-                <div class="testimonial-item" style="background-image: url('img/service-2.jpg');">
-                    <div class="testimonial-img">
-                        <h4>Sustainability</h4>
-                    </div>
-                    <div class="testimonial-text">
-                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
-                            excepturi.</p>
-                    </div>
-                </div>
-                <div class="testimonial-item" style="background-image: url('img/service-3.jpg');">
-                    <div class="testimonial-img">
-                        <h4>Mapping our Impact</h4>
-                    </div>
-                    <div class="testimonial-text">
-                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
-                            excepturi.</p>
-                    </div>
-                </div>
-                <div class="testimonial-item" style="background-image: url('img/service-4.jpg');">
-                    <div class="testimonial-img">
-                        <h4>Responsible Beauty</h4>
-                    </div>
-                    <div class="testimonial-text">
-                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
-                            excepturi.</p>
-                    </div>
-                </div>
-                <div class="testimonial-item" style="background-image: url('img/service-5.jpg');">
-                    <div class="testimonial-img">
-                        <h4>Ethics And Corporate Responsibility</h4>
-                    </div>
-                    <div class="testimonial-text">
-                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
-                            excepturi.</p>
-                    </div>
-                </div>
-                <div class="testimonial-item" style="background-image: url('img/service-6.jpg');">
-                    <div class="testimonial-img">
-                        <h4>Good Governance</h4>
-                    </div>
-                    <div class="testimonial-text">
-                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
-                            excepturi.</p>
+                    <div class="col-md-6 d-flex justify-content-center align-items-center">
+                        <div class="text-start">
+                            <h2>Welcome</h2>
+                            <p class="text-dark">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
+                                excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
+                                accusamus.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
+
+
+
+            <!-- Testimonial Item 3 -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="bg-primary rounded">
+                            <img src="{{ asset('img/service-3.jpg') }}" class="img-fluid rounded w-100"
+                                alt="">
+                        </div>
+                    </div>
+                    <div class="col-md-6 d-flex justify-content-center align-items-center">
+                        <div class="text-start">
+                            <h2>Go GoAML Consultants</h2>
+                            <p class="text-dark">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
+                                excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
+                                accusamus.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
-
-    <div class="container-fluid testimonial pb-1">
-        <div class="container pb-5 bg-light rounded">
-            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                <h1 class="display-5 mb-4">Trending</h1>
-                <p>Latest industry insights and event coverage</p>
-            </div>
-            <div class="header-carousel owl-carousel wow fadeInUp" data-wow-delay="0.2s">
-                <!-- Testimonial Item 1 -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="bg-primary rounded">
-                                <img src="{{ asset('img/service-1.jpg') }}" class="img-fluid rounded w-100"
-                                    alt="">
-                            </div>
-                        </div>
-                        <div class="col-md-6 d-flex justify-content-center align-items-center">
-                            <div class="text-start">
-                                <h2>Establishment</h2>
-                                <p class="text-dark">
-                                    Established in 2018 and headquartered in Dubai, UAE, with a branch in London, AKW
-                                    Consultants has quickly gained recognition...
-                                </p>
-                                <a class="btn btn-primary rounded-pill py-3 px-4 px-md-5 ms-2" href="#">Read
-                                    More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial Item 2 -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="bg-primary rounded">
-                                <img src="{{ asset('img/service-2.jpg') }}" class="img-fluid rounded w-100"
-                                    alt="">
-                            </div>
-                        </div>
-                        <div class="col-md-6 d-flex justify-content-center align-items-center">
-                            <div class="text-start">
-                                <h2>Welcome</h2>
-                                <p class="text-dark">
-                                    We welcome you to craft your unique expression and embrace real confidence. We are
-                                    the
-                                    leading shop which shows authentic brands for all the beauty products and cosmetics.
-                                    Here beauty isn’t just about products. We offer the best prices for our selected
-                                    beauty
-                                    products.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <!-- Testimonial Item 3 -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="bg-primary rounded">
-                                <img src="{{ asset('img/service-3.jpg') }}" class="img-fluid rounded w-100"
-                                    alt="">
-                            </div>
-                        </div>
-                        <div class="col-md-6 d-flex justify-content-center align-items-center">
-                            <div class="text-start">
-                                <h2>Go AKW Consultants</h2>
-                                <p class="text-dark">
-                                    Go AKW Consultants had the privilege of attending CYSEC GLOBAL 2023 on 20th
-                                    September, a
-                                    monumental event in the world of cyber security, as a Silver Sponsor. This 7th and
-                                    biggest global edition of CYSEC was held in the heart of the UAE, Abu Dhabi, and
-                                    brought
-                                    together a remarkable assembly of over 300 delegates representing the most
-                                    prestigious
-                                    organisations from across the globe.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
+</div> --}}
 
 
 
 
 
-    <!-- Integrated Growth Strategy Start -->
-    {{-- <div id="company" class="container-fluid blog pb-5">
+<!-- Integrated Growth Strategy Start -->
+{{-- <div id="company" class="container-fluid blog pb-5">
         <div class="container pb-5">
             <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
                 <!-- <h4 class="text-primary">Comapany</h4> -->
@@ -261,10 +323,10 @@
             </div>
         </div>
     </div> --}}
-    <!-- Integrated Growth Strategy End -->
+<!-- Integrated Growth Strategy End -->
 
-    <!-- Partners & Investors Start -->
-    {{-- <div id="investors" class="container-fluid team pb-5">
+<!-- Partners & Investors Start -->
+{{-- <div id="investors" class="container-fluid team pb-5">
         <div class="container pb-5">
             <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
                 <h4 class="text-primary">Partners & Investors</h4>
@@ -362,10 +424,10 @@
             </div>
         </div>
     </div>  --}}
-    <!-- Partners & Investors End -->
+<!-- Partners & Investors End -->
 
-    <!-- Our company Start -->
-    {{-- <div id="about_us" class="container-fluid about py-5">
+<!-- Our company Start -->
+{{-- <div id="about_us" class="container-fluid about py-5">
         <div class="container py-5">
             <div class="row g-5 align-items-center">
                 <div class="col-xl-7 wow fadeInLeft" data-wow-delay="0.2s">
@@ -423,12 +485,12 @@
             </div>
         </div>
     </div> --}}
-    <!-- Our company End -->
+<!-- Our company End -->
 
 
 
-    <!-- Anual Report Start -->
-    <!-- <div class="container-fluid testimonial pb-5">
+<!-- Anual Report Start -->
+<!-- <div class="container-fluid testimonial pb-5">
         <div class="container pb-5">
             <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
                 <h4 class="text-primary">Testimonial</h4>
@@ -519,69 +581,137 @@
             </div>
         </div>
     </div> -->
-    <!-- Anual Report End -->
+<!-- Anual Report End -->
 
 
-    <!-- Our Impact Start -->
-    <div class="container-fluid testimonial pb-2">
-        <div class="container pb-5">
-            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                <!-- <h4 class="text-primary">Testimonial</h4> -->
-                <h1 class="display-5 mb-1">Our Impact</h1>
-                <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit..
+<!-- Our Impact Start -->
+{{-- <div class="container-fluid testimonial pb-2">
+    <div class="container pb-5">
+        <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+            <!-- <h4 class="text-primary">Testimonial</h4> -->
+            <h1 class="display-5 mb-1">Our Impact</h1>
+            <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit..
+            </p>
+        </div>
+        <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.2s">
+            <div class="text-center">
+                <h4 class="text-dark">Gender</h4>
+                <p class="mb-0 text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
+                    blanditiis
+                    excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
+                    accusamus.
                 </p>
             </div>
-            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.2s">
-                <div class="text-center">
-                    <h4 class="text-dark">Gender</h4>
-                    <p class="mb-0 text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
-                        blanditiis
-                        excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
-                        accusamus.
-                    </p>
-                </div>
-                <div class="text-center">
-                    <h4 class="text-dark">Sustainability</h4>
-                    <p class="mb-0 text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
-                        blanditiis
-                        excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
-                        accusamus.
-                    </p>
-                </div>
-                <div class="text-center">
-                    <h4 class="text-dark">Mapping our Impact</h4>
-                    <p class="mb-0 text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
-                        blanditiis
-                        excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
-                        accusamus.
-                    </p>
-                </div>
-                <div class="text-center">
-                    <h4 class="text-dark">Responsible Beauty</h4>
-                    <p class="mb-0 text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
-                        blanditiis
-                        excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
-                        accusamus.
-                    </p>
-                </div>
-                <div class="text-center">
-                    <h4 class="text-dark">Ethics And Corporate Responsibility</h4>
-                    <p class="mb-0 text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
-                        blanditiis
-                        excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
-                        accusamus.
-                    </p>
-                </div>
-
+            <div class="text-center">
+                <h4 class="text-dark">Sustainability</h4>
+                <p class="mb-0 text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
+                    blanditiis
+                    excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
+                    accusamus.
+                </p>
             </div>
+            <div class="text-center">
+                <h4 class="text-dark">Mapping our Impact</h4>
+                <p class="mb-0 text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
+                    blanditiis
+                    excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
+                    accusamus.
+                </p>
+            </div>
+            <div class="text-center">
+                <h4 class="text-dark">Responsible Beauty</h4>
+                <p class="mb-0 text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
+                    blanditiis
+                    excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
+                    accusamus.
+                </p>
+            </div>
+            <div class="text-center">
+                <h4 class="text-dark">Ethics And Corporate Responsibility</h4>
+                <p class="mb-0 text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
+                    blanditiis
+                    excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
+                    accusamus.
+                </p>
+            </div>
+
         </div>
     </div>
-    <!-- Our Impact End -->
+</div> --}}
+<!-- Our Impact End -->
+
+{{-- Reviews start --}}
+{{-- <div class="container-fluid pb-5">
+    <div class="container pb-5">
+        <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
+            <h1 class="display-5 mb-1">Trust Pilot - Reviews</h1>
+            <p class="mb-0">Real stories from our happy customers who have experienced our services.</p>
+        </div>
+
+        <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.2s">
+
+            <!-- Review 1 -->
+            <div class="text-center p-4 border rounded shadow">
+                <img src="https://randomuser.me/api/portraits/women/12.jpg" class="rounded-circle img-fluid"
+                    width="80" height="80" alt="Customer 1">
+                <h5 class="text-dark mt-2">Emily Johnson</h5>
+                <p class="text-muted">Marketing Manager</p>
+                <div class="mb-2 text-warning">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-half"></i>
+                </div>
+                <p class="mb-0 text-dark">"Absolutely loved the experience! The team is professional and their impact
+                    is visible."</p>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="text-center p-4 border rounded shadow">
+                <img src="https://randomuser.me/api/portraits/men/15.jpg" class="rounded-circle img-fluid"
+                    width="80" height="80" alt="Customer 2">
+                <h5 class="text-dark mt-2">Michael Smith</h5>
+                <p class="text-muted">Software Engineer</p>
+                <div class="mb-2 text-warning">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                </div>
+                <p class="mb-0 text-dark">"A life-changing experience! Their commitment to quality is beyond
+                    expectations."</p>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="text-center p-4 border rounded shadow">
+                <img src="https://randomuser.me/api/portraits/women/22.jpg" class="rounded-circle img-fluid"
+                    width="80" height="80" alt="Customer 3">
+                <h5 class="text-dark mt-2">Sophia Lee</h5>
+                <p class="text-muted">Business Owner</p>
+                <div class="mb-2 text-warning">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star"></i>
+                    <i class="bi bi-star"></i>
+                </div>
+                <p class="mb-0 text-dark">"Their service is great! A few areas for improvement, but overall fantastic!"
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div> --}}
+
+
+{{-- Reviews end --}}
 
 
 
-    <!-- Services Start -->
-    {{-- <div class="container-fluid service pb-5">
+<!-- Services Start -->
+{{-- <div class="container-fluid service pb-5">
         <div class="container pb-5">
             <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
                 <h4 class="text-primary">Our Story</h4>
@@ -685,10 +815,10 @@
             </div>
         </div>
     </div> --}}
-    <!-- Services End -->
+<!-- Services End -->
 
-    <!-- Features Start -->
-    {{-- <div class="container-fluid feature pb-5">
+<!-- Features Start -->
+{{-- <div class="container-fluid feature pb-5">
         <div class="container pb-5">
             <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
                 <h4 class="text-primary">Rewards & Offers</h4>
@@ -750,11 +880,11 @@
             </div>
         </div>
     </div> --}}
-    <!-- Features End -->
+<!-- Features End -->
 
 
-    <!-- Offer Start -->
-    {{-- <div class="container-fluid offer-section pb-5">
+<!-- Offer Start -->
+{{-- <div class="container-fluid offer-section pb-5">
         <div class="container pb-5">
             <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
                 <h4 class="text-primary">Our Offer</h4>
@@ -852,10 +982,10 @@
             </div>
         </div>
     </div> --}}
-    <!-- Offer End -->
+<!-- Offer End -->
 
-    <!-- FAQs Start -->
-    <!-- <div class="container-fluid faq-section pb-5">
+<!-- FAQs Start -->
+<!-- <div class="container-fluid faq-section pb-5">
         <div class="container pb-5 overflow-hidden">
             <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
                 <h4 class="text-primary">FAQs</h4>
@@ -970,60 +1100,68 @@
             </div>
         </div>
     </div> -->
-    <!-- FAQs End -->
-    <!-- Contact Us Modal -->
-    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header d-flex justify-content-center">
+<!-- FAQs End -->
+<!-- Contact Us Modal -->
+<div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header d-flex justify-content-center">
+                <div class="row">
+                    <h4 class="modal-title text-center w-100" id="contactModalLabel">Welcome to The GO AML Compliance Services FZE – Your Trusted AML Compliance Partner in the UAE</h4>
                     <h1 class="modal-title text-center w-100" id="contactModalLabel">Contact Us</h1>
                     <button type="button" class="btn-close position-absolute end-0 me-3" data-bs-dismiss="modal"
                         aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class="bi bi-person"></i></span>
-                                    <input type="text" class="form-control" placeholder="Name" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class="bi bi-envelope"></i></span>
-                                    <input type="email" class="form-control" placeholder="Email Address" required>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row g-3 mt-2">
-                            <div class="col-md-6">
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class="bi bi-telephone"></i></span>
-                                    <input type="text" class="form-control" placeholder="Contact No" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class="bi bi-info-circle"></i></span>
-                                    <input type="text" class="form-control" placeholder="Service Details" required>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mt-3">
+            </div>
+            <div class="modal-body">
+                <form id="quoteForm">
+                    @csrf
+                    <div class="row g-3">
+                        <div class="col-md-6">
                             <div class="input-group">
-                                <span class="input-group-text"><i class="bi bi-chat-dots"></i></span>
-                                <textarea class="form-control" rows="3" placeholder="How can we help you? Feel free to get in touch!" required></textarea>
+                                <span class="input-group-text"><i class="bi bi-person"></i></span>
+                                <input type="text" name="name" class="form-control" placeholder="Name"
+                                    required>
                             </div>
                         </div>
-                        <div class="text-center mt-3">
-                            <button type="submit" class="btn btn-primary btn-lg">GET QUOTE</button>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                <input type="email" name="email" class="form-control"
+                                    placeholder="Email Address" required>
+                            </div>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                    <div class="row g-3 mt-2">
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+                                <input type="text" name="phone" class="form-control" placeholder="Contact No"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-info-circle"></i></span>
+                                <input type="text" name="service" class="form-control"
+                                    placeholder="Service Details" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-chat-dots"></i></span>
+                            <textarea name="message" class="form-control" rows="3" placeholder="How can we help you?" required></textarea>
+                        </div>
+                    </div>
+                    <div class="text-center mt-3">
+                        <button type="submit" class="btn btn-primary btn-lg">GET QUOTE</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-
-    @include('layouts.footer')
+</div>
+<script>
+    </script>
+@include('layouts.footer')

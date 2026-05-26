@@ -13,12 +13,55 @@
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css">
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <style>
+        .dropdown-submenu {
+            position: relative;
+        }
+        
+        .dropdown-submenu .dropdown-menu {
+            top: 0;
+            left: 100%;
+            margin-top: -1px;
+        }
+        
+        /* Desktop */
+        @media (min-width: 992px) {
+            .dropdown-menu {
+                display: none !important;
+            }
+            
+            .dropdown:hover > .dropdown-menu,
+            .dropdown-submenu:hover > .dropdown-menu {
+                display: block !important;
+            }
+        }
+        
+        /* Mobile */
+        @media (max-width: 991.98px) {
+            .dropdown-submenu .dropdown-menu {
+                left: 0;
+                margin-left: 1rem;
+            }
+        }
+        
+        /* Arrow indicator */
+        .dropdown-submenu > a::after {
+            display: inline-block;
+            margin-left: 0.5em;
+            vertical-align: middle;
+            content: "";
+            border-top: 0.3em solid transparent;
+            border-right: 0;
+            border-bottom: 0.3em solid transparent;
+            border-left: 0.3em solid;
+        }
+    </style>
 </head>
 
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" href="index.html">Nano</a>
+        <a class="navbar-brand ps-3" href="index.html">GoAML</a>
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
                 class="fas fa-bars"></i></button>
@@ -78,20 +121,25 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Category
                         </a>
-                        <a class="nav-link {{ request()->routeIs('products.*') || request()->routeIs('generate-codes') ? 'active' : '' }}"
-                            href="{{ route('products.index') }}">
+                        <a class="nav-link {{ request()->routeIs('blogs.*') ? 'active' : '' }}"
+                            href="{{ route('blogs.index') }}">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            Product
+                            Blog
+                        </a>
+                        <a class="nav-link {{ request()->routeIs('blogs.*') ? 'active' : '' }}"
+                            href="{{ route('news.index') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            News
+                        </a>
+                        <a class="nav-link {{ request()->routeIs('blogs.*') ? 'active' : '' }}"
+                            href="{{ route('contents.index') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Contents
                         </a>
                         <a class="nav-link {{ request()->routeIs('home-sliders.*') ? 'active' : '' }}"
                             href="{{ route('home-sliders.index') }}">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Home Sliders
-                        </a>
-                        <a class="nav-link {{ request()->routeIs('blogs.*') ? 'active' : '' }}"
-                            href="{{ route('blogs.index') }}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            Blog
                         </a>
                         <!-- <div class="sb-sidenav-menu-heading">Interface</div>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -181,16 +229,16 @@
             </footer>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        crossorigin="anonymous"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script> --}}
     <!-- <script src="js/scripts.js"></script> -->
-    <script src="{{ asset('js/scripts.js') }}"></script>
+    {{-- <script src="{{ asset('js/scripts.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
     <script src="assets/demo/chart-area-demo.js"></script>
     <script src="assets/demo/chart-bar-demo.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script> --}}
     <!-- <script src="js/datatables-simple-demo.js"></script> -->
-    <script src="{{ asset('js/datatables-simple-demo.js') }}"></script>
+    {{-- <script src="{{ asset('js/datatables-simple-demo.js') }}"></script>
 </body>
 
-</html>
+</html> --}}

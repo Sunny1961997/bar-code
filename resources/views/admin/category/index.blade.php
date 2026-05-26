@@ -1,54 +1,51 @@
 @extends('admin.layouts.header')
+
 @section('content')
 <div class="container-fluid px-4">
-    <h1 class="mt-4">Category</h1>
-    <div class="card mb-4">
+    <h1 class="mt-4">Category Management</h1>
+
+    <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
-            <i class="fas fa-table me-1"></i>
-            <span>Category List</span>
-            <a href="{{ route('categories.create') }}" class="btn btn-primary">Add Category</a>
+            <h5 class="mb-0"><i class="fas fa-list"></i> Category List</h5>
+            <a href="{{ route('categories.create') }}" class="btn btn-primary">
+                <i class="fas fa-plus"></i> Add Category
+            </a>
         </div>
+
         <div class="card-body">
-            <table id="datatablesSimple">
-                <thead>
+            <table class="table table-bordered table-striped" id="categoryTable">
+                <thead class="table-dark">
                     <tr>
+                        <th>#</th>
                         <th>Name</th>
-                        <th>Short description</th>
+                        <th>Short Description</th>
                         <th>Image</th>
-                        <th>Action</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
-                <tfoot>
-                    <tr>
-                        <th>Name</th>
-                        <th>Short description</th>
-                        <th>Image</th>
-                        <th>Action</th>
-                    </tr>
-                </tfoot>
                 <tbody>
-                    @foreach ($category as $cat)
+                    @foreach ($category as $index => $category)
                         <tr>
+                            <td>{{ $index + 1 }}</td>
+                            <td>{{ $category->name }}</td>
+                            <td>{{ $category->short_description }}</td>
                             <td>
-                                {{ $cat->name }}
-                            </td>
-                            <td>
-                                {{ $cat->short_description }}
-                            </td>
-                            <td>
-                                @if ($cat->image)
-                                <img src="{{ asset($cat->image) }}" alt="{{ $cat->name }}" style="width: 100px; height: auto;">
-
+                                @if ($category->image)
+                                    <img src="{{ asset($category->image) }}" alt="{{ $category->name }}" class="img-thumbnail" width="80">
                                 @else
-                                    No Image
+                                    <span class="text-muted">No Image</span>
                                 @endif
                             </td>
                             <td>
-                                <a href="{{ route('categories.edit', $cat->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                                <form action="{{ route('categories.destroy', $cat->id) }}" method="POST" style="display:inline;">
+                                <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-warning btn-sm">
+                                    <i class="fas fa-edit"></i> Edit
+                                </a>
+                                <form action="{{ route('categories.destroy', $category->id) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this category?');">Delete</button>
+                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?');">
+                                        <i class="fas fa-trash"></i> Delete
+                                    </button>
                                 </form>
                             </td>
                         </tr>
@@ -56,6 +53,7 @@
                 </tbody>
             </table>
         </div>
-
     </div>
-    @endsection
+</div>
+
+@endsection

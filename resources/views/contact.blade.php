@@ -1,21 +1,5 @@
 @include('layouts.header')
 
-<!-- Hero Section -->
-<section class="position-relative text-white d-flex align-items-center justify-content-center"
-    style="height: 100vh; overflow: hidden;">
-    <div class="hero-bg position-absolute top-0 start-0 w-100 h-100"
-        style="background:
-        url('{{ asset('img/worker.jpeg') }}') no-repeat center center; 
-        background-size: cover; 
-        background-position: center;
-        z-index: -1;">
-    </div>
-    <div class="w-100 text-center px-3">
-        <h1 class="text-white fw-bold mb-4">Welcome to AKW Consultants</h1>
-        <p class="lead fw-bold">Your trusted partner in business consulting.</p>
-        {{-- <a href="#services" class="btn btn-primary btn-lg">Explore Services</a> --}}
-    </div>
-</section>
 
 
 
@@ -25,18 +9,19 @@
         <h1 class="display-5 mb-4">Book a Free Consultation</h1>
     </div>
 
-    <form>
+    <form id="consultationForm">
+        @csrf
         <div class="row g-3">
             <div class="col-md-6">
                 <div class="input-group">
                     <span class="input-group-text"><i class="bi bi-person"></i></span>
-                    <input type="text" class="form-control" placeholder="Name" required>
+                    <input type="text" name="name" class="form-control" placeholder="Name" required>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="input-group">
                     <span class="input-group-text"><i class="bi bi-envelope"></i></span>
-                    <input type="email" class="form-control" placeholder="Email Address" required>
+                    <input type="email" name="email" class="form-control" placeholder="Email Address" required>
                 </div>
             </div>
         </div>
@@ -44,24 +29,24 @@
             <div class="col-md-6">
                 <div class="input-group">
                     <span class="input-group-text"><i class="bi bi-telephone"></i></span>
-                    <input type="text" class="form-control" placeholder="Contact No" required>
+                    <input type="text" name="phone" class="form-control" placeholder="Contact No" required>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="input-group">
                     <span class="input-group-text"><i class="bi bi-info-circle"></i></span>
-                    <input type="text" class="form-control" placeholder="Service Details" required>
+                    <input type="text" name="service" class="form-control" placeholder="Service Details" required>
                 </div>
             </div>
         </div>
         <div class="mt-3">
             <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-chat-dots"></i></span>
-                <textarea class="form-control" rows="3" placeholder="How can we help you? Feel free to get in touch!" required></textarea>
+                <textarea name="message" class="form-control" rows="3" placeholder="How can we help you? Feel free to get in touch!" required></textarea>
             </div>
         </div>
         <div class="text-center mt-3">
-            <button type="submit" class="btn btn-primary btn-lg">Book</button>
+            <button type="submit" class="btn btn-primary btn-lg">Book Consultation</button>
         </div>
     </form>
 </div>
@@ -75,23 +60,29 @@
                     <div class="col-md-6 col-lg-6 col-xl-3">
                         <div>
                             <h4 class="mb-4">Email</h4>
-                            <p class="mb-4">example@example.com</p>
+                            <p class="mb-4">infoamlshop@gmail.com</p>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 col-xl-3">
                         <div>
                             <h4 class="mb-4">Call Us</h4>
-                            <p class="mb-4">+971.......</p>
-                            <p class="mb-4">+971.......</p>
-                            <p class="mb-4">+971.......</p>
-                            <p class="mb-4">+971.......</p>
-                            <p class="mb-4">+971.......</p>
+                            <p class="mb-4">+971509627076</p>
+                            <p class="mb-4">+971562953927</p>
+                            <p class="mb-4">+0588961136</p>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 col-xl-3">
                         <div>
                             <h4 class="mb-4">Visit Us</h4>
-                            <p>2603A, Saba 1, Cluster E, Jumeirah Lake Towers, Dubai, UAE</p>
+                            <p>
+                                <span class="text-black fw-bold">Register Address:</span><br>
+                                B.C. 1300531<br>
+                                Ajman Free Zone C1 Building<br>
+                                Ajman Free Zone United Arab Emirates<br>
+                                Makani No. 4442612247<br><br>
+                                <span class="text-black fw-bold">Communication Address:</span><br>
+                                Gold souk Al Ras Deira Dubai
+                            </p>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 col-xl-3">
@@ -127,15 +118,7 @@
             </div>
             <div class="col-12">
                 <div class="ratio ratio-16x9">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21761.94479022698!2d55.25932090642559!3d25.19056849424511!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43348a67e24b%3A0xff45e502e1ceb7e2!2sBurj%20Khalifa!5e0!3m2!1sen!2sbd!4v1738500070173!5m2!1sen!2sbd" 
-                        width="600" 
-                        height="450" 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7216.022731460251!2d55.2944519!3d25.2702031!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43438edb60cd%3A0xbc047ee4e16b356d!2sDubai%20Gold%20Souk!5e0!3m2!1sen!2sbd!4v1743063018869!5m2!1sen!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>

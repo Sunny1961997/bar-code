@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Brand Name - Website moto</title>
+    <title>The Go AML - Compliance Without Compromise</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -27,35 +27,37 @@
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Template Stylesheet -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
 <body>
 
-    <!-- Spinner Start -->
-    <div id="spinner"
-        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-    </div>
-    <!-- Spinner End -->
+    
     <!-- Contact button start -->
-    <div class="position-fixed end-0 top-50 translate-middle-y">
-        <div class="d-flex flex-column">
-            <button class="btn btn-white border-dark bg-white btn-lg d-none d-md-block">
+    <!-- Floating Chat Buttons -->
+    <div class="position-fixed end-0 top-50 translate-middle-y p-3" style="z-index: 1050;">
+        <div class="d-flex flex-column align-items-end">
+            <!-- Phone Button -->
+            <a href="tel:+971509627076" class="btn btn-white border-dark bg-white btn-lg mb-2 d-block">
                 <i class="bi bi-telephone text-dark"></i>
-            </button>
-    
-            <button class="btn btn-dark btn-lg d-none d-md-block">
+            </a>
+
+            <!-- Email Button -->
+            <a href="mailto:infoamlshop@gmail.com" class="btn btn-dark btn-lg mb-2 d-block">
                 <i class="bi bi-envelope"></i>
-            </button>
-    
-            <button class="btn btn-success btn-lg d-none d-md-block">
+            </a>
+
+            <!-- WhatsApp Chat Button -->
+            <a href="https://wa.me/+971509627076" target="_blank" class="btn btn-success btn-lg d-block">
                 <i class="bi bi-whatsapp"></i>
-            </button>
+            </a>
         </div>
     </div>
-    
+
+
+
+
+
     <!-- Contact button end -->
 
     <!-- Topbar Start -->
@@ -63,21 +65,26 @@
         <div class="row gx-0 align-items-center">
             <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
                 <div class="d-flex flex-wrap">
-                    <a href="#" class="text-muted small me-4"><i class="fas fa-clock text-primary me-2" aria-hidden="true"></i>Mon - Sat: 09:00 - 18:00 </a>
-                    <a href="tel:+01234567890" class="text-muted small me-4"><i class="fas fa-phone-alt text-primary me-2"></i>+01234567890</a>
-                    <a href="mailto:example@gmail.com" class="text-muted small me-0"><i
-                            class="fas fa-envelope text-primary me-2"></i>Example@gmail.com</a>
+                    <a href="#" class="text-muted small me-4"><i class="fas fa-clock text-primary me-2"
+                            aria-hidden="true"></i>Mon - Sat: 09:00 - 18:00 </a>
+                    <a href="tel:+971509627076" class="text-muted small me-4"><i
+                            class="fas fa-phone-alt text-primary me-2"></i>+971509627076</a>
+                    <a href="tel:+971562953927" class="text-muted small me-4"></i>+971562953927</a>
+                    <a href="mailto:infoamlshop@gmail.com" class="text-muted small me-0"><i
+                            class="fas fa-envelope text-primary me-2"></i>infoamlshop@gmail.com</a>
                 </div>
             </div>
             <div class="col-lg-4 text-center text-lg-end">
                 <div class="d-flex justify-content-end ms-2">
-                    <a class="btn btn-md-square btn-light rounded-circle me-2" href="#"><i
+                    <a class="btn btn-md-square btn-light rounded-circle me-2"
+                        href="https://www.facebook.com/profile.php?id=61567133731825"><i
                             class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-md-square btn-light rounded-circle mx-2" href="#"><i
                             class="fab fa-twitter"></i></a>
                     <a class="btn btn-md-square btn-light rounded-circle mx-2" href="#"><i
                             class="fab fa-instagram"></i></a>
-                    <a class="btn btn-md-square btn-light rounded-circle ms-2" href="#"><i
+                    <a class="btn btn-md-square btn-light rounded-circle ms-2"
+                        href="https://www.linkedin.com/company/goaml-consultancy/?viewAsMember=true"><i
                             class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
@@ -86,44 +93,72 @@
     <!-- Topbar End -->
 
     <!-- Navbar & Hero Start -->
-    <div class="container-fluid position-relative p-0 pb-3">
+    <div class="container-fluid position-relative p-0 pb-3 shadow">
         <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
-            <a href="" class="navbar-brand p-0">
-                <!-- <h1 class="text-primary"><i class="fas fa-search-dollar me-3"></i>Logo</h1> -->
-                <img src="{{ asset('img/nanoLogo.png') }}" alt="Logo">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span class="fa fa-bars"></span>
-            </button>
+            <div class="d-flex align-items-center w-100">
+                <a href="" class="navbar-brand p-0 m-0">
+                    <img src="{{ asset('img/go-aml3.png') }}" alt="Logo">
+                </a>
+                <h4 class="fst-italic mb-0 mx-2" style="color: #292f60;">
+                    <span class="d-none d-md-inline">Compliance Without Compromise</span>
+                    <span class="d-md-none">
+                        Compliance<br>
+                        Without<br>
+                        Compromise
+                    </span>
+                </h4>
+                <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+            </div>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
                     <a href="{{ route('/') }}"
-                        class="nav-item nav-link {{ request()->is('/') ? 'active' : '' }}">Home</a>
+                        class="nav-item nav-link {{ request()->is('/') ? 'active' : '' }} text-nowrap">Home</a>
+
+                    
+                    <a href="{{ route('compliance-solutions') }}"
+                        class="nav-item nav-link {{ request()->is('compliance-solutions') ? 'active' : '' }} text-nowrap">Compliance Solutions</a>
+                    <a href="{{ route('about') }}"
+                        class="nav-item nav-link {{ request()->is('about') ? 'active' : '' }} text-nowrap">About Us</a>
+                    {{-- <a href="{{ route('partnership') }}"
+                        class="nav-item nav-link {{ request()->is('partnership') ? 'active' : '' }}">Partnership</a> --}}
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link" data-bs-toggle="dropdown">
-                            <span class="dropdown-toggle">Services</span>
+                        <a href="#" class="nav-link text-nowrap" data-bs-toggle="dropdown"
+                            style="color: black !important;">
+                            <span class="dropdown-toggle">Resources</span>
                         </a>
                         <div class="dropdown-menu m-0">
-                            <a href="feature.html" class="dropdown-item">Our Features</a>
-                            <a href="team.html" class="dropdown-item">Our team</a>
-                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                            <a href="offer.html" class="dropdown-item">Our offer</a>
-                            <a href="FAQ.html" class="dropdown-item">FAQs</a>
-                            <a href="404.html" class="dropdown-item">404 Page</a>
+                            <a href="feature.html" class="dropdown-item">Case Studies</a>
+                            <a href="team.html" class="dropdown-item">Certifications</a>
+                            <div class="nested-dropdown">
+                                <a href="#"
+                                    class="dropdown-item d-flex justify-content-between align-items-center">
+                                    Training
+                                    <i class="fas fa-chevron-right ms-2"></i>
+                                </a>
+                                <div class="nested-menu">
+                                    <a href="#" class="dropdown-item">Feature 1</a>
+                                    <a href="#" class="dropdown-item">Feature 2</a>
+                                    <a href="#" class="dropdown-item">Feature 3</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-                    <!-- Sustainability link -->
-                    <a href="{{ route('sustainability') }}" class="nav-item nav-link {{ request()->is('sustainability') ? 'active' : '' }}">Sustainability</a>
-                    <a href="{{ route('smart-compilance') }}" class="nav-item nav-link {{ request()->is('smart-compilance') ? 'active' : '' }}">Smart GoALM Compilance</a>
-                    <a href="{{ route('insights') }}" class="nav-item nav-link {{ request()->is('insights') ? 'active' : '' }}">Insights</a>
-                    <a href="{{ route('about') }}" class="nav-item nav-link {{ request()->is('about') ? 'active' : '' }}">About GoAKW</a>
-                    <a href="{{ route('contact') }}" class="nav-item nav-link {{ request()->is('contact') ? 'active' : '' }}">Contact GoAKW</a>
-
-                    {{-- <a href="#company" class="nav-item nav-link">Company</a>
-                    <a href="#investors" class="nav-item nav-link">Investors</a>
-                    <a href="#about_us" class="nav-item nav-link">Our Company</a> --}}
-                    <!-- <a href="contact.html" class="nav-item nav-link">Contact Us</a> -->
+                    <div class="nav-item dropdown">
+                        <a href="{{ route('insights') }}"
+                            class="nav-item nav-link {{ request()->is('blog') ? 'active' : '' }} text-nowrap"
+                            style="color: black !important;">
+                            <span class="dropdown-toggle">
+                                Compliance Insights
+                            </span>
+                        </a>
+                        <div class="dropdown-menu m-0">
+                            <a href="{{ route('blog') }}" class="dropdown-item">Blogs</a>
+                            <a href="{{ route('news') }}" class="dropdown-item">News</a>
+                        </div>
+                    </div>
+                    <a href="{{ route('contact') }}" class="nav-item nav-link text-nowrap">Contact Us</a>
                 </div>
                 <!-- <a href="#" class="btn btn-primary rounded-pill py-2 px-4 my-3 my-lg-0 flex-shrink-0">Get Started</a> -->
             </div>
@@ -132,3 +167,11 @@
 
     </div>
     <!-- Navbar & Hero End -->
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed top-50 start-50 translate-middle d-flex align-items-center justify-content-center" style="width: 100vw; height: 100vh; z-index: 1050;">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    
+    <!-- Spinner End -->

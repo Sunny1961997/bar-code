@@ -1,54 +1,35 @@
 @extends('admin.layouts.header')
+
 @section('content')
 <div class="container-fluid px-4">
-    <h1 class="mt-4">Blog</h1>
-    <div class="card mb-4">
-        <div class="card-header d-flex justify-content-between align-items-center">
-            <i class="fas fa-table me-1"></i>
-            <span>Blog List</span>
+    <h1 class="mt-4">Blogs</h1>
+    <div class="card">
+        <div class="card-header">
             <a href="{{ route('blogs.create') }}" class="btn btn-primary">Add Blog</a>
         </div>
         <div class="card-body">
-            <table id="datatablesSimple">
+            <table class="table table-bordered table-striped">
                 <thead>
                     <tr>
                         <th>Title</th>
-                        <th>Description</th>
+                        <th>Category</th>
                         <th>Image</th>
-                        <th>Action</th>
+                        <th>Published</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
-                <tfoot>
-                    <tr>
-                        <th>Title</th>
-                        <th>Description</th>
-                        <th>Image</th>
-                        <th>Action</th>
-                    </tr>
-                </tfoot>
                 <tbody>
-                    @foreach ($blog as $cat)
+                    @foreach ($blogs as $blog)
                         <tr>
+                            <td>{{ $blog->title }}</td>
+                            <td>{{ $blog->category->name }}</td>
+                            <td><img src="{{ asset($blog->image) }}" width="80"></td>
+                            <td>{{ $blog->publish ? 'Yes' : 'No' }}</td>
                             <td>
-                                {{ $cat->title }}
-                            </td>
-                            <td>
-                                {{ $cat->description }}
-                            </td>
-                            <td>
-                                @if ($cat->image)
-                                <img src="{{ asset($cat->image) }}" alt="{{ $cat->title }}" style="width: 100px; height: auto;">
-
-                                @else
-                                    No Image
-                                @endif
-                            </td>
-                            <td>
-                                <a href="{{ route('blogs.edit', $cat->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                                <form action="{{ route('blogs.destroy', $cat->id) }}" method="POST" style="display:inline;">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this blog?');">Delete</button>
+                                <a href="{{ route('blogs.edit', $blog->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                                <form action="{{ route('blogs.destroy', $blog->id) }}" method="POST" class="d-inline">
+                                    @csrf @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?');">Delete</button>
                                 </form>
                             </td>
                         </tr>
@@ -56,6 +37,6 @@
                 </tbody>
             </table>
         </div>
-
     </div>
-    @endsection
+</div>
+@endsection

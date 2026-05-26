@@ -10,7 +10,7 @@
         z-index: -1;">
     </div>
     <div class="w-100 text-center px-3">
-        <h1 class="text-white fw-bold mb-4">Welcome to AKW Consultants</h1>
+        <h1 class="text-white fw-bold mb-4">Welcome to GoAML Consultants</h1>
         <p class="lead fw-bold">Your trusted partner in business consulting.</p>
         {{-- <a href="#services" class="btn btn-primary btn-lg">Explore Services</a> --}}
     </div>
@@ -30,16 +30,9 @@
         <div class="col-xl-6 wow fadeInLeft" data-wow-delay="0.2s">
             <div>
                 <p class="">
-                    Established in 2018 and headquartered in Dubai, UAE, with a branch in London, GoAKW Consultants
-                    has quickly gained recognition as an award-winning leader in governance, risk and compliance,
-                    audit, tax advisory, financial accounting, transaction advisory, sustainability and responsible
-                    business practices, and business strategy advisory services. Our team of over 70 experts serves
-                    more than 1,000 clients worldwide, guided by a commitment to ethical and sustainable practices,
-                    certified with ISO 9001:2015 and accredited as a DMCC-approved UAE Good Delivery Auditor for the
-                    Gold and Precious Metals sector. We continuously expand our service offerings and recently we
-                    have ventured into AI Governance, Software Development Solutions, and Cyber Security and IT
-                    Advisory, showcasing our dedication to innovation and addressing the evolving needs of modern
-                    businesses.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
+                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
+                            accusamus.
                 </p>
             </div>
         </div>
@@ -243,7 +236,11 @@
                     <div>
                         <h3 class="h4 mb-1">Faisal Ahmed</h3>
                         <p class="text-muted mb-3">CEO & Managing Partner</p>
-                        <p class="mb-4">Faisal Ahmed serves as the Managing Partner & CEO of AKW Consultants, bringing a wealth of experience and expertise to the organisation. With over 23 years of global experience in financial crime compliance, anti-money laundering, tax advisory, and auditing, Faisal is a distinguished chartered accountant.</p>
+                        <p class="mb-4">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
+                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
+                            accusamus.
+                        </p>
                         <button class="btn btn-info text-white rounded-pill px-4">
                             Read More →
                         </button>
@@ -258,7 +255,11 @@
                     <div>
                         <h3 class="h4 mb-1">Kenneth Khalkho</h3>
                         <p class="text-muted mb-3">Director</p>
-                        <p class="mb-4">With a remarkable 27-year career, Kenneth is a thought leader in CSR, sustainability, and climate change, with his insights featured in notable publications. Kenneth is a thought leader in CSR, sustainability, and climate change featured in several notable publications.</p>
+                        <p class="mb-4">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
+                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
+                            accusamus.
+                        </p>
                         <button class="btn btn-info text-white rounded-pill px-4">
                             Read More →
                         </button>
