@@ -35,20 +35,20 @@
     
     <!-- Contact button start -->
     <!-- Floating Chat Buttons -->
-    <div class="position-fixed end-0 top-50 translate-middle-y p-3" style="z-index: 1050;">
-        <div class="d-flex flex-column align-items-end">
+    <div class="floating-contact-stack position-fixed end-0 top-50 translate-middle-y p-3">
+        <div class="floating-contact-stack__inner d-flex flex-column align-items-end gap-2">
             <!-- Phone Button -->
-            <a href="tel:+971509627076" class="btn btn-white border-dark bg-white btn-lg mb-2 d-block">
+            <a href="tel:+971509627076" class="floating-contact-btn floating-contact-btn--phone d-block" aria-label="Call us">
                 <i class="bi bi-telephone text-dark"></i>
             </a>
 
             <!-- Email Button -->
-            <a href="mailto:infoamlshop@gmail.com" class="btn btn-dark btn-lg mb-2 d-block">
+            <a href="mailto:infoamlshop@gmail.com" class="floating-contact-btn floating-contact-btn--email d-block" aria-label="Email us">
                 <i class="bi bi-envelope"></i>
             </a>
 
             <!-- WhatsApp Chat Button -->
-            <a href="https://wa.me/+971509627076" target="_blank" class="btn btn-success btn-lg d-block">
+            <a href="https://wa.me/+971509627076" target="_blank" rel="noreferrer" class="floating-contact-btn floating-contact-btn--whatsapp d-block" aria-label="Chat on WhatsApp">
                 <i class="bi bi-whatsapp"></i>
             </a>
         </div>
@@ -61,35 +61,37 @@
     <!-- Contact button end -->
 
     <!-- Topbar Start -->
-    <div class="container-fluid topbar bg-light px-5 d-none d-lg-block">
-        <div class="row gx-0 align-items-center">
-            <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
-                <div class="d-flex flex-wrap">
-                    <a href="#" class="text-muted small me-4"><i class="fas fa-clock text-primary me-2"
-                            aria-hidden="true"></i>Mon - Sat: 09:00 - 18:00 </a>
-                    <a href="tel:+971509627076" class="text-muted small me-4"><i
-                            class="fas fa-phone-alt text-primary me-2"></i>+971509627076</a>
-                    <a href="tel:+971562953927" class="text-muted small me-4"></i>+971562953927</a>
-                    <a href="mailto:infoamlshop@gmail.com" class="text-muted small me-0"><i
-                            class="fas fa-envelope text-primary me-2"></i>infoamlshop@gmail.com</a>
+    @unless (request()->is('/'))
+        <div class="container-fluid topbar bg-light px-5 d-none d-lg-block">
+            <div class="row gx-0 align-items-center">
+                <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
+                    <div class="d-flex flex-wrap">
+                        <a href="#" class="text-muted small me-4"><i class="fas fa-clock text-primary me-2"
+                                aria-hidden="true"></i>Mon - Sat: 09:00 - 18:00 </a>
+                        <a href="tel:+971509627076" class="text-muted small me-4"><i
+                                class="fas fa-phone-alt text-primary me-2"></i>+971509627076</a>
+                        <a href="tel:+971562953927" class="text-muted small me-4"></i>+971562953927</a>
+                        <a href="mailto:infoamlshop@gmail.com" class="text-muted small me-0"><i
+                                class="fas fa-envelope text-primary me-2"></i>infoamlshop@gmail.com</a>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-4 text-center text-lg-end">
-                <div class="d-flex justify-content-end ms-2">
-                    <a class="btn btn-md-square btn-light rounded-circle me-2"
-                        href="https://www.facebook.com/profile.php?id=61567133731825"><i
-                            class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-md-square btn-light rounded-circle mx-2" href="#"><i
-                            class="fab fa-twitter"></i></a>
-                    <a class="btn btn-md-square btn-light rounded-circle mx-2" href="#"><i
-                            class="fab fa-instagram"></i></a>
-                    <a class="btn btn-md-square btn-light rounded-circle ms-2"
-                        href="https://www.linkedin.com/company/goaml-consultancy/?viewAsMember=true"><i
-                            class="fab fa-linkedin-in"></i></a>
+                <div class="col-lg-4 text-center text-lg-end">
+                    <div class="d-flex justify-content-end ms-2">
+                        <a class="btn btn-md-square btn-light rounded-circle me-2"
+                            href="https://www.facebook.com/profile.php?id=61567133731825"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-md-square btn-light rounded-circle mx-2" href="#"><i
+                                class="fab fa-twitter"></i></a>
+                        <a class="btn btn-md-square btn-light rounded-circle mx-2" href="#"><i
+                                class="fab fa-instagram"></i></a>
+                        <a class="btn btn-md-square btn-light rounded-circle ms-2"
+                            href="https://www.linkedin.com/company/goaml-consultancy/?viewAsMember=true"><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    @endunless
     <!-- Topbar End -->
 
     <!-- Navbar & Hero Start -->

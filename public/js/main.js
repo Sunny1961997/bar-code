@@ -131,6 +131,21 @@
         return false;
     });
 
+    function openLandingIntroModal() {
+        const introModalElement = document.getElementById('landingIntroModal');
+        if (introModalElement && (window.location.pathname === '/' || window.location.pathname === '')) {
+            setTimeout(function () {
+                bootstrap.Modal.getOrCreateInstance(introModalElement).show();
+            }, 300);
+        }
+    }
+
+    if (document.readyState === 'complete') {
+        openLandingIntroModal();
+    } else {
+        window.addEventListener('load', openLandingIntroModal, { once: true });
+    }
+
     // $(document).ready(function() {
     //     // Smooth scrolling on click
     //     $('.nav-link').click(function(event) {
@@ -155,11 +170,6 @@
     //         $(this).addClass('active');
     //     });
     // });
-
-    document.addEventListener("DOMContentLoaded", function () {
-        var myModal = new bootstrap.Modal(document.getElementById('contactModal'));
-        myModal.show();
-    });
 
     // Dropdown handling
     $(document).ready(function() {
@@ -248,7 +258,10 @@
                 success: function (response) {
                     alert(response.success);
                     $("#quoteForm")[0].reset();
-                    $("#contactModal").modal("hide");
+                    const contactModalElement = document.getElementById('contactModal');
+                    if (contactModalElement) {
+                        bootstrap.Modal.getOrCreateInstance(contactModalElement).hide();
+                    }
                 },
                 error: function (xhr) {
                     alert(xhr.responseJSON.error || 'An error occurred. Please try again.');

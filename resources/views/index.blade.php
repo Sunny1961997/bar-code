@@ -1,1167 +1,398 @@
 @include('layouts.header')
 
-<!-- Carousel Start -->
-<div id="home" class="header-carousel owl-carousel vh-100">
-    @foreach ($homeSliders as $slider)
-        <div class="header-carousel-item vh-100">
-            @if ($slider->image)
-                <img src="{{ asset($slider->image) }}" class="w-100 h-100 object-fit-cover" alt="{{ $slider->title }}">
-            @else
-                <img src="{{ asset('img/default-image.webp') }}" class="w-100 h-100 object-fit-cover" alt="Default Image">
-            @endif
-            <div class="carousel-caption d-flex align-items-center">
-                <div class="container">
-                    <div class="row gy-0 gx-5">
-                        <div class="col-lg-0 col-xl-5"></div>
-                        <div class="col-xl-7 animated fadeInRight">
-                            <div class="text-sm-center text-md-end">
-                                <h1 class="text-white fw-bold mb-4">
-                                    {{ $slider->title }}
-                                </h1>
-                                <h6 class="display-4 text-white mb-4">
-                                    {{ $slider->subtitle }}
-                                </h6>
-                                <p class="mb-5 fs-5">
-                                    {{ $slider->description }}
-                                </p>
-                                <div class="d-flex justify-content-center justify-content-md-end flex-shrink-0 mb-4">
-                                    @if ($slider->url)
-                                        <a class="btn btn-light rounded-pill py-3 px-4 px-md-5 me-2"
-                                            href="{{ $slider->url }}">
-                                            <i class="fas fa-play-circle me-2"></i> Watch Video
-                                        </a>
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
+@php
+    $heroSlider = $homeSliders->first();
+    $heroImage = $heroSlider && $heroSlider->image ? asset($heroSlider->image) : asset('img/default-image.webp');
+@endphp
+
+<div class="modal fade landing-intro-modal" id="landingIntroModal" tabindex="-1" aria-labelledby="landingIntroModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content border-0 overflow-hidden">
+            <div class="modal-body p-0">
+                <div class="row g-0">
+                    <div class="col-lg-5 landing-intro-modal__visual">
+                        <img src="{{ $heroImage }}" alt="AML compliance overview" class="w-100 h-100 object-fit-cover">
                     </div>
-                </div>
-            </div>
-        </div>
-    @endforeach
-</div>
-<!-- Carousel End -->
-
-<div class="container pb-4 text-dark">
-    <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-        <!-- <h4 class="text-primary">Comapany</h4> -->
-        {{-- <h1 class="display-8 m-2">Welcome to The GO AML Compliance Services FZE – Your Trusted AML Compliance Partner in the UAE</h1> --}}
-    </div>
-    <div class="col wow fadeInRight" data-wow-delay="0.2s">
-        <p>
-            In today’s evolving regulatory landscape, staying compliant is not just a requirement—it’s a necessity. 
-            At The Go AML Compliance Services FZE, we specialize in delivering expert compliance consultancy services 
-            across various industries in the UAE.
-        </p>
-        
-        <p>
-            Our team of seasoned professionals helps businesses navigate complex regulatory frameworks, 
-            ensuring full adherence to Anti-Money Laundering (AML), 
-            Counter-Terrorism Financing (CFT), and other regulatory compliance requirements 
-            as per UAE Federal Decree Law 20/2018.
-        </p>
-
-        <p>
-            Whether you operate in real estate, gold & precious metals, financial services, corporate service providers,
-            or any other regulated sector in the United Arab Emirates, we are your trusted compliance partner.
-        </p>
-
-        <p>
-            Our expert guidance ensures that your business aligns with UAE AML laws, Federal Decree Laws, Cabinet Decisions, 
-            FATF recommendations, and local regulatory mandates—protecting you from financial crime risks.
-        </p>
-
-        <p>
-            With a proactive, risk-based approach, our AML compliance services empower businesses to foster transparency, 
-            mitigate risks, and maintain regulatory confidence.
-        </p>
-    </div>
-</div>
-
-<div class="container pb-4 text-dark">
-    <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-        <!-- <h4 class="text-primary">Comapany</h4> -->
-        <h1 class="display-8 m-2">Why AML Compliance Matters in the UAE?</h1>
-    </div>
-    <div class="col wow fadeInUp" data-wow-delay="0.2s">
-        <p>
-            The UAE has strengthened its AML/CFT regulations to align with 
-            Financial Action Task Force (FATF)guidelines and ensure compliance with 
-            Federal Decree Law 20/2018 and Cabinet Decision No. (10) of 2019.
-        </p>
-
-        <p>Regulatory authorities enforcing strict compliance measures include:</p>
-
-        <ul>
-            <li>The UAE Central Bank</li>
-            <li>Ministry of Economy</li>
-            <li>Financial Intelligence Unit (FIU)</li>
-            <li>Securities and Commodities Authority (SCA)</li>
-            <li>Dubai Multi Commodities Centre (DMCC)</li>
-        </ul>
-
-        <p>
-            These authorities enforce strict compliance measures for financial institutions and 
-            Designated Non-Financial Business Professionals (DNFBPs) in the UAE.
-        </p>
-
-        <p>
-            Non-compliance can lead to hefty fines, business restrictions, 
-            and reputational damage to your entity.
-        </p>
-    </div>
-</div>
-
-<div class="container-fluid testimonial pb-1">
-    <div class="container pb-5">
-        <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-            <h1 class="display-5 mb-4">Why Choose The Go AML Compliance Services FZE-?</h1>
-        </div>
-        <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.2s">
-            <!-- Example of a testimonial item -->
-            <div class="testimonial-item text-center d-flex flex-column align-items-center justify-content-center">
-                {{-- <div class=""> --}}
-                    <h4 class="text-dark">UAE AML/CFT Compliance Experts </h4>
-                {{-- </div> --}}
-                {{-- <div class=""> --}}
-                    <p class="mb-0 text-dark">Extensive knowledge of UAE-specific AML regulations and enforcement requirements.</p>
-                {{-- </div> --}}
-            </div>
-            <div class="testimonial-item text-center d-flex flex-column align-items-center justify-content-center">
-                <div class="">
-                    <h4 class="text-dark">Tailored Compliance Solutions</h4>
-                </div>
-                <div class="">
-                    <p class="mb-0 text-dark">Customized strategies for financial institutions, DNFBPs, and regulated entities.</p>
-                </div>
-            </div>
-            <div class="testimonial-item text-center d-flex flex-column align-items-center justify-content-center">
-                <div class="">
-                    <h4 class="text-dark">Regulatory Compliance Assurance</h4>
-                </div>
-                <div class="">
-                    <p class="mb-0 text-dark">Ensuring businesses comply with UAE Central Bank, FIU, SCA, DMCC, and Ministry of Economy requirements.</p>
-                </div>
-            </div>
-            <div class="testimonial-item text-center d-flex flex-column align-items-center justify-content-center">
-                <div class="">
-                    <h4 class="text-dark">Proactive Approach</h4>
-                </div>
-                <div>
-                    <p class="mb-0 text-dark">Keeping businesses updated on evolving AML laws and best practices.</p>
-                </div>
-            </div>
-            
-            <div class="testimonial-item text-center d-flex flex-column align-items-center justify-content-center">
-                <div class="">
-                    <h4 class="text-dark">Confidential & Professional Services</h4>
-                </div>
-                <div class="">
-                    <p class="mb-0 text-dark">Offering discreet, expert consultation with a focus on business integrity.</p>
-                </div>
-            </div>
-            {{-- <div class="testimonial-item" style="background-image: url('img/service-6.jpg');">
-                <div class="testimonial-img">
-                    <h4>Good Governance</h4>
-                </div>
-                <div class="">
-                    <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
-                        excepturi.</p>
-                </div>
-            </div> --}}
-        </div>
-        <div class="col wow fadeInUp text-dark" data-wow-delay="0.2s">
-            <p>
-                Compliance without compromise and stay secure from fines and penalties from Regulatory Authorities 
-            </p>
-            <p>
-                Partner with The Go AML Compliance service for a perfect AML compliance journey in the UAE.
-                Contact us today For AML Assistant
-                
-            </p>
-        </div>
-    </div>
-</div>
-
-
-<!-- About us Start -->
-{{-- <div id="about_us" class="container-fluid about py-5"> --}}
-{{-- <div class="container py-5">
-    <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-        <h4 class="text-primary">Comapany</h4>
-        <h1 class="display-5 mb-4">About Us</h1>
-    </div>
-    <div class="row g-5 align-items-center">
-        <div class="col-xl-6 wow fadeInRight" data-wow-delay="0.2s">
-            <div class="bg-primary rounded position-relative overflow-hidden">
-                <img src="{{ asset('img/service-1.jpg') }}" class="img-fluid rounded w-100" alt="">
-                <div class="" style="position: absolute; top: -20px; left: 10px; transform: rotate(90deg);">
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-6 wow fadeInLeft" data-wow-delay="0.2s">
-            <div>
-                <p class="">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
-                    excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
-                    accusamus.
-                </p>
-            </div>
-        </div>
-    </div>
-</div> --}}
-<!-- About us End -->
-
-
-{{-- <div class="container-fluid testimonial pb-1">
-    <div class="container pb-5 bg-light rounded">
-        <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-            <h1 class="display-5 mb-4">Trending</h1>
-            <p>Latest industry insights and event coverage</p>
-        </div>
-        <div class="header-carousel owl-carousel wow fadeInUp" data-wow-delay="0.2s">
-            <!-- Testimonial Item 1 -->
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="bg-primary rounded">
-                            <img src="{{ asset('img/service-1.jpg') }}" class="img-fluid rounded w-100" alt="">
-                        </div>
-                    </div>
-                    <div class="col-md-6 d-flex justify-content-center align-items-center">
-                        <div class="text-start">
-                            <h2>Establishment</h2>
-                            <p class="text-dark">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
-                                excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
-                                accusamus.
-                            </p>
-                            <a class="btn btn-primary rounded-pill py-3 px-4 px-md-5 ms-2" href="#">Read
-                                More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Testimonial Item 2 -->
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="bg-primary rounded">
-                            <img src="{{ asset('img/service-2.jpg') }}" class="img-fluid rounded w-100"
-                                alt="">
-                        </div>
-                    </div>
-                    <div class="col-md-6 d-flex justify-content-center align-items-center">
-                        <div class="text-start">
-                            <h2>Welcome</h2>
-                            <p class="text-dark">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
-                                excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
-                                accusamus.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <!-- Testimonial Item 3 -->
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="bg-primary rounded">
-                            <img src="{{ asset('img/service-3.jpg') }}" class="img-fluid rounded w-100"
-                                alt="">
-                        </div>
-                    </div>
-                    <div class="col-md-6 d-flex justify-content-center align-items-center">
-                        <div class="text-start">
-                            <h2>Go GoAML Consultants</h2>
-                            <p class="text-dark">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
-                                excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
-                                accusamus.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div> --}}
-
-
-
-
-
-<!-- Integrated Growth Strategy Start -->
-{{-- <div id="company" class="container-fluid blog pb-5">
-        <div class="container pb-5">
-            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                <!-- <h4 class="text-primary">Comapany</h4> -->
-                <h1 class="display-5 mb-4">Integrated Growth Strategy</h1>
-                <p class="mb-0">
-                    We welcome you to craft your unique expression and embrace real confidence. We are the leading shop which shows authentic brands for all the beauty products and cosmetics. Here beauty isn’t just about products. We offer the best prices for our selected beauty products. 
-                </p>
-            </div>
-
-            <div class="owl-carousel blog-carousel wow fadeInUp" data-wow-delay="0.2s">
-                @foreach ($categories as $category)
-                    <div class="blog-item p-4">
-                        <div class="blog-img mb-4">
-                            <img src="{{ asset($category->image) }}" class="img-fluid w-100 rounded" alt="">
-                        </div>
-                        <a href="#" class="h4 d-inline-block mb-3">{{ $category->name }}</a>
+                    <div class="col-lg-7 p-4 p-md-5 landing-intro-modal__content">
+                        <button type="button" class="btn-close landing-intro-modal__close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <span class="section-kicker section-kicker--dark">Welcome</span>
+                        <h2 class="mt-3">Need a clearer AML compliance setup?</h2>
                         <p class="mb-4">
-                            {{ $category->short_description }}
+                            Explore our structured AML support for regulated UAE businesses, or contact us directly for a tailored review.
                         </p>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </div> --}}
-<!-- Integrated Growth Strategy End -->
-
-<!-- Partners & Investors Start -->
-{{-- <div id="investors" class="container-fluid team pb-5">
-        <div class="container pb-5">
-            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                <h4 class="text-primary">Partners & Investors</h4>
-                <h1 class="display-5 mb-4">Meet Our Investors</h1>
-                <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur adipisci facilis
-                    cupiditate recusandae aperiam temporibus corporis itaque quis facere, numquam, ad culpa deserunt
-                    sint dolorem autem obcaecati, ipsam mollitia hic.
-                </p>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="team-item">
-                        <div class="team-img">
-                            <img src="{{ asset('img/team-1.jpg') }}" class="img-fluid" alt="">
-                        </div>
-                        <div class="team-title">
-                            <h4 class="mb-0">David James</h4>
-                            <p class="mb-0">Profession</p>
-                        </div>
-                        <div class="team-icon">
-                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i
-                                    class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i
-                                    class="fab fa-twitter"></i></a>
-                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i
-                                    class="fab fa-linkedin-in"></i></a>
-                            <a class="btn btn-primary btn-sm-square rounded-circle me-0" href=""><i
-                                    class="fab fa-instagram"></i></a>
+                        <div class="d-flex flex-wrap gap-3">
+                            <a href="#contact" class="btn btn-primary rounded-pill px-4">Contact Us</a>
+                            <a href="#services" class="btn btn-outline-primary rounded-pill px-4">View Services</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.4s">
-                    <div class="team-item">
-                        <div class="team-img">
-                            <img src="{{ asset('img/team-2.jpg') }}" class="img-fluid" alt="">
-                        </div>
-                        <div class="team-title">
-                            <h4 class="mb-0">David James</h4>
-                            <p class="mb-0">Profession</p>
-                        </div>
-                        <div class="team-icon">
-                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i
-                                    class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i
-                                    class="fab fa-twitter"></i></a>
-                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i
-                                    class="fab fa-linkedin-in"></i></a>
-                            <a class="btn btn-primary btn-sm-square rounded-circle me-0" href=""><i
-                                    class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.6s">
-                    <div class="team-item">
-                        <div class="team-img">
-                            <img src="{{ asset('img/team-3.jpg') }}" class="img-fluid" alt="">
-                        </div>
-                        <div class="team-title">
-                            <h4 class="mb-0">David James</h4>
-                            <p class="mb-0">Profession</p>
-                        </div>
-                        <div class="team-icon">
-                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i
-                                    class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i
-                                    class="fab fa-twitter"></i></a>
-                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i
-                                    class="fab fa-linkedin-in"></i></a>
-                            <a class="btn btn-primary btn-sm-square rounded-circle me-0" href=""><i
-                                    class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.8s">
-                    <div class="team-item">
-                        <div class="team-img">
-                            <img src="{{ asset('img/team-4.jpg') }}" class="img-fluid" alt="">
-                        </div>
-                        <div class="team-title">
-                            <h4 class="mb-0">David James</h4>
-                            <p class="mb-0">Profession</p>
-                        </div>
-                        <div class="team-icon">
-                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i
-                                    class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i
-                                    class="fab fa-twitter"></i></a>
-                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i
-                                    class="fab fa-linkedin-in"></i></a>
-                            <a class="btn btn-primary btn-sm-square rounded-circle me-0" href=""><i
-                                    class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>  --}}
-<!-- Partners & Investors End -->
-
-<!-- Our company Start -->
-{{-- <div id="about_us" class="container-fluid about py-5">
-        <div class="container py-5">
-            <div class="row g-5 align-items-center">
-                <div class="col-xl-7 wow fadeInLeft" data-wow-delay="0.2s">
-                    <div>
-                        <h4 class="text-primary">Our company</h4>
-                        <h1 class="display-5 mb-4">Meet our company unless miss the opportunity</h1>
-                        <p class="mb-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum velit
-                            temporibus
-                            repudiandae ipsa, eaque perspiciatis cumque incidunt tenetur sequi reiciendis.
-                        </p>
-                        <div class="row g-4">
-                            <!-- <div class="col-md-6 col-lg-6 col-xl-6">
-                                <div class="d-flex">
-                                    <div><i class="fas fa-lightbulb fa-3x text-primary"></i></div>
-                                    <div class="ms-4">
-                                        <h4>Business Consuluting</h4>
-                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-                                    </div>
-                                </div>
-                            </div> -->
-                            <div class="col-md-6 col-lg-6 col-xl-6">
-                                <div class="d-flex">
-                                    <div><i class="bi bi-bookmark-heart-fill fa-3x text-primary"></i></div>
-                                    <div class="ms-4">
-                                        <h4>Year Of Expertise Since 2011</h4>
-                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- <div class="col-sm-6">
-                                <a href="#" class="btn btn-primary rounded-pill py-3 px-5 flex-shrink-0">Discover
-                                    Now</a>
-                            </div> -->
-                            <div class="col-sm-6">
-                                <div class="d-flex">
-                                    <i class="fas fa-phone-alt fa-2x text-primary me-4"></i>
-                                    <div>
-                                        <h4>Call Us</h4>
-                                        <p class="mb-0 fs-5" style="letter-spacing: 1px;">+⁠00971502174128</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-5 wow fadeInRight" data-wow-delay="0.2s">
-                    <div class="bg-primary rounded position-relative overflow-hidden">
-                        <img src="{{ asset('img/our-company.webp') }}" class="img-fluid rounded w-100"
-                            alt="">
-                        <div class=""
-                            style="position: absolute; top: -20px; left: 10px; transform: rotate(90deg);">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
-<!-- Our company End -->
-
-
-
-<!-- Anual Report Start -->
-<!-- <div class="container-fluid testimonial pb-5">
-        <div class="container pb-5">
-            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                <h4 class="text-primary">Testimonial</h4>
-                <h1 class="display-5 mb-4">2024 ANNUAL REPORT</h1>
-                <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur adipisci facilis
-                    cupiditate recusandae aperiam temporibus corporis itaque quis facere, numquam, ad culpa deserunt
-                    sint dolorem autem obcaecati, ipsam mollitia hic.
-                </p>
-            </div>
-            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.2s">
-                <div class="testimonial-item">
-                    <div class="testimonial-img">
-                        <h4>Brands</h4>
-                    </div>
-                    <div class="testimonial-text">
-                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
-                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
-                            accusamus.
-                        </p>
-                    </div>
-                </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-img">
-                        <h4>Innovation</h4>
-                    </div>
-                    <div class="testimonial-text">
-                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
-                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
-                            accusamus.
-                        </p>
-                    </div>
-                </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-img">
-                        <h4>Product Safety</h4>
-                    </div>
-                    <div class="testimonial-text">
-                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
-                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
-                            accusamus.
-                        </p>
-                    </div>
-                </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-img">
-                        <h4>Ingredients</h4>
-                    </div>
-                    <div class="testimonial-text">
-                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
-                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
-                            accusamus.
-                        </p>
-                    </div>
-                </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-img">
-                        <h4>Fragrance</h4>
-                    </div>
-                    <div class="testimonial-text">
-                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
-                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
-                            accusamus.
-                        </p>
-                    </div>
-                </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-img">
-                        <h4>Be Cruelty Free</h4>
-                    </div>
-                    <div class="testimonial-text">
-                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
-                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
-                            accusamus.
-                        </p>
-                    </div>
-                </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-img">
-                        <h4>Fragrance</h4>
-                    </div>
-                    <div class="testimonial-text">
-                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
-                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
-                            accusamus.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-<!-- Anual Report End -->
-
-
-<!-- Our Impact Start -->
-{{-- <div class="container-fluid testimonial pb-2">
-    <div class="container pb-5">
-        <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-            <!-- <h4 class="text-primary">Testimonial</h4> -->
-            <h1 class="display-5 mb-1">Our Impact</h1>
-            <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit..
-            </p>
-        </div>
-        <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.2s">
-            <div class="text-center">
-                <h4 class="text-dark">Gender</h4>
-                <p class="mb-0 text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
-                    blanditiis
-                    excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
-                    accusamus.
-                </p>
-            </div>
-            <div class="text-center">
-                <h4 class="text-dark">Sustainability</h4>
-                <p class="mb-0 text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
-                    blanditiis
-                    excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
-                    accusamus.
-                </p>
-            </div>
-            <div class="text-center">
-                <h4 class="text-dark">Mapping our Impact</h4>
-                <p class="mb-0 text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
-                    blanditiis
-                    excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
-                    accusamus.
-                </p>
-            </div>
-            <div class="text-center">
-                <h4 class="text-dark">Responsible Beauty</h4>
-                <p class="mb-0 text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
-                    blanditiis
-                    excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
-                    accusamus.
-                </p>
-            </div>
-            <div class="text-center">
-                <h4 class="text-dark">Ethics And Corporate Responsibility</h4>
-                <p class="mb-0 text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
-                    blanditiis
-                    excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum
-                    accusamus.
-                </p>
-            </div>
-
-        </div>
-    </div>
-</div> --}}
-<!-- Our Impact End -->
-
-{{-- Reviews start --}}
-{{-- <div class="container-fluid pb-5">
-    <div class="container pb-5">
-        <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
-            <h1 class="display-5 mb-1">Trust Pilot - Reviews</h1>
-            <p class="mb-0">Real stories from our happy customers who have experienced our services.</p>
-        </div>
-
-        <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.2s">
-
-            <!-- Review 1 -->
-            <div class="text-center p-4 border rounded shadow">
-                <img src="https://randomuser.me/api/portraits/women/12.jpg" class="rounded-circle img-fluid"
-                    width="80" height="80" alt="Customer 1">
-                <h5 class="text-dark mt-2">Emily Johnson</h5>
-                <p class="text-muted">Marketing Manager</p>
-                <div class="mb-2 text-warning">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-half"></i>
-                </div>
-                <p class="mb-0 text-dark">"Absolutely loved the experience! The team is professional and their impact
-                    is visible."</p>
-            </div>
-
-            <!-- Review 2 -->
-            <div class="text-center p-4 border rounded shadow">
-                <img src="https://randomuser.me/api/portraits/men/15.jpg" class="rounded-circle img-fluid"
-                    width="80" height="80" alt="Customer 2">
-                <h5 class="text-dark mt-2">Michael Smith</h5>
-                <p class="text-muted">Software Engineer</p>
-                <div class="mb-2 text-warning">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                </div>
-                <p class="mb-0 text-dark">"A life-changing experience! Their commitment to quality is beyond
-                    expectations."</p>
-            </div>
-
-            <!-- Review 3 -->
-            <div class="text-center p-4 border rounded shadow">
-                <img src="https://randomuser.me/api/portraits/women/22.jpg" class="rounded-circle img-fluid"
-                    width="80" height="80" alt="Customer 3">
-                <h5 class="text-dark mt-2">Sophia Lee</h5>
-                <p class="text-muted">Business Owner</p>
-                <div class="mb-2 text-warning">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star"></i>
-                    <i class="bi bi-star"></i>
-                </div>
-                <p class="mb-0 text-dark">"Their service is great! A few areas for improvement, but overall fantastic!"
-                </p>
-            </div>
-
-        </div>
-    </div>
-</div> --}}
-
-
-{{-- Reviews end --}}
-
-
-
-<!-- Services Start -->
-{{-- <div class="container-fluid service pb-5">
-        <div class="container pb-5">
-            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                <h4 class="text-primary">Our Story</h4>
-                <h1 class="display-5 mb-4">We Services provided best offer</h1>
-                <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur adipisci facilis
-                    cupiditate recusandae aperiam temporibus corporis itaque quis facere, numquam, ad culpa deserunt
-                    sint dolorem autem obcaecati, ipsam mollitia hic.
-                </p>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="service-item">
-                        <div class="service-img">
-                            <img src="{{ asset('img/service-1.jpg') }}" class="img-fluid rounded-top w-100"
-                                alt="Image">
-                        </div>
-                        <div class="rounded-bottom p-4">
-                            <a href="#" class="h4 d-inline-block mb-4"> Strategy Consulting</a>
-                            <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, sint?
-                                Excepturi facilis neque nesciunt similique officiis veritatis,
-                            </p>
-                            <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
-                    <div class="service-item">
-                        <div class="service-img">
-                            <img src="{{ asset('img/service-2.jpg') }}" class="img-fluid rounded-top w-100"
-                                alt="Image">
-                        </div>
-                        <div class="rounded-bottom p-4">
-                            <a href="#" class="h4 d-inline-block mb-4">Financial Advisory</a>
-                            <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, sint?
-                                Excepturi facilis neque nesciunt similique officiis veritatis,
-                            </p>
-                            <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
-                    <div class="service-item">
-                        <div class="service-img">
-                            <img src="{{ asset('img/service-3.jpg') }}" class="img-fluid rounded-top w-100"
-                                alt="Image">
-                        </div>
-                        <div class="rounded-bottom p-4">
-                            <a href="#" class="h4 d-inline-block mb-4">Managements</a>
-                            <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, sint?
-                                Excepturi facilis neque nesciunt similique officiis veritatis,
-                            </p>
-                            <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="service-item">
-                        <div class="service-img">
-                            <img src="{{ asset('img/service-4.jpg') }}" class="img-fluid rounded-top w-100"
-                                alt="Image">
-                        </div>
-                        <div class="rounded-bottom p-4">
-                            <a href="#" class="h4 d-inline-block mb-4">Supply Optimization</a>
-                            <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, sint?
-                                Excepturi facilis neque nesciunt similique officiis veritatis,
-                            </p>
-                            <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
-                    <div class="service-item">
-                        <div class="service-img">
-                            <img src="{{ asset('img/service-5.jpg') }}" class="img-fluid rounded-top w-100"
-                                alt="Image">
-                        </div>
-                        <div class="rounded-bottom p-4">
-                            <a href="#" class="h4 d-inline-block mb-4">Hr Consulting</a>
-                            <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, sint?
-                                Excepturi facilis neque nesciunt similique officiis veritatis,
-                            </p>
-                            <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
-                    <div class="service-item">
-                        <div class="service-img">
-                            <img src="{{ asset('img/service-6.jpg') }}" class="img-fluid rounded-top w-100"
-                                alt="Image">
-                        </div>
-                        <div class="rounded-bottom p-4">
-                            <a href="#" class="h4 d-inline-block mb-4">Marketing Consulting</a>
-                            <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, sint?
-                                Excepturi facilis neque nesciunt similique officiis veritatis,
-                            </p>
-                            <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
-<!-- Services End -->
-
-<!-- Features Start -->
-{{-- <div class="container-fluid feature pb-5">
-        <div class="container pb-5">
-            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                <h4 class="text-primary">Rewards & Offers</h4>
-                <h1 class="display-5 mb-4">Connecting businesses, ideas, and people for greater impact.</h1>
-                <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur adipisci facilis
-                    cupiditate recusandae aperiam temporibus corporis itaque quis facere, numquam, ad culpa deserunt
-                    sint dolorem autem obcaecati, ipsam mollitia hic.
-                </p>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="feature-item p-4">
-                        <div class="feature-icon p-4 mb-4">
-                            <i class="fas fa-chart-line fa-4x text-primary"></i>
-                        </div>
-                        <h4>Global Management</h4>
-                        <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea hic laborum odit
-                            pariatur...
-                        </p>
-                        <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.4s">
-                    <div class="feature-item p-4">
-                        <div class="feature-icon p-4 mb-4">
-                            <i class="fas fa-university fa-4x text-primary"></i>
-                        </div>
-                        <h4>Corporate Banking</h4>
-                        <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea hic laborum odit
-                            pariatur...
-                        </p>
-                        <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.6s">
-                    <div class="feature-item p-4">
-                        <div class="feature-icon p-4 mb-4">
-                            <i class="fas fa-file-alt fa-4x text-primary"></i>
-                        </div>
-                        <h4>Asset Management</h4>
-                        <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea hic laborum odit
-                            pariatur...
-                        </p>
-                        <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.8s">
-                    <div class="feature-item p-4">
-                        <div class="feature-icon p-4 mb-4">
-                            <i class="fas fa-hand-holding-usd fa-4x text-primary"></i>
-                        </div>
-                        <h4>Investment Bank</h4>
-                        <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea hic laborum odit
-                            pariatur...
-                        </p>
-                        <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
-<!-- Features End -->
-
-
-<!-- Offer Start -->
-{{-- <div class="container-fluid offer-section pb-5">
-        <div class="container pb-5">
-            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                <h4 class="text-primary">Our Offer</h4>
-                <h1 class="display-5 mb-4">Benefits We offer</h1>
-                <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur adipisci facilis
-                    cupiditate recusandae aperiam temporibus corporis itaque quis facere, numquam, ad culpa deserunt
-                    sint dolorem autem obcaecati, ipsam mollitia hic.
-                </p>
-            </div>
-            <div class="row g-5 align-items-center">
-                <div class="col-xl-5 wow fadeInLeft" data-wow-delay="0.2s">
-                    <div class="nav nav-pills bg-light rounded p-5">
-                        <a class="accordion-link p-4 active mb-4" data-bs-toggle="pill" href="#collapseOne">
-                            <h5 class="mb-0">Lending money for investment of your new projects</h5>
-                        </a>
-                        <a class="accordion-link p-4 mb-4" data-bs-toggle="pill" href="#collapseTwo">
-                            <h5 class="mb-0">Lending money for investment of your new projects</h5>
-                        </a>
-                        <a class="accordion-link p-4 mb-4" data-bs-toggle="pill" href="#collapseThree">
-                            <h5 class="mb-0">Mobile payment is more flexible and easy for all investors</h5>
-                        </a>
-                        <a class="accordion-link p-4 mb-0" data-bs-toggle="pill" href="#collapseFour">
-                            <h5 class="mb-0">all transaction is kept free for the member of pro traders</h5>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-xl-7 wow fadeInRight" data-wow-delay="0.4s">
-                    <div class="tab-content">
-                        <div id="collapseOne" class="tab-pane fade show p-0 active">
-                            <div class="row g-4">
-                                <div class="col-md-7">
-                                    <img src="{{ asset('img/offer-1.jpg') }}" class="img-fluid w-100 rounded"
-                                        alt="">
-                                </div>
-                                <div class="col-md-5">
-                                    <h1 class="display-5 mb-4">The stock market provides a venue...</h1>
-                                    <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
-                                        amet sequi molestiae tenetur eum mollitia, blanditiis, magnam illo magni error
-                                        dolore unde perspiciatis tempore et totam corrupti dignissimos aut praesentium?
-                                    </p>
-                                    <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="collapseTwo" class="tab-pane fade show p-0">
-                            <div class="row g-4">
-                                <div class="col-md-7">
-                                    <img src="{{ asset('img/offer-2.jpg') }}" class="img-fluid w-100 rounded"
-                                        alt="">
-                                </div>
-                                <div class="col-md-5">
-                                    <h1 class="display-5 mb-4">The stock market provides a venue...</h1>
-                                    <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
-                                        amet sequi molestiae tenetur eum mollitia, blanditiis, magnam illo magni error
-                                        dolore unde perspiciatis tempore et totam corrupti dignissimos aut praesentium?
-                                    </p>
-                                    <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="collapseThree" class="tab-pane fade show p-0">
-                            <div class="row g-4">
-                                <div class="col-md-7">
-                                    <img src="{{ asset('img/offer-3.jpg') }}" class="img-fluid w-100 rounded"
-                                        alt="">
-                                </div>
-                                <div class="col-md-5">
-                                    <h1 class="display-5 mb-4">The stock market provides a venue...</h1>
-                                    <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
-                                        amet sequi molestiae tenetur eum mollitia, blanditiis, magnam illo magni error
-                                        dolore unde perspiciatis tempore et totam corrupti dignissimos aut praesentium?
-                                    </p>
-                                    <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="collapseFour" class="tab-pane fade show p-0">
-                            <div class="row g-4">
-                                <div class="col-md-7">
-                                    <img src="{{ asset('img/offer-4.jpg') }}" class="img-fluid w-100 rounded"
-                                        alt="">
-                                </div>
-                                <div class="col-md-5">
-                                    <h1 class="display-5 mb-4">The stock market provides a venue...</h1>
-                                    <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
-                                        amet sequi molestiae tenetur eum mollitia, blanditiis, magnam illo magni error
-                                        dolore unde perspiciatis tempore et totam corrupti dignissimos aut praesentium?
-                                    </p>
-                                    <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
-<!-- Offer End -->
-
-<!-- FAQs Start -->
-<!-- <div class="container-fluid faq-section pb-5">
-        <div class="container pb-5 overflow-hidden">
-            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                <h4 class="text-primary">FAQs</h4>
-                <h1 class="display-5 mb-4">Frequently Asked Questions</h1>
-                <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur adipisci facilis
-                    cupiditate recusandae aperiam temporibus corporis itaque quis facere, numquam, ad culpa deserunt
-                    sint dolorem autem obcaecati, ipsam mollitia hic.
-                </p>
-            </div>
-            <div class="row g-5 align-items-center">
-                <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.2s">
-                    <div class="accordion accordion-flush bg-light rounded p-5" id="accordionFlushSection">
-                        <div class="accordion-item rounded-top">
-                            <h2 class="accordion-header" id="flush-headingOne">
-                                <button class="accordion-button collapsed rounded-top" type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false"
-                                    aria-controls="flush-collapseOne">
-                                    What Does This Tool Do?
-                                </button>
-                            </h2>
-                            <div id="flush-collapseOne" class="accordion-collapse collapse"
-                                aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushSection">
-                                <div class="accordion-body">Placeholder content for this accordion, which is intended to
-                                    demonstrate the <code>.accordion-flush</code> class. This is the first item's
-                                    accordion body.</div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingTwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseTwo" aria-expanded="false"
-                                    aria-controls="flush-collapseTwo">
-                                    What Are The Disadvantages Of Online Trading?
-                                </button>
-                            </h2>
-                            <div id="flush-collapseTwo" class="accordion-collapse collapse"
-                                aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushSection">
-                                <div class="accordion-body">Placeholder content for this accordion, which is intended to
-                                    demonstrate the <code>.accordion-flush</code> class. This is the second item's
-                                    accordion body. Let's imagine this being filled with some actual content.</div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingThree">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseThree" aria-expanded="false"
-                                    aria-controls="flush-collapseThree">
-                                    Is Online Trading Safe?
-                                </button>
-                            </h2>
-                            <div id="flush-collapseThree" class="accordion-collapse collapse"
-                                aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushSection">
-                                <div class="accordion-body">Placeholder content for this accordion, which is intended to
-                                    demonstrate the <code>.accordion-flush</code> class. This is the second item's
-                                    accordion body. Let's imagine this being filled with some actual content.</div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingFour">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseFour" aria-expanded="false"
-                                    aria-controls="flush-collapseFour">
-                                    What Is Online Trading, And How Dose It Work?
-                                </button>
-                            </h2>
-                            <div id="flush-collapseFour" class="accordion-collapse collapse"
-                                aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushSection">
-                                <div class="accordion-body">Placeholder content for this accordion, which is intended to
-                                    demonstrate the <code>.accordion-flush</code> class. This is the second item's
-                                    accordion body. Let's imagine this being filled with some actual content.</div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingFive">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseFive" aria-expanded="false"
-                                    aria-controls="flush-collapseFive">
-                                    Which App Is Best For Online Trading?
-                                </button>
-                            </h2>
-                            <div id="flush-collapseFive" class="accordion-collapse collapse"
-                                aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushSection">
-                                <div class="accordion-body">Placeholder content for this accordion, which is intended to
-                                    demonstrate the <code>.accordion-flush</code> class. This is the second item's
-                                    accordion body. Let's imagine this being filled with some actual content.</div>
-                            </div>
-                        </div>
-                        <div class="accordion-item rounded-bottom">
-                            <h2 class="accordion-header" id="flush-headingSix">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseSix" aria-expanded="false"
-                                    aria-controls="flush-collapseSix">
-                                    How To Create A Trading Account?
-                                </button>
-                            </h2>
-                            <div id="flush-collapseSix" class="accordion-collapse collapse"
-                                aria-labelledby="flush-headingSix" data-bs-parent="#accordionFlushSection">
-                                <div class="accordion-body">Placeholder content for this accordion, which is intended to
-                                    demonstrate the <code>.accordion-flush</code> class. This is the third item's
-                                    accordion body. Nothing more exciting happening here in terms of content, but just
-                                    filling up the space to make it look, at least at first glance, a bit more
-                                    representative of how this would look in a real-world application.</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.2s">
-                    <div class="bg-primary rounded">
-                        <img src="{{ asset('img/about-2.png') }}" class="img-fluid w-100" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-<!-- FAQs End -->
-<!-- Contact Us Modal -->
-<div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header d-flex justify-content-center">
-                <div class="row">
-                    <h4 class="modal-title text-center w-100" id="contactModalLabel">Welcome to The GO AML Compliance Services FZE – Your Trusted AML Compliance Partner in the UAE</h4>
-                    <h1 class="modal-title text-center w-100" id="contactModalLabel">Contact Us</h1>
-                    <button type="button" class="btn-close position-absolute end-0 me-3" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
-                </div>
-            </div>
-            <div class="modal-body">
-                <form id="quoteForm">
-                    @csrf
-                    <div class="row g-3">
-                        <div class="col-md-6">
-                            <div class="input-group">
-                                <span class="input-group-text"><i class="bi bi-person"></i></span>
-                                <input type="text" name="name" class="form-control" placeholder="Name"
-                                    required>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input-group">
-                                <span class="input-group-text"><i class="bi bi-envelope"></i></span>
-                                <input type="email" name="email" class="form-control"
-                                    placeholder="Email Address" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row g-3 mt-2">
-                        <div class="col-md-6">
-                            <div class="input-group">
-                                <span class="input-group-text"><i class="bi bi-telephone"></i></span>
-                                <input type="text" name="phone" class="form-control" placeholder="Contact No"
-                                    required>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input-group">
-                                <span class="input-group-text"><i class="bi bi-info-circle"></i></span>
-                                <input type="text" name="service" class="form-control"
-                                    placeholder="Service Details" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-3">
-                        <div class="input-group">
-                            <span class="input-group-text"><i class="bi bi-chat-dots"></i></span>
-                            <textarea name="message" class="form-control" rows="3" placeholder="How can we help you?" required></textarea>
-                        </div>
-                    </div>
-                    <div class="text-center mt-3">
-                        <button type="submit" class="btn btn-primary btn-lg">GET QUOTE</button>
-                    </div>
-                </form>
             </div>
         </div>
     </div>
 </div>
-<script>
-    </script>
+
+<div class="landing-page-shell">
+    <section class="landing-hero" id="home">
+        <div class="landing-hero__backdrop"></div>
+        <div class="container position-relative">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7 wow fadeInUp" data-wow-delay="0.1s">
+                    <span class="section-kicker">AML compliance for regulated UAE businesses</span>
+                    <h1 class="landing-hero__title">
+                        {{ optional($heroSlider)->title ?? 'AML Compliance, Simplified for UAE-Regulated Businesses' }}
+                    </h1>
+                    <p class="landing-hero__lead">
+                        {{ optional($heroSlider)->description ?? 'Structured AML, CFT, and regulatory support for firms that need practical controls, clear reporting, and a reliable compliance partner.' }}
+                    </p>
+                    <div class="d-flex flex-wrap gap-3 mt-4">
+                        <a href="#contact" class="btn btn-light btn-lg rounded-pill landing-btn-primary">
+                            Request a Consultation
+                        </a>
+                        <a href="#services" class="btn btn-outline-light btn-lg rounded-pill landing-btn-secondary">
+                            Explore Services
+                        </a>
+                    </div>
+
+                    <div class="hero-metrics mt-5">
+                        <div class="hero-metric">
+                            <span>01</span>
+                            <strong>Risk-based design</strong>
+                            <small>Practical controls tailored to your sector and operating model.</small>
+                        </div>
+                        <div class="hero-metric">
+                            <span>02</span>
+                            <strong>Regulatory readiness</strong>
+                            <small>Policies, procedures, and evidence that stand up to review.</small>
+                        </div>
+                        <div class="hero-metric">
+                            <span>03</span>
+                            <strong>End-to-end support</strong>
+                            <small>From onboarding to escalation, reporting, and ongoing advice.</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 wow fadeInUp" data-wow-delay="0.25s">
+                    <div class="hero-preview-card">
+                        <div class="hero-preview-card__image">
+                            <img src="{{ $heroImage }}" alt="{{ optional($heroSlider)->title ?? 'AML compliance overview' }}">
+                        </div>
+                        <div class="hero-preview-card__body">
+                            <div class="hero-preview-pill">UAE AML / CFT controls</div>
+                            <h2>Clear structure for complex obligations</h2>
+                            <p>
+                                Replace ad hoc compliance with a repeatable operating framework for regulated teams,
+                                oversight, screening, and reporting.
+                            </p>
+                            <div class="hero-preview-grid">
+                                <div>
+                                    <strong>Policies</strong>
+                                    <span>aligned with risk</span>
+                                </div>
+                                <div>
+                                    <strong>Screening</strong>
+                                    <span>watchlist checks</span>
+                                </div>
+                                <div>
+                                    <strong>Reporting</strong>
+                                    <span>audit-ready records</span>
+                                </div>
+                                <div>
+                                    <strong>Support</strong>
+                                    <span>ongoing guidance</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="landing-section landing-split-section">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.1s">
+                    <div class="split-media-card">
+                        <img src="{{ $heroImage }}" alt="AML controls and compliance workflow">
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.15s">
+                    <span class="section-kicker section-kicker--dark">Structured compliance approach</span>
+                    <h2 class="section-title">AML controls built for regulated businesses</h2>
+                    <p class="section-copy">
+                        We help organisations move from scattered compliance tasks to a structured workflow that can be trained,
+                        monitored, and reviewed with confidence.
+                    </p>
+                    <div class="feature-list">
+                        <div class="feature-list__item">
+                            <strong>1. Onboarding clarity</strong>
+                            <span>Practical customer due diligence and risk classification.</span>
+                        </div>
+                        <div class="feature-list__item">
+                            <strong>2. Ongoing monitoring</strong>
+                            <span>Screening and escalation routines that are easy to maintain.</span>
+                        </div>
+                        <div class="feature-list__item">
+                            <strong>3. Reporting confidence</strong>
+                            <span>Documentation and response readiness for internal and regulator review.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="landing-section landing-card-section" id="services">
+        <div class="container">
+            <div class="section-heading wow fadeInUp" data-wow-delay="0.1s">
+                <span class="section-kicker section-kicker--dark">Our services</span>
+                <h2 class="section-title text-center">Compliance support that covers the full workflow</h2>
+                <p class="section-copy text-center mx-auto">
+                    Designed for firms that need practical implementation, not just policy templates.
+                </p>
+            </div>
+
+            <div class="row g-4 mt-1">
+                <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.1s">
+                    <article class="service-card">
+                        <span class="service-card__icon"><i class="bi bi-person-badge"></i></span>
+                        <h3>Customer Onboarding & Due Diligence</h3>
+                        <p>Build a consistent onboarding path with risk checks, evidence capture, and approval flow.</p>
+                    </article>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.18s">
+                    <article class="service-card">
+                        <span class="service-card__icon"><i class="bi bi-search"></i></span>
+                        <h3>Watchlist Screening</h3>
+                        <p>Reduce exposure with screening steps for customers, counterparties, and related parties.</p>
+                    </article>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.26s">
+                    <article class="service-card">
+                        <span class="service-card__icon"><i class="bi bi-journal-check"></i></span>
+                        <h3>Regulatory Reporting</h3>
+                        <p>Document the escalation and reporting trail so decisions are easier to review later.</p>
+                    </article>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.34s">
+                    <article class="service-card">
+                        <span class="service-card__icon"><i class="bi bi-shield-check"></i></span>
+                        <h3>Advisory & Support</h3>
+                        <p>Get ongoing support for governance, internal controls, and day-to-day compliance questions.</p>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="landing-band">
+        <div class="container">
+            <div class="section-heading section-heading--light wow fadeInUp" data-wow-delay="0.1s">
+                <span class="section-kicker">Why clients choose us</span>
+                <h2 class="section-title text-center text-white">Fast structure, clear governance, lower operational friction</h2>
+            </div>
+            <div class="row g-4 mt-1">
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="band-feature-card">
+                        <h3>Designed for regulated teams</h3>
+                        <p>We focus on the controls and processes teams actually use, not just static documents.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.18s">
+                    <div class="band-feature-card">
+                        <h3>Built for repeatability</h3>
+                        <p>Create a stable operating rhythm for onboarding, screening, review, and escalation.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.26s">
+                    <div class="band-feature-card">
+                        <h3>Clear evidence trail</h3>
+                        <p>Keep a cleaner record of decisions and supporting evidence for audits and supervision.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.34s">
+                    <div class="band-feature-card">
+                        <h3>Risk-based thinking</h3>
+                        <p>Structure the compliance program around actual exposure, not a generic checklist.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.42s">
+                    <div class="band-feature-card">
+                        <h3>Practical advisory support</h3>
+                        <p>When the rules move, you still need a team that can translate them into action quickly.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.50s">
+                    <div class="band-feature-card">
+                        <h3>Built for growth</h3>
+                        <p>Scale the control framework as your customer base, product set, and obligations expand.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="landing-section landing-card-section">
+        <div class="container">
+            <div class="section-heading wow fadeInUp" data-wow-delay="0.1s">
+                <span class="section-kicker section-kicker--dark">Value propositions</span>
+                <h2 class="section-title text-center">What makes the engagement efficient</h2>
+                <p class="section-copy text-center mx-auto">
+                    The same compliance outcome, delivered with a clearer workflow and a better execution path.
+                </p>
+            </div>
+            <div class="row g-4 mt-1">
+                <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.1s">
+                    <article class="value-card">
+                        <h3>Integrated AML compliance</h3>
+                        <p>Policies, process, and governance aligned into one working system.</p>
+                    </article>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.18s">
+                    <article class="value-card">
+                        <h3>Audit-ready reporting</h3>
+                        <p>Records and outputs prepared with review and traceability in mind.</p>
+                    </article>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.26s">
+                    <article class="value-card">
+                        <h3>Risk-based approach</h3>
+                        <p>Prioritise controls where exposure is highest and reduce unnecessary friction elsewhere.</p>
+                    </article>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.34s">
+                    <article class="value-card">
+                        <h3>Designed for regulated firms</h3>
+                        <p>Practical support for SMEs, DNFBPs, and larger compliance-led organisations.</p>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="landing-section landing-faq-section bg-light">
+        <div class="container">
+            <div class="section-heading wow fadeInUp" data-wow-delay="0.1s">
+                <span class="section-kicker section-kicker--dark">AML Meter FAQs</span>
+                <h2 class="section-title text-center">A few quick answers before we speak</h2>
+            </div>
+            <div class="accordion faq-accordion mt-4 wow fadeInUp" data-wow-delay="0.15s" id="landingFaqAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faqOneHeading">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqOne" aria-expanded="true" aria-controls="faqOne">
+                            What sectors do you support?
+                        </button>
+                    </h2>
+                    <div id="faqOne" class="accordion-collapse collapse show" aria-labelledby="faqOneHeading" data-bs-parent="#landingFaqAccordion">
+                        <div class="accordion-body">
+                            We support regulated businesses across financial services, real estate, precious metals, and other UAE compliance-heavy sectors.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faqTwoHeading">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqTwo" aria-expanded="false" aria-controls="faqTwo">
+                            Can you help us improve our current controls?
+                        </button>
+                    </h2>
+                    <div id="faqTwo" class="accordion-collapse collapse" aria-labelledby="faqTwoHeading" data-bs-parent="#landingFaqAccordion">
+                        <div class="accordion-body">
+                            Yes. We can review your current setup and rebuild the workflow so it is easier to maintain and easier to evidence.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faqThreeHeading">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqThree" aria-expanded="false" aria-controls="faqThree">
+                            Do you offer ongoing support?
+                        </button>
+                    </h2>
+                    <div id="faqThree" class="accordion-collapse collapse" aria-labelledby="faqThreeHeading" data-bs-parent="#landingFaqAccordion">
+                        <div class="accordion-body">
+                            Yes. We can support the ongoing compliance cycle, including policy maintenance, controls, and advisory follow-up.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="landing-cta">
+        <div class="container">
+            <div class="cta-panel wow fadeInUp" data-wow-delay="0.1s">
+                <div>
+                    <span class="section-kicker">Need a clearer AML workflow?</span>
+                    <h2>Bring structure to compliance without adding unnecessary friction.</h2>
+                </div>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="#contact" class="btn btn-light btn-lg rounded-pill landing-btn-primary">Get Started</a>
+                    <a href="#services" class="btn btn-outline-light btn-lg rounded-pill landing-btn-secondary">See Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="landing-section landing-contact-section" id="contact">
+        <div class="container">
+            <div class="section-heading wow fadeInUp" data-wow-delay="0.1s">
+                <span class="section-kicker section-kicker--dark">Contact</span>
+                <h2 class="section-title text-center">Connect with our team</h2>
+                <p class="section-copy text-center mx-auto">
+                    Tell us what you need help with and we’ll respond with a clear next step.
+                </p>
+            </div>
+
+            <div class="row g-4 align-items-start mt-2">
+                <div class="col-lg-8 wow fadeInUp" data-wow-delay="0.15s">
+                    <div class="contact-card">
+                        <form id="consultationForm" class="row g-3" method="POST" action="{{ url('/send-consultation') }}">
+                            @csrf
+                            <div class="col-md-6">
+                                <label class="form-label">Full name</label>
+                                <input type="text" class="form-control" name="name" placeholder="Your name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Email address</label>
+                                <input type="email" class="form-control" name="email" placeholder="name@company.com" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Phone number</label>
+                                <input type="text" class="form-control" name="phone" placeholder="+971..." required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Service needed</label>
+                                <input type="text" class="form-control" name="service" placeholder="AML review, onboarding, reporting" required>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Message</label>
+                                <textarea class="form-control" name="message" rows="5" placeholder="Briefly describe your current challenge" required></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary btn-lg rounded-pill px-4">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.22s">
+                    <div class="contact-info-stack">
+                        <div class="contact-info-card">
+                            <h3>Headquarters</h3>
+                            <p>B.C. 1300531, Ajman Free Zone C1 Building, Ajman Free Zone, United Arab Emirates</p>
+                        </div>
+                        <div class="contact-info-card">
+                            <h3>Phone support</h3>
+                            <p>+971 509627076<br>+971 562953927<br>+971 588961136</p>
+                        </div>
+                        <div class="contact-info-card">
+                            <h3>Email</h3>
+                            <p>infoamlshop@gmail.com<br>contact@thegoamlcomplianceservice.com<br>info@thegoamlcomplianceservice.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
 @include('layouts.footer')
