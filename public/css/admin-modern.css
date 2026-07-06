@@ -1,0 +1,26 @@
+:root {
+    /* Previous admin palette: --admin-brand: #1e2a5a; --admin-brand-dark: #111a3a; */
+    --admin-brand: #1d1655;
+    --admin-brand-dark: #171044;
+    --admin-bg: #f7f6fb;
+    --admin-border: #e1deed;
+}
+.admin-shell { color: #334155; background: var(--admin-bg); }
+.admin-topbar { background: var(--admin-brand-dark); }
+.admin-sidebar { color: rgba(255,255,255,.74); background: #21183a; }
+.admin-sidebar .nav-link { color: rgba(255,255,255,.72); border-left: 3px solid transparent; }
+.admin-sidebar .nav-link:hover, .admin-sidebar .nav-link.active { color: #fff; background: rgba(255,255,255,.08); border-left-color: #e9b446; }
+.admin-skip-link { position: fixed; top: .5rem; left: .5rem; z-index: 2000; padding: .7rem 1rem; color: #fff; background: #000; transform: translateY(-150%); }
+.admin-skip-link:focus { transform: none; }
+#admin-content { min-height: calc(100vh - 7rem); padding-bottom: 2rem; }
+#admin-content h1 { color: #111827; font-weight: 700; }
+#admin-content .card { border: 1px solid var(--admin-border); border-radius: .8rem; box-shadow: 0 8px 24px rgba(15,23,42,.06); transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease; }
+#admin-content .card:hover, #admin-content .card:focus-within { border-color: rgba(81,70,154,.34); box-shadow: 0 16px 36px rgba(15,23,42,.11); transform: translateY(-3px); }
+#admin-content .card-header { font-weight: 700; background: #fff; border-bottom-color: var(--admin-border); }
+#admin-content .btn-primary, #admin-content .btn-success { background: var(--admin-brand); border-color: var(--admin-brand); }
+#admin-content .btn-primary:hover, #admin-content .btn-success:hover { background: var(--admin-brand-dark); border-color: var(--admin-brand-dark); }
+#admin-content .form-control, #admin-content .form-select { min-height: 2.8rem; border-color: var(--admin-border); border-radius: .55rem; }
+#admin-content .form-control:focus, #admin-content .form-select:focus { border-color: var(--admin-brand); box-shadow: 0 0 0 .2rem rgba(81,70,154,.18); }
+#admin-content .table { vertical-align: middle; }
+#admin-content img { max-width: 100%; height: auto; }
+.admin-footer { padding: 1rem 0; color: #64748b; background: #fff; border-top: 1px solid var(--admin-border); font-size: .85rem; }
