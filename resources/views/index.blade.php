@@ -2,47 +2,40 @@
 
 @php
     $heroSlider = $homeSliders->first();
-    $heroImage = $heroSlider && $heroSlider->image ? asset($heroSlider->image) : asset('img/default-image.webp');
+    $heroImagePath = $heroSlider && $heroSlider->image && file_exists(public_path($heroSlider->image)) ? $heroSlider->image : 'img/aml-compliance-team.webp';
+    $heroImage = asset($heroImagePath);
+    $heroImageSrcset = $heroImagePath === 'img/aml-compliance-team.webp'
+        ? asset('img/aml-compliance-team-768.webp') . ' 768w, ' . asset('img/aml-compliance-team.webp') . ' 1200w'
+        : null;
 @endphp
-
-<div class="modal fade landing-intro-modal" id="landingIntroModal" tabindex="-1" aria-labelledby="landingIntroModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content border-0 overflow-hidden">
-            <div class="modal-body p-0">
-                <div class="row g-0">
-                    <div class="col-lg-5 landing-intro-modal__visual">
-                        <img src="{{ $heroImage }}" alt="AML compliance overview" class="w-100 h-100 object-fit-cover">
-                    </div>
-                    <div class="col-lg-7 p-4 p-md-5 landing-intro-modal__content">
-                        <button type="button" class="btn-close landing-intro-modal__close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        <span class="section-kicker section-kicker--dark">Welcome</span>
-                        <h2 class="mt-3">Need a clearer AML compliance setup?</h2>
-                        <p class="mb-4">
-                            Explore our structured AML support for regulated UAE businesses, or contact us directly for a tailored review.
-                        </p>
-                        <div class="d-flex flex-wrap gap-3">
-                            <a href="#contact" class="btn btn-primary rounded-pill px-4">Contact Us</a>
-                            <a href="#services" class="btn btn-outline-primary rounded-pill px-4">View Services</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 <div class="landing-page-shell">
     <section class="landing-hero" id="home">
-        <div class="landing-hero__backdrop"></div>
+        <div class="landing-hero__backdrop">
+            <div class="hero-grid-line hero-grid-line--v1"></div>
+            <div class="hero-grid-line hero-grid-line--v2"></div>
+            <div class="hero-grid-line hero-grid-line--v3"></div>
+            <div class="hero-grid-line hero-grid-line--v4"></div>
+            <div class="hero-grid-line hero-grid-line--v5"></div>
+            <div class="hero-grid-line hero-grid-line--v6"></div>
+            <div class="hero-grid-line hero-grid-line--v7"></div>
+            <div class="hero-grid-line hero-grid-line--v8"></div>
+            
+            <div class="hero-grid-line hero-grid-line--h1"></div>
+            <div class="hero-grid-line hero-grid-line--h2"></div>
+            <div class="hero-grid-line hero-grid-line--h3"></div>
+            <div class="hero-grid-line hero-grid-line--h4"></div>
+            <div class="hero-grid-line hero-grid-line--h5"></div>
+        </div>
         <div class="container position-relative">
             <div class="row align-items-center g-5">
                 <div class="col-lg-7 wow fadeInUp" data-wow-delay="0.1s">
-                    <span class="section-kicker">AML compliance for regulated UAE businesses</span>
+                    <span class="section-kicker">UAE AML/CFT compliance consultancy</span>
                     <h1 class="landing-hero__title">
                         {{ optional($heroSlider)->title ?? 'AML Compliance, Simplified for UAE-Regulated Businesses' }}
                     </h1>
                     <p class="landing-hero__lead">
-                        {{ optional($heroSlider)->description ?? 'Structured AML, CFT, and regulatory support for firms that need practical controls, clear reporting, and a reliable compliance partner.' }}
+                        {{ optional($heroSlider)->subtitle ?? 'Expert, risk-based compliance support for financial institutions, DNFBPs, and other regulated businesses across the UAE.' }}
                     </p>
                     <div class="d-flex flex-wrap gap-3 mt-4">
                         <a href="#contact" class="btn btn-light btn-lg rounded-pill landing-btn-primary">
@@ -56,50 +49,50 @@
                     <div class="hero-metrics mt-5">
                         <div class="hero-metric">
                             <span>01</span>
-                            <strong>Risk-based design</strong>
-                            <small>Practical controls tailored to your sector and operating model.</small>
+                            <strong>UAE-focused expertise</strong>
+                            <small>Guidance shaped around local AML/CFT expectations and your regulated sector.</small>
                         </div>
                         <div class="hero-metric">
                             <span>02</span>
-                            <strong>Regulatory readiness</strong>
-                            <small>Policies, procedures, and evidence that stand up to review.</small>
+                            <strong>Tailored solutions</strong>
+                            <small>Policies, procedures, and controls designed around your actual exposure.</small>
                         </div>
                         <div class="hero-metric">
                             <span>03</span>
-                            <strong>End-to-end support</strong>
-                            <small>From onboarding to escalation, reporting, and ongoing advice.</small>
+                            <strong>Professional support</strong>
+                            <small>Confidential advice from initial assessment through ongoing compliance.</small>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-lg-5 wow fadeInUp" data-wow-delay="0.25s">
-                    <div class="hero-preview-card">
+                    <div class="hero-preview-card glass-panel">
                         <div class="hero-preview-card__image">
-                            <img src="{{ $heroImage }}" alt="{{ optional($heroSlider)->title ?? 'AML compliance overview' }}">
+                            <img src="{{ $heroImage }}" @if($heroImageSrcset) srcset="{{ $heroImageSrcset }}" sizes="(max-width: 991px) 92vw, 38vw" @endif alt="{{ optional($heroSlider)->title ?? 'AML compliance overview' }}" fetchpriority="high" loading="eager" width="600" height="400">
                         </div>
                         <div class="hero-preview-card__body">
-                            <div class="hero-preview-pill">UAE AML / CFT controls</div>
-                            <h2>Clear structure for complex obligations</h2>
+                            <div class="hero-preview-pill">Compliance without compromise</div>
+                            <h2>Your AML compliance partner in the UAE</h2>
                             <p>
-                                Replace ad hoc compliance with a repeatable operating framework for regulated teams,
-                                oversight, screening, and reporting.
+                                Build a practical AML/CFT framework that supports transparency, reduces financial-crime risk,
+                                and strengthens regulatory confidence.
                             </p>
                             <div class="hero-preview-grid">
                                 <div>
-                                    <strong>Policies</strong>
-                                    <span>aligned with risk</span>
+                                    <strong>Frameworks</strong>
+                                    <span>tailored to risk</span>
                                 </div>
                                 <div>
-                                    <strong>Screening</strong>
-                                    <span>watchlist checks</span>
+                                    <strong>Due diligence</strong>
+                                    <span>clear KYC controls</span>
                                 </div>
                                 <div>
-                                    <strong>Reporting</strong>
-                                    <span>audit-ready records</span>
+                                    <strong>goAML support</strong>
+                                    <span>reporting readiness</span>
                                 </div>
                                 <div>
-                                    <strong>Support</strong>
-                                    <span>ongoing guidance</span>
+                                    <strong>Training</strong>
+                                    <span>role-based guidance</span>
                                 </div>
                             </div>
                         </div>
@@ -114,30 +107,85 @@
             <div class="row align-items-center g-5">
                 <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.1s">
                     <div class="split-media-card">
-                        <img src="{{ $heroImage }}" alt="AML controls and compliance workflow">
+                        <img src="{{ asset('img/aml-workflow.webp') }}" srcset="{{ asset('img/aml-workflow-768.webp') }} 768w, {{ asset('img/aml-workflow.webp') }} 1200w" sizes="(max-width: 991px) 92vw, 50vw" alt="A structured AML workflow shown across due-diligence documents and a secure risk dashboard" width="900" height="600" loading="lazy" decoding="async">
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.15s">
-                    <span class="section-kicker section-kicker--dark">Structured compliance approach</span>
-                    <h2 class="section-title">AML controls built for regulated businesses</h2>
+                    <span class="section-kicker section-kicker--dark">A proactive, risk-based approach</span>
+                    <h2 class="section-title">Turn UAE AML obligations into workable controls</h2>
                     <p class="section-copy">
-                        We help organisations move from scattered compliance tasks to a structured workflow that can be trained,
-                        monitored, and reviewed with confidence.
+                        We help businesses interpret UAE AML/CFT requirements and FATF recommendations, then translate them
+                        into policies, responsibilities, records, and day-to-day processes their teams can follow.
                     </p>
                     <div class="feature-list">
                         <div class="feature-list__item">
-                            <strong>1. Onboarding clarity</strong>
-                            <span>Practical customer due diligence and risk classification.</span>
+                            <strong>1. Understand your exposure</strong>
+                            <span>Assess the risks linked to your sector, customers, services, and geography.</span>
                         </div>
                         <div class="feature-list__item">
-                            <strong>2. Ongoing monitoring</strong>
-                            <span>Screening and escalation routines that are easy to maintain.</span>
+                            <strong>2. Strengthen your framework</strong>
+                            <span>Establish proportionate policies, due diligence, monitoring, and escalation controls.</span>
                         </div>
                         <div class="feature-list__item">
-                            <strong>3. Reporting confidence</strong>
-                            <span>Documentation and response readiness for internal and regulator review.</span>
+                            <strong>3. Maintain regulatory confidence</strong>
+                            <span>Keep clear evidence, reporting procedures, training, and ongoing review in place.</span>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="landing-section regulatory-context-section" id="regulatory-context" aria-labelledby="regulatory-context-title">
+        <div class="container">
+            <div class="regulatory-context-panel">
+                <div class="row g-5 align-items-start">
+                    <div class="col-lg-5">
+                        <span class="section-kicker">UAE regulatory context</span>
+                        <h2 id="regulatory-context-title">Turn supervisory expectations into an operating system.</h2>
+                        <p>
+                            Your obligations depend on your sector, activities, customers, and risk exposure. We help connect
+                            those requirements to the controls your team performs and the evidence it retains.
+                        </p>
+                        <a href="{{ route('compliance-solutions') }}" class="btn btn-light rounded-pill mt-3">Explore Compliance Solutions</a>
+                    </div>
+                    <div class="col-lg-7">
+                        <ol class="regulatory-pathway">
+                            <li>
+                                <span class="regulatory-pathway__number" data-number="01" aria-hidden="true"></span>
+                                <div>
+                                    <h3>Map the obligation</h3>
+                                    <p>Identify the requirements, risk factors, ownership, and reporting responsibilities relevant to your business.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="regulatory-pathway__number" data-number="02" aria-hidden="true"></span>
+                                <div>
+                                    <h3>Operate the control</h3>
+                                    <p>Embed practical onboarding, due diligence, screening, monitoring, escalation, and training workflows.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="regulatory-pathway__number" data-number="03" aria-hidden="true"></span>
+                                <div>
+                                    <h3>Evidence the decision</h3>
+                                    <p>Maintain clear records, approvals, reporting rationale, and review history for internal and supervisory scrutiny.</p>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="regulatory-touchpoints">
+                    <p class="regulatory-touchpoints__label">Common regulatory touchpoints</p>
+                    <ul aria-label="UAE regulatory bodies relevant to supported businesses">
+                        <li>UAE Central Bank</li>
+                        <li>Ministry of Economy</li>
+                        <li>Financial Intelligence Unit</li>
+                        <li>Securities &amp; Commodities Authority</li>
+                        <li>Dubai Multi Commodities Centre</li>
+                    </ul>
+                    <p class="regulatory-touchpoints__note">The relevant supervisory authority and requirements depend on your licensed activities and sector.</p>
                 </div>
             </div>
         </div>
@@ -147,39 +195,39 @@
         <div class="container">
             <div class="section-heading wow fadeInUp" data-wow-delay="0.1s">
                 <span class="section-kicker section-kicker--dark">Our services</span>
-                <h2 class="section-title text-center">Compliance support that covers the full workflow</h2>
+                <h2 class="section-title text-center">Practical support throughout your AML journey</h2>
                 <p class="section-copy text-center mx-auto">
-                    Designed for firms that need practical implementation, not just policy templates.
+                    Tailored consultancy for regulated businesses that need clear advice and effective implementation.
                 </p>
             </div>
 
             <div class="row g-4 mt-1">
                 <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.1s">
-                    <article class="service-card">
-                        <span class="service-card__icon"><i class="bi bi-person-badge"></i></span>
-                        <h3>Customer Onboarding & Due Diligence</h3>
-                        <p>Build a consistent onboarding path with risk checks, evidence capture, and approval flow.</p>
+                    <article class="service-card glass-panel">
+                        <span class="service-card__icon"><i class="bi bi-shield-check" aria-hidden="true"></i></span>
+                        <h3>AML/CFT Frameworks</h3>
+                        <p>Develop or strengthen risk-based policies, procedures, governance, and internal controls.</p>
                     </article>
                 </div>
                 <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.18s">
-                    <article class="service-card">
-                        <span class="service-card__icon"><i class="bi bi-search"></i></span>
-                        <h3>Watchlist Screening</h3>
-                        <p>Reduce exposure with screening steps for customers, counterparties, and related parties.</p>
+                    <article class="service-card glass-panel">
+                        <span class="service-card__icon"><i class="bi bi-person-check" aria-hidden="true"></i></span>
+                        <h3>KYC, CDD & Risk Assessment</h3>
+                        <p>Apply consistent customer checks, risk classification, enhanced review, and record-keeping.</p>
                     </article>
                 </div>
                 <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.26s">
-                    <article class="service-card">
-                        <span class="service-card__icon"><i class="bi bi-journal-check"></i></span>
-                        <h3>Regulatory Reporting</h3>
-                        <p>Document the escalation and reporting trail so decisions are easier to review later.</p>
+                    <article class="service-card glass-panel">
+                        <span class="service-card__icon"><i class="bi bi-journal-check" aria-hidden="true"></i></span>
+                        <h3>goAML & Regulatory Reporting</h3>
+                        <p>Prepare escalation, reporting, and evidence-retention processes for suspicious activity concerns.</p>
                     </article>
                 </div>
                 <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.34s">
-                    <article class="service-card">
-                        <span class="service-card__icon"><i class="bi bi-shield-check"></i></span>
-                        <h3>Advisory & Support</h3>
-                        <p>Get ongoing support for governance, internal controls, and day-to-day compliance questions.</p>
+                    <article class="service-card glass-panel">
+                        <span class="service-card__icon"><i class="bi bi-mortarboard" aria-hidden="true"></i></span>
+                        <h3>Training & Ongoing Advisory</h3>
+                        <p>Build staff awareness and receive practical support as risks and expectations evolve.</p>
                     </article>
                 </div>
             </div>
@@ -189,44 +237,44 @@
     <section class="landing-band">
         <div class="container">
             <div class="section-heading section-heading--light wow fadeInUp" data-wow-delay="0.1s">
-                <span class="section-kicker">Why clients choose us</span>
-                <h2 class="section-title text-center text-white">Fast structure, clear governance, lower operational friction</h2>
+                <span class="section-kicker">Sectors we support</span>
+                <h2 class="section-title text-center text-white">Compliance support shaped around regulated UAE businesses</h2>
             </div>
             <div class="row g-4 mt-1">
                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="band-feature-card">
-                        <h3>Designed for regulated teams</h3>
-                        <p>We focus on the controls and processes teams actually use, not just static documents.</p>
+                    <div class="band-feature-card glass-panel">
+                        <h3>Real Estate</h3>
+                        <p>Risk-based controls for customer due diligence, ownership checks, and reportable concerns.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.18s">
-                    <div class="band-feature-card">
-                        <h3>Built for repeatability</h3>
-                        <p>Create a stable operating rhythm for onboarding, screening, review, and escalation.</p>
+                    <div class="band-feature-card glass-panel">
+                        <h3>Gold & Precious Metals</h3>
+                        <p>Practical AML support for dealers exposed to higher-value and cross-border transactions.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.26s">
-                    <div class="band-feature-card">
-                        <h3>Clear evidence trail</h3>
-                        <p>Keep a cleaner record of decisions and supporting evidence for audits and supervision.</p>
+                    <div class="band-feature-card glass-panel">
+                        <h3>Financial Services</h3>
+                        <p>Governance, risk assessment, due diligence, monitoring, and regulatory readiness support.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.34s">
-                    <div class="band-feature-card">
-                        <h3>Risk-based thinking</h3>
-                        <p>Structure the compliance program around actual exposure, not a generic checklist.</p>
+                    <div class="band-feature-card glass-panel">
+                        <h3>Corporate Service Providers</h3>
+                        <p>Controls for legal entities, beneficial ownership, source of funds, and ongoing review.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.42s">
-                    <div class="band-feature-card">
-                        <h3>Practical advisory support</h3>
-                        <p>When the rules move, you still need a team that can translate them into action quickly.</p>
+                    <div class="band-feature-card glass-panel">
+                        <h3>DNFBPs</h3>
+                        <p>Proportionate frameworks for designated non-financial businesses and professions.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.50s">
-                    <div class="band-feature-card">
-                        <h3>Built for growth</h3>
-                        <p>Scale the control framework as your customer base, product set, and obligations expand.</p>
+                    <div class="band-feature-card glass-panel">
+                        <h3>Other Regulated Entities</h3>
+                        <p>Tailored support based on your supervisory environment, services, and risk exposure.</p>
                     </div>
                 </div>
             </div>
@@ -236,35 +284,35 @@
     <section class="landing-section landing-card-section">
         <div class="container">
             <div class="section-heading wow fadeInUp" data-wow-delay="0.1s">
-                <span class="section-kicker section-kicker--dark">Value propositions</span>
-                <h2 class="section-title text-center">What makes the engagement efficient</h2>
+                <span class="section-kicker section-kicker--dark">Why choose The GoAML Compliance Service</span>
+                <h2 class="section-title text-center">UAE expertise with a practical delivery approach</h2>
                 <p class="section-copy text-center mx-auto">
-                    The same compliance outcome, delivered with a clearer workflow and a better execution path.
+                    Clear, confidential guidance designed around your obligations, operating model, and priorities.
                 </p>
             </div>
             <div class="row g-4 mt-1">
                 <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.1s">
-                    <article class="value-card">
-                        <h3>Integrated AML compliance</h3>
-                        <p>Policies, process, and governance aligned into one working system.</p>
+                    <article class="value-card glass-panel">
+                        <h3>UAE AML/CFT expertise</h3>
+                        <p>Advice grounded in the expectations facing UAE-regulated businesses.</p>
                     </article>
                 </div>
                 <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.18s">
-                    <article class="value-card">
-                        <h3>Audit-ready reporting</h3>
-                        <p>Records and outputs prepared with review and traceability in mind.</p>
+                    <article class="value-card glass-panel">
+                        <h3>Tailored solutions</h3>
+                        <p>Controls and guidance proportionate to your sector, size, and actual risk.</p>
                     </article>
                 </div>
                 <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.26s">
-                    <article class="value-card">
-                        <h3>Risk-based approach</h3>
-                        <p>Prioritise controls where exposure is highest and reduce unnecessary friction elsewhere.</p>
+                    <article class="value-card glass-panel">
+                        <h3>Proactive support</h3>
+                        <p>Ongoing guidance to help your programme respond as risks and expectations change.</p>
                     </article>
                 </div>
                 <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.34s">
-                    <article class="value-card">
-                        <h3>Designed for regulated firms</h3>
-                        <p>Practical support for SMEs, DNFBPs, and larger compliance-led organisations.</p>
+                    <article class="value-card glass-panel">
+                        <h3>Confidential & professional</h3>
+                        <p>Discreet support focused on business integrity and regulatory confidence.</p>
                     </article>
                 </div>
             </div>
@@ -273,44 +321,76 @@
 
     <section class="landing-section landing-faq-section bg-light">
         <div class="container">
-            <div class="section-heading wow fadeInUp" data-wow-delay="0.1s">
-                <span class="section-kicker section-kicker--dark">AML Meter FAQs</span>
-                <h2 class="section-title text-center">A few quick answers before we speak</h2>
-            </div>
-            <div class="accordion faq-accordion mt-4 wow fadeInUp" data-wow-delay="0.15s" id="landingFaqAccordion">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="faqOneHeading">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqOne" aria-expanded="true" aria-controls="faqOne">
-                            What sectors do you support?
-                        </button>
-                    </h2>
-                    <div id="faqOne" class="accordion-collapse collapse show" aria-labelledby="faqOneHeading" data-bs-parent="#landingFaqAccordion">
-                        <div class="accordion-body">
-                            We support regulated businesses across financial services, real estate, precious metals, and other UAE compliance-heavy sectors.
+            <div class="row g-5 align-items-start home-faq-layout">
+                <div class="col-lg-5">
+                    <div class="home-faq-intro">
+                        <span class="section-kicker section-kicker--dark">AML compliance FAQs</span>
+                        <h2 class="section-title">Clear answers before we speak</h2>
+                        <p class="section-copy">
+                            Understand how our UAE-focused compliance support can fit your sector, current framework, and ongoing obligations.
+                        </p>
+                        <div class="home-faq-assurance">
+                            <span class="modern-card__icon"><i class="bi bi-shield-lock" aria-hidden="true"></i></span>
+                            <div>
+                                <strong>Confidential from the first conversation</strong>
+                                <span>Your enquiry is handled professionally and discreetly.</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="faqTwoHeading">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqTwo" aria-expanded="false" aria-controls="faqTwo">
-                            Can you help us improve our current controls?
-                        </button>
-                    </h2>
-                    <div id="faqTwo" class="accordion-collapse collapse" aria-labelledby="faqTwoHeading" data-bs-parent="#landingFaqAccordion">
-                        <div class="accordion-body">
-                            Yes. We can review your current setup and rebuild the workflow so it is easier to maintain and easier to evidence.
+                <div class="col-lg-7">
+                    <div class="accordion faq-accordion" id="landingFaqAccordion">
+                        <div class="accordion-item">
+                            <h3 class="accordion-header" id="faqOneHeading">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqOne" aria-expanded="true" aria-controls="faqOne">
+                                    <span class="faq-question-number" data-number="01" aria-hidden="true"></span>
+                                    <span class="faq-question-text">What sectors do you support?</span>
+                                </button>
+                            </h3>
+                            <div id="faqOne" class="accordion-collapse collapse show" aria-labelledby="faqOneHeading" data-bs-parent="#landingFaqAccordion">
+                                <div class="accordion-body">
+                                    <p>We support financial services, real estate, gold and precious metals, corporate service providers, DNFBPs, and other UAE-regulated entities.</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="faqThreeHeading">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqThree" aria-expanded="false" aria-controls="faqThree">
-                            Do you offer ongoing support?
-                        </button>
-                    </h2>
-                    <div id="faqThree" class="accordion-collapse collapse" aria-labelledby="faqThreeHeading" data-bs-parent="#landingFaqAccordion">
-                        <div class="accordion-body">
-                            Yes. We can support the ongoing compliance cycle, including policy maintenance, controls, and advisory follow-up.
+                        <div class="accordion-item">
+                            <h3 class="accordion-header" id="faqTwoHeading">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqTwo" aria-expanded="false" aria-controls="faqTwo">
+                                    <span class="faq-question-number" data-number="02" aria-hidden="true"></span>
+                                    <span class="faq-question-text">Can you help us improve our current controls?</span>
+                                </button>
+                            </h3>
+                            <div id="faqTwo" class="accordion-collapse collapse" aria-labelledby="faqTwoHeading" data-bs-parent="#landingFaqAccordion">
+                                <div class="accordion-body">
+                                    <p>Yes. We can assess your existing framework, identify gaps, and provide a prioritised plan to strengthen policies, controls, records, and implementation.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header" id="faqThreeHeading">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqThree" aria-expanded="false" aria-controls="faqThree">
+                                    <span class="faq-question-number" data-number="03" aria-hidden="true"></span>
+                                    <span class="faq-question-text">Can you support goAML registration and reporting?</span>
+                                </button>
+                            </h3>
+                            <div id="faqThree" class="accordion-collapse collapse" aria-labelledby="faqThreeHeading" data-bs-parent="#landingFaqAccordion">
+                                <div class="accordion-body">
+                                    <p>Yes. We support goAML registration readiness, internal escalation and reporting processes, and the records needed to evidence reporting decisions.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header" id="faqFourHeading">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqFour" aria-expanded="false" aria-controls="faqFour">
+                                    <span class="faq-question-number" data-number="04" aria-hidden="true"></span>
+                                    <span class="faq-question-text">Do you offer ongoing support?</span>
+                                </button>
+                            </h3>
+                            <div id="faqFour" class="accordion-collapse collapse" aria-labelledby="faqFourHeading" data-bs-parent="#landingFaqAccordion">
+                                <div class="accordion-body">
+                                    <p>Yes. We provide continuing advisory, policy maintenance, training, control reviews, and practical support as your risks and regulatory environment evolve.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -322,8 +402,8 @@
         <div class="container">
             <div class="cta-panel wow fadeInUp" data-wow-delay="0.1s">
                 <div>
-                    <span class="section-kicker">Need a clearer AML workflow?</span>
-                    <h2>Bring structure to compliance without adding unnecessary friction.</h2>
+                    <span class="section-kicker">Your trusted AML compliance partner</span>
+                    <h2>Strengthen compliance and protect your business with practical UAE-focused support.</h2>
                 </div>
                 <div class="d-flex flex-wrap gap-3">
                     <a href="#contact" class="btn btn-light btn-lg rounded-pill landing-btn-primary">Get Started</a>
@@ -346,28 +426,29 @@
             <div class="row g-4 align-items-start mt-2">
                 <div class="col-lg-8 wow fadeInUp" data-wow-delay="0.15s">
                     <div class="contact-card">
-                        <form id="consultationForm" class="row g-3" method="POST" action="{{ url('/send-consultation') }}">
+                        <form id="homepage-consultation" class="row g-3" method="POST" action="{{ route('send.consultation') }}" data-ajax-form>
                             @csrf
                             <div class="col-md-6">
-                                <label class="form-label">Full name</label>
-                                <input type="text" class="form-control" name="name" placeholder="Your name" required>
+                                <label class="form-label" for="home-name">Full Name</label>
+                                <input id="home-name" type="text" class="form-control" name="name" autocomplete="name" placeholder="e.g. Aisha Khan" required>
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label">Email address</label>
-                                <input type="email" class="form-control" name="email" placeholder="name@company.com" required>
+                                <label class="form-label" for="home-email">Email Address</label>
+                                <input id="home-email" type="email" class="form-control" name="email" autocomplete="email" spellcheck="false" placeholder="e.g. name@company.com" required>
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label">Phone number</label>
-                                <input type="text" class="form-control" name="phone" placeholder="+971..." required>
+                                <label class="form-label" for="home-phone">Phone Number</label>
+                                <input id="home-phone" type="tel" class="form-control" name="phone" autocomplete="tel" inputmode="tel" placeholder="e.g. +971 50 123 4567" required>
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label">Service needed</label>
-                                <input type="text" class="form-control" name="service" placeholder="AML review, onboarding, reporting" required>
+                                <label class="form-label" for="home-service">Service Needed</label>
+                                <input id="home-service" type="text" class="form-control" name="service" autocomplete="off" placeholder="e.g. AML framework review" required>
                             </div>
                             <div class="col-12">
-                                <label class="form-label">Message</label>
-                                <textarea class="form-control" name="message" rows="5" placeholder="Briefly describe your current challenge" required></textarea>
+                                <label class="form-label" for="home-message">Message</label>
+                                <textarea id="home-message" class="form-control" name="message" rows="5" placeholder="Briefly describe your current challenge…" required></textarea>
                             </div>
+                            <div class="col-12"><div class="form-status" data-form-status role="status" aria-live="polite" tabindex="-1"></div></div>
                             <div class="col-12">
                                 <button type="submit" class="btn btn-primary btn-lg rounded-pill px-4">Send Message</button>
                             </div>
@@ -377,16 +458,16 @@
                 <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.22s">
                     <div class="contact-info-stack">
                         <div class="contact-info-card">
-                            <h3>Headquarters</h3>
-                            <p>B.C. 1300531, Ajman Free Zone C1 Building, Ajman Free Zone, United Arab Emirates</p>
+                            <div class="contact-info-title">Headquarters</div>
+                            <p><x-company-contact field="registered_address" /></p>
                         </div>
                         <div class="contact-info-card">
-                            <h3>Phone support</h3>
-                            <p>+971 509627076<br>+971 562953927<br>+971 588961136</p>
+                            <div class="contact-info-title">Phone support</div>
+                            <p><x-company-contact field="phones" /></p>
                         </div>
                         <div class="contact-info-card">
-                            <h3>Email</h3>
-                            <p>infoamlshop@gmail.com<br>contact@thegoamlcomplianceservice.com<br>info@thegoamlcomplianceservice.com</p>
+                            <div class="contact-info-title">Email</div>
+                            <p><x-company-contact field="emails" /></p>
                         </div>
                     </div>
                 </div>
