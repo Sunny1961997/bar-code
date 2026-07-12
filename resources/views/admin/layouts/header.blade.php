@@ -1,244 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>Nano Admin</title>
-    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
-    <!-- <link href="css/styles.css" rel="stylesheet" /> -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>@yield('title', 'Admin') | GoAML Compliance</title>
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css">
+    <link href="{{ asset('css/admin-modern.css') }}" rel="stylesheet">
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-    <style>
-        .dropdown-submenu {
-            position: relative;
-        }
-        
-        .dropdown-submenu .dropdown-menu {
-            top: 0;
-            left: 100%;
-            margin-top: -1px;
-        }
-        
-        /* Desktop */
-        @media (min-width: 992px) {
-            .dropdown-menu {
-                display: none !important;
-            }
-            
-            .dropdown:hover > .dropdown-menu,
-            .dropdown-submenu:hover > .dropdown-menu {
-                display: block !important;
-            }
-        }
-        
-        /* Mobile */
-        @media (max-width: 991.98px) {
-            .dropdown-submenu .dropdown-menu {
-                left: 0;
-                margin-left: 1rem;
-            }
-        }
-        
-        /* Arrow indicator */
-        .dropdown-submenu > a::after {
-            display: inline-block;
-            margin-left: 0.5em;
-            vertical-align: middle;
-            content: "";
-            border-top: 0.3em solid transparent;
-            border-right: 0;
-            border-bottom: 0.3em solid transparent;
-            border-left: 0.3em solid;
-        }
-    </style>
 </head>
-
-<body class="sb-nav-fixed">
-    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" href="index.html">GoAML</a>
-        <!-- Sidebar Toggle-->
-        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
-                class="fas fa-bars"></i></button>
-        <!-- Navbar Search-->
-        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-            <!-- <div class="input-group">
-                <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..."
-                    aria-describedby="btnNavbarSearch" />
-                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i
-                        class="fas fa-search"></i></button>
-            </div> -->
-        </form>
-        <!-- Navbar-->
-        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <!-- <li><a class="dropdown-item" href="#!">Settings</a></li>
-                    <li><a class="dropdown-item" href="#!">Activity Log</a></li> -->
-                    <li class="dropdown-item">
-                        {{ Auth::user()->name }}
-                        <small class="d-block text-muted">
-                            {{ Auth::user()->email }}
-                        </small>
-                    </li>
-
-                    <li>
-                        <hr class="dropdown-divider" />
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
-
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
-                    </li>
-                </ul>
-            </li>
-        </ul>
+<body class="sb-nav-fixed admin-shell">
+    <a class="admin-skip-link" href="#admin-content">Skip to main content</a>
+    <nav class="sb-topnav navbar navbar-expand navbar-dark admin-topbar" aria-label="Admin toolbar">
+        <a class="navbar-brand ps-3" href="{{ route('home') }}">GoAML Admin</a>
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" type="button" aria-label="Toggle admin sidebar"><i class="fas fa-bars" aria-hidden="true"></i></button>
+        <a class="btn btn-sm btn-outline-light ms-auto me-3" href="{{ route('/') }}" target="_blank" rel="noopener">View Website</a>
+        <div class="dropdown me-3">
+            <button class="btn btn-link text-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user-circle me-2" aria-hidden="true"></i>{{ Auth::user()->name }}</button>
+            <ul class="dropdown-menu dropdown-menu-end">
+                <li><span class="dropdown-item-text small text-muted">{{ Auth::user()->email }}</span></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><button class="dropdown-item" type="submit" form="logout-form">Log Out</button></li>
+            </ul>
+        </div>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">@csrf</form>
     </nav>
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
-            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                <div class="sb-sidenav-menu">
-                    <div class="nav">
-                        <div class="sb-sidenav-menu-heading">Options</div>
-                        <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            Dashboard
-                        </a>
-                        <a class="nav-link {{ request()->routeIs('categories.*') ? 'active' : '' }}"
-                            href="{{ route('categories.index') }}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            Category
-                        </a>
-                        <a class="nav-link {{ request()->routeIs('blogs.*') ? 'active' : '' }}"
-                            href="{{ route('blogs.index') }}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            Blog
-                        </a>
-                        <a class="nav-link {{ request()->routeIs('blogs.*') ? 'active' : '' }}"
-                            href="{{ route('news.index') }}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            News
-                        </a>
-                        <a class="nav-link {{ request()->routeIs('blogs.*') ? 'active' : '' }}"
-                            href="{{ route('contents.index') }}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            Contents
-                        </a>
-                        <a class="nav-link {{ request()->routeIs('home-sliders.*') ? 'active' : '' }}"
-                            href="{{ route('home-sliders.index') }}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            Home Sliders
-                        </a>
-                        <!-- <div class="sb-sidenav-menu-heading">Interface</div>
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                            data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                            Layouts
-                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                        </a>
-                        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
-                            data-bs-parent="#sidenavAccordion">
-                            <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="layout-static.html">Static Navigation</a>
-                                <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
-                            </nav>
-                        </div>
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"
-                            aria-expanded="false" aria-controls="collapsePages">
-                            <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                            Pages
-                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                        </a>
-                        <div class="collapse" id="collapsePages" aria-labelledby="headingTwo"
-                            data-bs-parent="#sidenavAccordion">
-                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                                    data-bs-target="#pagesCollapseAuth" aria-expanded="false"
-                                    aria-controls="pagesCollapseAuth">
-                                    Authentication
-                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                </a>
-                                <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne"
-                                    data-bs-parent="#sidenavAccordionPages">
-                                    <nav class="sb-sidenav-menu-nested nav">
-                                        <a class="nav-link" href="login.html">Login</a>
-                                        <a class="nav-link" href="register.html">Register</a>
-                                        <a class="nav-link" href="password.html">Forgot Password</a>
-                                    </nav>
-                                </div>
-                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                                    data-bs-target="#pagesCollapseError" aria-expanded="false"
-                                    aria-controls="pagesCollapseError">
-                                    Error
-                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                </a>
-                                <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne"
-                                    data-bs-parent="#sidenavAccordionPages">
-                                    <nav class="sb-sidenav-menu-nested nav">
-                                        <a class="nav-link" href="401.html">401 Page</a>
-                                        <a class="nav-link" href="404.html">404 Page</a>
-                                        <a class="nav-link" href="500.html">500 Page</a>
-                                    </nav>
-                                </div>
-                            </nav>
-                        </div>
-                        <div class="sb-sidenav-menu-heading">Addons</div>
-                        <a class="nav-link" href="charts.html">
-                            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                            Charts
-                        </a>
-                        <a class="nav-link" href="tables.html">
-                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                            Tables
-                        </a>
-                    </div> -->
-                    </div>
-                    <!-- <div class="sb-sidenav-footer">
-                    <div class="small">Logged in as:</div>
-                    Start Bootstrap
-                </div> -->
+            <nav class="sb-sidenav accordion admin-sidebar" id="sidenavAccordion" aria-label="Admin navigation">
+                <div class="sb-sidenav-menu"><div class="nav">
+                    <div class="sb-sidenav-menu-heading">Manage</div>
+                    @foreach ([
+                        ['home','home','fa-gauge-high','Dashboard'],
+                        ['categories.index','categories.*','fa-tags','Categories'],
+                        ['products.index','products.*','fa-box','Products & Codes'],
+                        ['blogs.index','blogs.*','fa-pen-to-square','Articles'],
+                        ['news.index','news.*','fa-newspaper','News'],
+                        ['contents.index','contents.*','fa-file-lines','Page Content'],
+                        ['home-sliders.index','home-sliders.*','fa-images','Home Slides'],
+                    ] as [$route,$match,$icon,$label])
+                        <a class="nav-link {{ request()->routeIs($match) ? 'active' : '' }}" href="{{ route($route) }}"><span class="sb-nav-link-icon"><i class="fas {{ $icon }}" aria-hidden="true"></i></span>{{ $label }}</a>
+                    @endforeach
+                </div></div>
             </nav>
         </div>
         <div id="layoutSidenav_content">
-            <main>
-                @yield('content')
-            </main>
-            <footer class="py-4 bg-light mt-auto">
-                <div class="container-fluid px-4">
-                    <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Copyright &copy; Nano 2022</div>
-                        <div>
-                            <a href="#">Privacy Policy</a>
-                            &middot;
-                            <a href="#">Terms &amp; Conditions</a>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+            <main id="admin-content">@yield('content')</main>
+            <footer class="admin-footer"><div class="container-fluid px-4">&copy; {{ date('Y') }} The GoAML Compliance Service FZE</div></footer>
         </div>
     </div>
-    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        crossorigin="anonymous"></script> --}}
-    <!-- <script src="js/scripts.js"></script> -->
-    {{-- <script src="{{ asset('js/scripts.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-    <script src="assets/demo/chart-area-demo.js"></script>
-    <script src="assets/demo/chart-bar-demo.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script> --}}
-    <!-- <script src="js/datatables-simple-demo.js"></script> -->
-    {{-- <script src="{{ asset('js/datatables-simple-demo.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('js/scripts.js') }}"></script>
+    @stack('scripts')
 </body>
-
-</html> --}}
+</html>

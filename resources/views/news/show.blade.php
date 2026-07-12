@@ -1,37 +1,5 @@
-
-
 @include('layouts.header')
-
-<!-- Hero Section -->
-{{-- <section class="position-relative text-white d-flex align-items-center justify-content-center" style="height: 100vh; overflow: hidden;">
-    <div class="hero-bg position-absolute top-0 start-0 w-100 h-100" 
-        style="background:
-        url('{{asset('img/worker.jpeg')}}') no-repeat center center; 
-        background-size: cover; 
-        background-position: center;
-        z-index: -1;">
-    </div>
-    <div class="w-100 text-center px-3">
-        <h1 class="text-white fw-bold mb-4">Welcome to GoAML Consultants</h1>
-        <p class="lead fw-bold">Your trusted partner in business consulting.</p>
-    </div>
-</section> --}}
-
-<!-- Blog Section -->
-<div class="container py-5">
-    <div class="container mt-5">
-        <img src="{{ asset($news->image) }}" class="card-img-top" alt="{{ $news->title }}">
-        <h1 class="mb-3">{{ $news->title }}</h1>
-        <p class="text-muted">Category: {{ $news->category->name ?? 'Uncategorized' }}</p>
-        <p class="text-muted">Published on: {{ $news->created_at->format('F d, Y') }}</p>
-
-        <div class="mt-4">
-            {!! $news->description !!}
-        </div>
-
-        <a href="{{ route('news') }}" class="btn btn-primary mt-3">Back to news</a>
-    </div>
-</div>
-
+@php($image = $news->image && file_exists(public_path($news->image)) ? asset($news->image) : asset('img/aml-insights-editorial.webp'))
+<article><header class="page-hero"><div class="container"><a href="{{ route('news') }}" class="page-kicker text-decoration-none">News / {{ $news->category->name ?? 'Compliance Update' }}</a><h1>{{ $news->title }}</h1><p><time datetime="{{ $news->created_at->toDateString() }}">Published {{ $news->created_at->format('F j, Y') }}</time></p></div></header><div class="content-section"><div class="container"><div class="article-shell"><img src="{{ $image }}" alt="" class="w-100 rounded-4 mb-5" width="1100" height="620" fetchpriority="high"><div class="rich-content">{!! $news->description !!}</div><hr class="my-5"><a href="{{ route('news') }}" class="btn button-secondary"><i class="bi bi-arrow-left me-2" aria-hidden="true"></i>Back to News</a></div></div></div></article>
+<section class="content-section pt-0"><div class="container"><div class="cta-band d-lg-flex align-items-center justify-content-between gap-4"><div><h2>Need help interpreting an update?</h2><p class="mb-lg-0">Discuss how changing expectations affect your organisation and controls.</p></div><a href="{{ route('contact') }}" class="btn btn-light rounded-pill px-4 py-3">Talk to Our Team</a></div></div></section>
 @include('layouts.footer')
-
