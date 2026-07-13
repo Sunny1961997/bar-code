@@ -10,8 +10,8 @@
 @endphp
 
 <div class="landing-page-shell">
-    <section class="landing-hero" id="home">
-        <div class="landing-hero__backdrop">
+    <section class="landing-hero" id="home" aria-labelledby="homepage-title">
+        <div class="landing-hero__backdrop" aria-hidden="true">
             <div class="hero-grid-line hero-grid-line--v1"></div>
             <div class="hero-grid-line hero-grid-line--v2"></div>
             <div class="hero-grid-line hero-grid-line--v3"></div>
@@ -31,13 +31,13 @@
             <div class="row align-items-center g-5">
                 <div class="col-lg-7 wow fadeInUp" data-wow-delay="0.1s">
                     <span class="section-kicker">UAE AML/CFT compliance consultancy</span>
-                    <h1 class="landing-hero__title">
+                    <h1 class="landing-hero__title" id="homepage-title">
                         {{ optional($heroSlider)->title ?? 'AML Compliance, Simplified for UAE-Regulated Businesses' }}
                     </h1>
                     <p class="landing-hero__lead">
                         {{ optional($heroSlider)->subtitle ?? 'Expert, risk-based compliance support for financial institutions, DNFBPs, and other regulated businesses across the UAE.' }}
                     </p>
-                    <div class="d-flex flex-wrap gap-3 mt-4">
+                    <div class="landing-hero__actions d-flex flex-wrap gap-3 mt-4">
                         <a href="#contact" class="btn btn-light btn-lg rounded-pill landing-btn-primary">
                             Request a Consultation
                         </a>
@@ -102,7 +102,7 @@
         </div>
     </section>
 
-    <section class="landing-section landing-split-section">
+    <section class="landing-section landing-split-section" aria-labelledby="approach-title">
         <div class="container">
             <div class="row align-items-center g-5">
                 <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.1s">
@@ -112,7 +112,7 @@
                 </div>
                 <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.15s">
                     <span class="section-kicker section-kicker--dark">A proactive, risk-based approach</span>
-                    <h2 class="section-title">Turn UAE AML obligations into workable controls</h2>
+                    <h2 class="section-title" id="approach-title">Turn UAE AML obligations into workable controls</h2>
                     <p class="section-copy">
                         We help businesses interpret UAE AML/CFT requirements and FATF recommendations, then translate them
                         into policies, responsibilities, records, and day-to-day processes their teams can follow.
@@ -191,11 +191,11 @@
         </div>
     </section>
 
-    <section class="landing-section landing-card-section" id="services">
+    <section class="landing-section landing-card-section" id="services" aria-labelledby="services-title">
         <div class="container">
             <div class="section-heading wow fadeInUp" data-wow-delay="0.1s">
                 <span class="section-kicker section-kicker--dark">Our services</span>
-                <h2 class="section-title text-center">Practical support throughout your AML journey</h2>
+                <h2 class="section-title text-center" id="services-title">Practical support throughout your AML journey</h2>
                 <p class="section-copy text-center mx-auto">
                     Tailored consultancy for regulated businesses that need clear advice and effective implementation.
                 </p>
@@ -234,11 +234,11 @@
         </div>
     </section>
 
-    <section class="landing-band">
+    <section class="landing-band" aria-labelledby="sectors-title">
         <div class="container">
             <div class="section-heading section-heading--light wow fadeInUp" data-wow-delay="0.1s">
                 <span class="section-kicker">Sectors we support</span>
-                <h2 class="section-title text-center text-white">Compliance support shaped around regulated UAE businesses</h2>
+                <h2 class="section-title text-center text-white" id="sectors-title">Compliance support shaped around regulated UAE businesses</h2>
             </div>
             <div class="row g-4 mt-1">
                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
@@ -281,11 +281,11 @@
         </div>
     </section>
 
-    <section class="landing-section landing-card-section">
+    <section class="landing-section landing-card-section" aria-labelledby="why-us-title">
         <div class="container">
             <div class="section-heading wow fadeInUp" data-wow-delay="0.1s">
                 <span class="section-kicker section-kicker--dark">Why choose The GoAML Compliance Service</span>
-                <h2 class="section-title text-center">UAE expertise with a practical delivery approach</h2>
+                <h2 class="section-title text-center" id="why-us-title">UAE expertise with a practical delivery approach</h2>
                 <p class="section-copy text-center mx-auto">
                     Clear, confidential guidance designed around your obligations, operating model, and priorities.
                 </p>
@@ -319,13 +319,13 @@
         </div>
     </section>
 
-    <section class="landing-section landing-faq-section bg-light">
+    <section class="landing-section landing-faq-section" aria-labelledby="faq-title">
         <div class="container">
             <div class="row g-5 align-items-start home-faq-layout">
                 <div class="col-lg-5">
                     <div class="home-faq-intro">
                         <span class="section-kicker section-kicker--dark">AML compliance FAQs</span>
-                        <h2 class="section-title">Clear answers before we speak</h2>
+                        <h2 class="section-title" id="faq-title">Clear answers before we speak</h2>
                         <p class="section-copy">
                             Understand how our UAE-focused compliance support can fit your sector, current framework, and ongoing obligations.
                         </p>
@@ -398,27 +398,27 @@
         </div>
     </section>
 
-    <section class="landing-cta">
+    <section class="landing-cta" aria-labelledby="homepage-cta-title">
         <div class="container">
             <div class="cta-panel wow fadeInUp" data-wow-delay="0.1s">
                 <div>
                     <span class="section-kicker">Your trusted AML compliance partner</span>
-                    <h2>Strengthen compliance and protect your business with practical UAE-focused support.</h2>
+                    <h2 id="homepage-cta-title">Strengthen compliance and protect your business with practical UAE-focused support.</h2>
                 </div>
                 <div class="d-flex flex-wrap gap-3">
-                    <a href="#contact" class="btn btn-light btn-lg rounded-pill landing-btn-primary">Get Started</a>
+                    <a href="#contact" class="btn btn-light btn-lg rounded-pill landing-btn-primary">Request a Consultation</a>
                     <a href="#services" class="btn btn-outline-light btn-lg rounded-pill landing-btn-secondary">See Services</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="landing-section landing-contact-section" id="contact">
+    <section class="landing-section landing-contact-section" id="contact" aria-labelledby="contact-title">
         <div class="container">
             <div class="section-heading wow fadeInUp" data-wow-delay="0.1s">
                 <span class="section-kicker section-kicker--dark">Contact</span>
-                <h2 class="section-title text-center">Connect with our team</h2>
-                <p class="section-copy text-center mx-auto">
+                <h2 class="section-title text-center" id="contact-title">Connect with our team</h2>
+                <p class="section-copy text-center mx-auto" id="contact-intro">
                     Tell us what you need help with and we’ll respond with a clear next step.
                 </p>
             </div>
@@ -426,31 +426,31 @@
             <div class="row g-4 align-items-start mt-2">
                 <div class="col-lg-8 wow fadeInUp" data-wow-delay="0.15s">
                     <div class="contact-card">
-                        <form id="homepage-consultation" class="row g-3" method="POST" action="{{ route('send.consultation') }}" data-ajax-form>
+                        <form id="homepage-consultation" class="row g-3" method="POST" action="{{ route('send.consultation') }}" aria-describedby="contact-intro" data-ajax-form>
                             @csrf
                             <div class="col-md-6">
                                 <label class="form-label" for="home-name">Full Name</label>
-                                <input id="home-name" type="text" class="form-control" name="name" autocomplete="name" placeholder="e.g. Aisha Khan" required>
+                                <input id="home-name" type="text" class="form-control" name="name" autocomplete="name" placeholder="e.g., Aisha Khan…" required>
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label" for="home-email">Email Address</label>
-                                <input id="home-email" type="email" class="form-control" name="email" autocomplete="email" spellcheck="false" placeholder="e.g. name@company.com" required>
+                                <input id="home-email" type="email" class="form-control" name="email" autocomplete="email" spellcheck="false" placeholder="e.g., name@company.com…" required>
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label" for="home-phone">Phone Number</label>
-                                <input id="home-phone" type="tel" class="form-control" name="phone" autocomplete="tel" inputmode="tel" placeholder="e.g. +971 50 123 4567" required>
+                                <input id="home-phone" type="tel" class="form-control" name="phone" autocomplete="tel" inputmode="tel" placeholder="e.g., +971 50 123 4567…" required>
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label" for="home-service">Service Needed</label>
-                                <input id="home-service" type="text" class="form-control" name="service" autocomplete="off" placeholder="e.g. AML framework review" required>
+                                <input id="home-service" type="text" class="form-control" name="service" autocomplete="off" placeholder="e.g., AML framework review…" required>
                             </div>
                             <div class="col-12">
                                 <label class="form-label" for="home-message">Message</label>
-                                <textarea id="home-message" class="form-control" name="message" rows="5" placeholder="Briefly describe your current challenge…" required></textarea>
+                                <textarea id="home-message" class="form-control" name="message" rows="5" autocomplete="off" placeholder="Briefly describe your current challenge…" required></textarea>
                             </div>
                             <div class="col-12"><div class="form-status" data-form-status role="status" aria-live="polite" tabindex="-1"></div></div>
                             <div class="col-12">
-                                <button type="submit" class="btn btn-primary btn-lg rounded-pill px-4">Send Message</button>
+                                <button type="submit" class="btn button-primary btn-lg">Request a Consultation</button>
                             </div>
                         </form>
                     </div>
@@ -458,15 +458,21 @@
                 <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.22s">
                     <div class="contact-info-stack">
                         <div class="contact-info-card">
-                            <div class="contact-info-title">Headquarters</div>
+                            <h3 class="contact-info-title d-flex align-items-center gap-2">
+                                <i class="bi bi-geo-alt text-brand-600"></i> Headquarters
+                            </h3>
                             <p><x-company-contact field="registered_address" /></p>
                         </div>
                         <div class="contact-info-card">
-                            <div class="contact-info-title">Phone support</div>
+                            <h3 class="contact-info-title d-flex align-items-center gap-2">
+                                <i class="bi bi-telephone text-brand-600"></i> Phone Support
+                            </h3>
                             <p><x-company-contact field="phones" /></p>
                         </div>
                         <div class="contact-info-card">
-                            <div class="contact-info-title">Email</div>
+                            <h3 class="contact-info-title d-flex align-items-center gap-2">
+                                <i class="bi bi-envelope text-brand-600"></i> Email
+                            </h3>
                             <p><x-company-contact field="emails" /></p>
                         </div>
                     </div>
