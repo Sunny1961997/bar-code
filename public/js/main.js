@@ -1,308 +1,146 @@
-(function ($) {
-    "use strict";
+document.addEventListener('DOMContentLoaded', () => {
+    const siteHeader = document.querySelector('.site-header');
+    const backToTop = document.querySelector('.back-to-top');
 
-    // Spinner
-    var spinner = function () {
-        setTimeout(function () {
-            if ($('#spinner').length > 0) {
-                $('#spinner').removeClass('show');
-            }
-        }, 1);
+    const updateScrollState = () => {
+        siteHeader?.classList.toggle('is-sticky', window.scrollY > 45);
+
+        if (backToTop) {
+            backToTop.classList.toggle('is-visible', window.scrollY > 300);
+        }
     };
-    spinner();
 
+    updateScrollState();
+    window.addEventListener('scroll', updateScrollState, { passive: true });
 
-    // Initiate the wowjs
-    new WOW().init();
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const revealTargets = document.querySelectorAll([
+        '.page-hero .container > *',
+        '.landing-hero .row > [class*="col-"]',
+        '.section-header',
+        '.section-heading',
+        '.split-visual',
+        '.split-media-card',
+        '.modern-card',
+        '.service-card',
+        '.band-feature-card',
+        '.value-card',
+        '.feature-list__item',
+        '.check-list li',
+        '.faq-accordion .accordion-item',
+        '.home-faq-intro',
+        '.regulatory-context-panel',
+        '.contact-card',
+        '.contact-info-card',
+        '.cta-band',
+        '.cta-panel',
+    ].join(','));
 
-    // Sticky Navbar
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 45) {
-            $('.navbar').addClass('sticky-top shadow-sm');
-        } else {
-            $('.navbar').removeClass('sticky-top shadow-sm');
-        }
+    revealTargets.forEach((element, index) => {
+        element.classList.add('reveal-item');
+        element.style.setProperty('--reveal-delay', `${Math.min(index % 6, 5) * 65}ms`);
     });
 
-
-    // Hero Header carousel
-    $(".header-carousel").owlCarousel({
-        animateOut: 'fadeOut',
-        items: 1,
-        margin: 0,
-        stagePadding: 0,
-        autoplay: true,
-        smartSpeed: 500,
-        dots: true,
-        loop: true,
-        nav: true,
-        navText: [
-            '<i class="bi bi-arrow-left"></i>',
-            '<i class="bi bi-arrow-right"></i>'
-        ],
-    });
-
-
-    // attractions carousel
-    $(".blog-carousel").owlCarousel({
-        autoplay: true,
-        smartSpeed: 1500,
-        center: false,
-        dots: false,
-        loop: true,
-        margin: 25,
-        nav: true,
-        navText: [
-            '<i class="fa fa-angle-right"></i>',
-            '<i class="fa fa-angle-left"></i>'
-        ],
-        responsiveClass: true,
-        responsive: {
-            0: {
-                items: 1
-            },
-            576: {
-                items: 1
-            },
-            768: {
-                items: 2
-            },
-            992: {
-                items: 2
-            },
-            1200: {
-                items: 3
-            }
-        }
-    });
-
-
-    // testimonial carousel
-    $(".testimonial-carousel").owlCarousel({
-        autoplay: true,
-        smartSpeed: 1500,
-        center: false,
-        dots: true,
-        loop: true,
-        margin: 25,
-        nav: true,
-        navText: [
-            '<i class="fa fa-angle-right"></i>',
-            '<i class="fa fa-angle-left"></i>'
-        ],
-        responsiveClass: true,
-        responsive: {
-            0: {
-                items: 1
-            },
-            576: {
-                items: 1
-            },
-            768: {
-                items: 2
-            },
-            992: {
-                items: 2
-            },
-            1200: {
-                items: 3
-            }
-        }
-    });
-
-
-    // Facts counter
-    $('[data-toggle="counter-up"]').counterUp({
-        delay: 5,
-        time: 2000
-    });
-
-
-    // Back to top button
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 300) {
-            $('.back-to-top').fadeIn('slow');
-        } else {
-            $('.back-to-top').fadeOut('slow');
-        }
-    });
-    $('.back-to-top').click(function () {
-        $('html, body').animate({ scrollTop: 0 }, 1500, 'easeInOutExpo');
-        return false;
-    });
-
-    function openLandingIntroModal() {
-        const introModalElement = document.getElementById('landingIntroModal');
-        if (introModalElement && (window.location.pathname === '/' || window.location.pathname === '')) {
-            setTimeout(function () {
-                bootstrap.Modal.getOrCreateInstance(introModalElement).show();
-            }, 300);
-        }
-    }
-
-    if (document.readyState === 'complete') {
-        openLandingIntroModal();
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+        revealTargets.forEach((element) => element.classList.add('is-revealed'));
     } else {
-        window.addEventListener('load', openLandingIntroModal, { once: true });
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('is-revealed');
+                observer.unobserve(entry.target);
+            });
+        }, {
+            rootMargin: '0px 0px -8% 0px',
+            threshold: 0.12,
+        });
+
+        revealTargets.forEach((element) => revealObserver.observe(element));
     }
 
-    // $(document).ready(function() {
-    //     // Smooth scrolling on click
-    //     $('.nav-link').click(function(event) {
-    //         // Prevent smooth scrolling for the sustainability link (or other specific links)
-    //         if ($(this).attr('href') === "{{ route('sustainability') }}") {
-    //             return;  // Don't prevent the default action for the Sustainability link
-    //         }
-
-    //         // Prevent the default action for all other links
-    //         event.preventDefault();
-
-    //         // Get the target section ID from the href attribute
-    //         var target = $(this).attr('href');
-
-    //         // Scroll smoothly to the target section
-    //         $('html, body').animate({
-    //             scrollTop: $(target).offset().top
-    //         }, 600); // Adjust the duration (600ms) as needed
-
-    //         // Optionally, add active class to the clicked link
-    //         $('.nav-link').removeClass('active');
-    //         $(this).addClass('active');
-    //     });
-    // });
-
-    // Dropdown handling
-    $(document).ready(function() {
-        function isMobile() {
-            return window.innerWidth < 992;
-        }
-
-        // Handle main dropdown toggles on mobile
-        $('.dropdown-toggle').on('click', function(e) {
-            if (isMobile()) {
-                e.preventDefault();
-                const $dropdownMenu = $(this).next('.dropdown-menu');
-                
-                // Close other main dropdowns
-                $('.dropdown-menu').not($dropdownMenu).removeClass('show');
-                $('.nested-menu').removeClass('show');
-                
-                $dropdownMenu.toggleClass('show');
-            }
-        });
-
-        // Handle nested dropdowns on mobile
-        $('.nested-dropdown .dropdown-item').on('click', function(e) {
-            if (isMobile()) {
-                e.preventDefault();
-                e.stopPropagation();
-
-                const $nestedMenu = $(this).siblings('.nested-menu');
-                
-                // Close other nested menus
-                $('.nested-menu').not($nestedMenu).removeClass('show');
-                
-                // Toggle current nested menu
-                $nestedMenu.toggleClass('show');
-            }
-        });
-
-        // Close all menus when clicking outside
-        $(document).on('click', function(e) {
-            if (isMobile()) {
-                if (!$(e.target).closest('.dropdown').length) {
-                    $('.dropdown-menu').removeClass('show');
-                    $('.nested-menu').removeClass('show');
-                }
-            }
-        });
-
-        // Close all menus when clicking navbar toggler
-        $('.navbar-toggler').on('click', function() {
-            $('.dropdown-menu, .nested-menu').removeClass('show');
-        });
-
-        // Handle window resize
-        let resizeTimer;
-        $(window).on('resize', function() {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(function() {
-                if (!isMobile()) {
-                    $('.nested-menu').removeClass('show');
-                }
-            }, 250);
-        });
-    });
-
-    $(document).ready(function () {
-        $("#quoteForm").on("submit", function (event) {
+    document.querySelectorAll('[data-ajax-form]').forEach((form) => {
+        form.addEventListener('submit', async (event) => {
             event.preventDefault();
-            
-            // Collect form data as an object instead of FormData
-            let formData = {
-                name: $('input[name="name"]').val(),
-                email: $('input[name="email"]').val(),
-                phone: $('input[name="phone"]').val(),
-                service: $('input[name="service"]').val(),
-                message: $('textarea[name="message"]').val(),
-                _token: $('input[name="_token"]').val()
-            };
 
-            $.ajax({
-                url: "/send-quote", // Use direct URL instead of route helper
-                type: "POST",
-                data: formData,
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                success: function (response) {
-                    alert(response.success);
-                    $("#quoteForm")[0].reset();
-                    const contactModalElement = document.getElementById('contactModal');
-                    if (contactModalElement) {
-                        bootstrap.Modal.getOrCreateInstance(contactModalElement).hide();
-                    }
-                },
-                error: function (xhr) {
-                    alert(xhr.responseJSON.error || 'An error occurred. Please try again.');
-                    console.error("Error:", xhr);
-                }
+            const submitButton = form.querySelector('[type="submit"]');
+            const status = form.querySelector('[data-form-status]');
+            const originalLabel = submitButton?.textContent ?? '';
+
+            status?.classList.remove('is-success', 'is-error');
+            if (status) status.textContent = '';
+
+            form.setAttribute('aria-busy', 'true');
+            form.querySelectorAll('.is-invalid').forEach((field) => {
+                field.classList.remove('is-invalid');
+                field.removeAttribute('aria-invalid');
+                field.removeAttribute('aria-describedby');
             });
-        });
-    });
+            form.querySelectorAll('.field-error').forEach((error) => error.remove());
 
-    // Add this alongside your existing JavaScript
-$(document).ready(function () {
-    $("#consultationForm").on("submit", function (event) {
-        event.preventDefault();
-        
-        let formData = {
-            name: $('input[name="name"]').val(),
-            email: $('input[name="email"]').val(),
-            phone: $('input[name="phone"]').val(),
-            service: $('input[name="service"]').val(),
-            message: $('textarea[name="message"]').val(),
-            _token: $('input[name="_token"]').val()
-        };
+            if (submitButton) {
+                submitButton.disabled = true;
+                submitButton.textContent = 'Sending…';
+            }
 
-        $.ajax({
-            url: "/send-consultation",
-            type: "POST",
-            data: formData,
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            success: function (response) {
-                alert(response.success);
-                $("#consultationForm")[0].reset();
-            },
-            error: function (xhr) {
-                alert(xhr.responseJSON.error || 'An error occurred. Please try again.');
-                console.error("Error:", xhr);
+            try {
+                const response = await fetch(form.action, {
+                    method: (form.method || 'POST').toUpperCase(),
+                    body: new FormData(form),
+                    headers: {
+                        Accept: 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest',
+                    },
+                });
+                const payload = await response.json().catch(() => ({}));
+
+                if (!response.ok) {
+                    const validationErrors = payload.errors ?? null;
+
+                    if (validationErrors) {
+                        Object.entries(validationErrors).forEach(([fieldName, messages]) => {
+                            const field = form.elements.namedItem(fieldName);
+                            if (!(field instanceof HTMLElement)) return;
+
+                            const errorId = `${form.id || 'form'}-${fieldName}-error`;
+                            const error = document.createElement('div');
+                            error.id = errorId;
+                            error.className = 'field-error';
+                            error.textContent = messages[0];
+                            field.insertAdjacentElement('afterend', error);
+                            field.classList.add('is-invalid');
+                            field.setAttribute('aria-invalid', 'true');
+                            field.setAttribute('aria-describedby', errorId);
+                        });
+
+                        form.querySelector('.is-invalid')?.focus();
+                    }
+
+                    throw new Error(
+                        validationErrors
+                            ? Object.values(validationErrors).flat()[0]
+                            : payload.error || 'We could not send your request. Please try again.'
+                    );
+                }
+
+                if (status) {
+                    status.classList.add('is-success');
+                    status.textContent = payload.success || 'Your request has been sent successfully.';
+                    status.focus();
+                }
+                form.reset();
+            } catch (error) {
+                if (status && !status.classList.contains('is-success')) {
+                    status.classList.add('is-error');
+                    status.textContent = error.message;
+                    if (!form.querySelector('.is-invalid')) status.focus();
+                }
+            } finally {
+                form.removeAttribute('aria-busy');
+                if (submitButton) {
+                    submitButton.disabled = false;
+                    submitButton.textContent = originalLabel;
+                }
             }
         });
     });
 });
-
-})(jQuery);
-

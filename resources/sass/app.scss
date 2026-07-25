@@ -4,6 +4,24 @@
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
 
+.auth-body {
+    min-height: 100vh;
+    color: #334155;
+    /* Previous glow: rgba(51, 78, 140, .12) on #f6f8fc. */
+    background: radial-gradient(circle at 80% 15%, rgba(81, 70, 154, .12), transparent 28%), #f7f6fb;
+    font-family: Inter, sans-serif;
+}
+
+.auth-header { background: rgba(255, 255, 255, .9); border-bottom: 1px solid #dce3ee; }
+.auth-brand img { width: auto; height: 3rem; object-fit: contain; }
+.auth-main .card { border: 1px solid #dce3ee !important; border-radius: 1.25rem !important; box-shadow: 0 20px 55px rgba(15, 23, 42, .1) !important; overflow: hidden; }
+.auth-main .card-header { color: #fff !important; background: linear-gradient(135deg, #171044, #51469a) !important; border: 0; }
+.auth-main .card-header h2 { color: #fff; font-size: 1.5rem; }
+.auth-main .form-control { min-height: 3rem; border-color: #dce3ee; border-radius: .7rem; }
+.auth-main .form-control:focus { border-color: #51469a; box-shadow: 0 0 0 .2rem rgba(81, 70, 154, .2); }
+.auth-main .btn-primary { background: #1d1655; border-color: #1d1655; border-radius: 999px; }
+.auth-main .btn-primary:hover { background: #171044; border-color: #171044; }
+
 // Variables
 @import 'variables';
 
